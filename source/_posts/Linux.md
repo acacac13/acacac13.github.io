@@ -355,3 +355,175 @@ Linux 链接分两种，一种被称为硬链接（Hard Link），另一种被�
 **软连接**
 
 另外一种连接称之为符号连接（Symbolic Link），也叫软连接。软链接文件有类似于 Windows 的快捷方式。它实际上是一个特殊的文件。在符号连接中，文件实际上是一个文本文件，其中包含的有另一文件的位置信息。比如：A 是 B 的软链接（A 和 B 都是文件名），A 的目录项中的 inode 节点号与 B 的目录项中的 inode 节点号不相同，A 和 B 指向的是两个不同的 inode，继而指向两块不同的数据块。但是 A 的数据块中存放的只是 B 的路径名（可以根据这个找到 B 的目录项）。A 和 B 之间是“主从”关系，如果 B 被删除了，A 仍然存在（因为两个是不同的文件），但指向的是一个无效的链接。
+
+# 环境安装
+
+安装软件一般有三种方式：rpm（jdk：在线发布一个SpringBoot项目）、解压缩（tomcat：启动并通过外网访问）、yum在线安装（docker：直接运行跑起来docker就可以）
+
+## JDK安装
+
+1、下载jdk rpm，去oracle官网
+
+2、安装java环境
+
+```
+# 检测当前系统是否存在java环境	java -version
+# 如果有的话需要卸载
+# rpm -qa|grep jdk # 检测JDK版本信息
+# rpm -e --nodeps jdk_
+
+# 卸载完毕后即可安装jdk
+# rpm -ivh rpm包
+
+# 配置环境变量
+```
+
+如果存在可以提前卸载
+
+![image-20210426111730039](https://gitee.com/acacac13/images/raw/master/20210426111737.png)
+
+安装
+
+![image-20210426111748047](https://gitee.com/acacac13/images/raw/master/20210426111748.png)
+
+配置环境变量：**/etc/profile**		在文件的最后面增加java的配置和window安装环境变量一样
+
+```
+JAVA_HOME=/usr/java/jdk1.8.0_291-amd64
+ClASSPATH=%JAVA_HOME%/lib:%JAVA_HOME%/jre/lib
+PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin
+export PATH CLASSPATH JAVA_HOME
+```
+
+让这个配置文件生效	**source /etc/profile**
+
+## Tomcat安装
+
+ssm war就需要放到tomcat中运行
+
+1、下载tomcat，官网下载即可tomcat9	**apache-tomcat-9.0.45.tar.gz**
+
+2、解压这个文件
+
+```bash
+tar -zxvf apache-tomcat-9.0.45.tar.gz
+```
+
+![image-20210426114950688](https://gitee.com/acacac13/images/raw/master/20210426114950.png)
+
+3、启动tomcat测试	./xxx.sh脚本即可运行
+
+```
+# 执行	./startup.sh
+# 停止	./shutdown.sh
+```
+
+![image-20210426115213412](https://gitee.com/acacac13/images/raw/master/20210426115213.png)
+
+4、确保Linux的防火墙端口是开启的，如果是阿里云，需要保证阿里云的安全组策略是开放的
+
+```
+# 查看firewall服务状态
+systemctl status firewalld
+
+# 开启、重启、关闭、firewalld.service服务
+# 开启
+service firewalld start
+# 重启
+service firewalld restart
+# 关闭
+service firewalld stop
+
+# 查看防火墙规则
+firewall-cmd --list-all    # 查看全部信息
+firewall-cmd --list-ports  # 只看端口信息
+
+# 开启端口
+开端口命令：firewall-cmd --zone=public --add-port=80/tcp --permanent
+重启防火墙：systemctl restart firewalld.service
+
+命令含义：
+--zone #作用域
+--add-port=80/tcp  #添加端口，格式为：端口/通讯协议
+--permanent   #永久生效，没有此参数重启后失效
+```
+
+![image-20210426115231727](https://gitee.com/acacac13/images/raw/master/20210426115231.png)
+
+## Docker（yum安装）
+
+官网安装参考手册：https://docs.docker.com/install/linux/docker-ce/centos/
+
+一定要联网，yum在线安装
+
+> 基于CentOS7安装
+
+1、检测CentOS7 
+
+```
+[root@centos bin]# cat /etc/redhat-release 
+CentOS Linux release 7.9.2009 (Core)
+```
+
+2、安装准备环境
+
+```
+yum -y install 包名	# yum install 安装命令	-y	所有的提示都为y
+yum -y install gcc
+yum -y install gcc-c++
+```
+
+3、清除以前的版本
+
+```
+yum remove docker \
+          docker-client \
+          docker-client-latest \
+          docker-common \
+          docker-latest \
+          docker-latest-logrotate \
+          docker-logrotate \
+          docker-engine
+```
+
+4、安装需要的软件包
+
+```
+yum install -y yum-utils
+```
+
+5、设置stable镜像仓库
+
+```
+# 正确推荐使用国内的
+yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+```
+
+6、更新yum软件包索引
+
+```
+yum makecache fast
+```
+
+7、安装Docker CE
+
+```
+yum -y install docker-ce docker-ce-cli containerd.io
+```
+
+8、启动docker
+
+```
+systemctl start docker
+```
+
+9、测试
+
+```
+docker version
+
+docker run hello-world
+
+docker images
+```
+
