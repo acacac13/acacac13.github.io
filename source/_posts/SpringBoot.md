@@ -1,7 +1,8 @@
 ---
 title: SpringBoot
 date: 2021-04-23 09:25:24
-tags: study
+tags: springboot
+categories: study
 ---
 
 #  SpringBoot

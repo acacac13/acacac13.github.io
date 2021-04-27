@@ -1,7 +1,8 @@
 ---
 title: Mybatis-study
 date: 2021-04-05 11:04:11
-tags: study
+tags: ssm
+categories: study
 ---
 
 # Mybatis

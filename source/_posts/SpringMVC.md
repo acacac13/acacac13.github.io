@@ -1,7 +1,8 @@
 ---
 title: SpringMVC
 date: 2021-04-22 20:42:03
-tags: study
+tags: ssm
+categories: study
 ---
 
 # SpringMVC

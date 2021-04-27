@@ -1,7 +1,8 @@
 ---
 title: JavaWeb
 date: 2021-04-24 10:00:57
-tags: study
+tags: javaweb
+categories: study
 ---
 
 # JavaWeb
