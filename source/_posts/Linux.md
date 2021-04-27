@@ -391,8 +391,7 @@ Linux 链接分两种，一种被称为硬链接（Hard Link），另一种被�
 ```
 JAVA_HOME=/usr/java/jdk1.8.0_291-amd64
 ClASSPATH=%JAVA_HOME%/lib:%JAVA_HOME%/jre/lib
-PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin
-export PATH CLASSPATH JAVA_HOME
+export CLASSPATH JAVA_HOME
 ```
 
 让这个配置文件生效	**source /etc/profile**
