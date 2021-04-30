@@ -5,7 +5,7 @@ tags:
   - vue
   - 前端
   - 条件渲染
-categories: study
+categories: 前端
 ---
 
 # vue中v-if与v-show的区别

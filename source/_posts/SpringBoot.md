@@ -2,7 +2,7 @@
 title: SpringBoot
 date: 2021-04-23 09:25:24
 tags: springboot
-categories: study
+categories: Java后端
 ---
 
 #  SpringBoot

@@ -2,7 +2,7 @@
 title: Mybatis-study
 date: 2021-04-05 11:04:11
 tags: ssm
-categories: study
+categories: Java后端
 ---
 
 # Mybatis

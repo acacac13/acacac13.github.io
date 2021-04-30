@@ -2,7 +2,7 @@
 title: Linux
 date: 2021-04-25 19:08:17
 tags: linux
-categories: study
+categories: Linux学习
 ---
 
 # 入门概述

@@ -2,7 +2,7 @@
 title: SpringMVC
 date: 2021-04-22 20:42:03
 tags: ssm
-categories: study
+categories: Java后端
 ---
 
 # SpringMVC
