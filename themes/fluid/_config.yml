@@ -190,6 +190,30 @@ font:
   font_family:
   code_font_size: 85%
 
+# 页面点击小红心
+clicklove: true
+
+# 鼠标点击烟花爆炸效果
+fireworks: true
+
+# https://github.com/hustcc/canvas-nest.js
+# 配置详见： https://github.com/hustcc/canvas-nest.js#configuration
+# 动态线条效果，会向鼠标集中
+canvas_nest:
+  enable: true
+  color: '255, 235, 59'        # color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
+  pointColor: '156,39,176'     # color of points, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
+  opacity: '0.8'               # the opacity of line (0~1), default: 0.5.
+  count: '99'                  # the number of lines, default: 99.
+  zIndex: '-1'                 # z-index property of the background, default: -1.
+
+# 雪花特效
+snow: true
+
+# https://github.com/hustcc/ribbon.js
+# 彩带1.点击自动替换彩带
+ribbon: true
+
 # 指定自定义 .js 文件路径，支持列表；路径是相对 source 目录，如 /js/custom.js 对应存放目录 source/js/custom.js
 # Specify the path of your custom js file, support list. The path is relative to the source directory, such as `/js/custom.js` corresponding to the directory `source/js/custom.js`
 custom_js:
