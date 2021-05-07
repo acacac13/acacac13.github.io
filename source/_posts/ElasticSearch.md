@@ -221,7 +221,15 @@ IK提供了两个分词算法: ik smart和ik_max_word，其中 ik_ smart为最�
 
 下载完毕后放入到elasticsearch插件即可，然后重启观察ES
 
+> 查看不同的分词效果
+
+![ik_smart](https://gitee.com/acacac13/images/raw/master/20210507105039.png)
+
+![ik_max_word](https://gitee.com/acacac13/images/raw/master/20210507105253.png)
+
 > ik分词器也可以增加自己的配置
+
+![配置文件](https://gitee.com/acacac13/images/raw/master/20210507105517.png)
 
 # Rest风格说明
 
@@ -238,4 +246,185 @@ IK提供了两个分词算法: ik smart和ik_max_word，其中 ik_ smart为最�
 |    GET     |     localhost:9200/索引名称/类型名称/文档id     |   查询文档通过文档id   |
 |    POST    |    localhost:9200/索引名称/类型名称/_search     |      查询所有数据      |
 
+# 关于索引的基本操作
+
+![](https://gitee.com/acacac13/images/raw/master/20210507105954.png)
+
+![](https://gitee.com/acacac13/images/raw/master/20210507110031.png)
+
 扩展︰通过命令elasticsearch索引情况!通过get _cat/可以获得es的当前的很多信息！
+
+![](https://gitee.com/acacac13/images/raw/master/20210507110145.png)
+
+# 关于文档的基本操作
+
+> 基本操作
+
+1. 添加数据
+
+   ```json
+   PUT /test2/user/1
+   {
+     "name": "张三",
+     "age": 20,
+     "birth": "2001-05-07"
+   }
+   ```
+
+2. 获取数据
+
+   ```json
+   GET test2/user/1
+   ```
+
+3. 更新数据
+
+   ![](https://gitee.com/acacac13/images/raw/master/20210507110853.png)
+
+   更推荐 post  _update这种更新方式
+
+4. 搜索
+
+   查询参数体
+
+   ```json
+   GET /question/_search
+   {
+     "query": {
+       "match": {
+         "content": "问题"
+       }
+     }
+   }
+   ```
+
+   ![](https://gitee.com/acacac13/images/raw/master/20210507111212.png)
+
+   如果存在多条查询出来的结果，匹配度越高则分值越高
+
+# 集成springboot
+
+为实现基础的智能问答功能，利用es的搜索功能搜索到问答库中匹配度最高的问题，再找到其对应的回答内容并返回
+
+## 导入依赖
+
+```xml
+<!--Elasticsearch相关依赖-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+</dependency>
+```
+
+## 修改配置文件
+
+```yaml
+  # Elasticsearch相关配置
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+        cluster-nodes: 127.0.0.1:9300 # es的连接地址及端口号
+        cluster-name: elasticsearch # es集群的名称
+```
+
+## 创建config类
+
+```java
+@Configuration
+public class EsClientConfig {
+
+    @Bean
+    public RestHighLevelClient restHighLevelClient(){
+        RestHighLevelClient restHighLevelClient = new RestHighLevelClient(RestClient.builder(new 				HttpHost("127.0.0.1", 9200, "http")));
+        return restHighLevelClient;
+    }
+}
+```
+
+## service层增加相关接口
+
+```java
+/**
+ * 从数据库中导入所有问题到ES
+ * @return : int
+ * @author AoCan
+ * @date 2021/4/29 19:54
+ */
+Boolean importAll() throws IOException;
+
+/**
+ * 根据关键字搜索问题
+ * @return : 返回匹配度最高的问题id
+ * @param content : 问题内容
+ * @author AoCan
+ * @date 2021/4/29 19:56
+ */
+Integer search(String content) throws IOException;
+```
+
+相关service实现类
+
+```java
+ @Override
+    public Boolean importAll() throws IOException {
+        //批量插入数据
+        BulkRequest bulkRequest = new BulkRequest();
+        bulkRequest.timeout("10s");
+
+        List<Question> list = questionMapper.getAnswerPassList();
+
+        for (int i = 0; i < list.size(); i++) {
+            bulkRequest.add(new IndexRequest(QUESTION).id(""+(i+1)).source(JSON.toJSONString(list.get(i)), XContentType.JSON));
+        }
+        BulkResponse bulkResponse = client.bulk(bulkRequest, RequestOptions.DEFAULT);
+        System.out.println(bulkResponse.hasFailures());
+        return bulkResponse.hasFailures();
+    }
+
+    @Override
+    public Integer search(String content) throws IOException {
+        Integer questionId = null;
+        SearchRequest request = new SearchRequest(QUESTION);
+        //构建搜索条件
+        SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
+
+        //查询条件，我们可以使用QueryBuilders 工具来实现
+        BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery()
+                .should(QueryBuilders.matchQuery("content", content));
+        sourceBuilder.query(boolQueryBuilder);
+        sourceBuilder.timeout(new TimeValue(60, TimeUnit.SECONDS));
+
+        request.source(sourceBuilder);
+
+        SearchResponse searchResponse = client.search(request, RequestOptions.DEFAULT);
+//        if (searchResponse.getHits().getTotalHits().value != 0 && searchResponse.getHits().getMaxScore() > MIN_SCORE){
+        if (searchResponse.getHits().getTotalHits().value != 0){
+            isSearched = true;
+            questionId = (Integer) searchResponse.getHits().getAt(0).getSourceAsMap().get("id");
+            String questionContent = (String) searchResponse.getHits().getAt(0).getSourceAsMap().get("content");
+        }
+        return questionId;
+    }
+```
+
+## Controller层编写
+
+```java
+@ApiOperation(value = "根据用户的问题获取答案", notes = "用户提问后获取回答，若获取不到则返回固定字符串")
+@ApiImplicitParams({
+@ApiImplicitParam(name = "content", value = "消息内容", required = true, dataType = "Integer",paramType = "query")
+ })
+@RequestMapping(value = "/getAnswerByMessage", method = RequestMethod.GET)
+ @ResponseBody
+public CommonResult<String> getAnswerByMessage(@RequestParam("content") String content) throws IOException {
+     Integer userId = RequestAttributeUtil.getUserIdInRequest();
+     Answer answer = inquiryService.getAnswerByQuestion(userId, content);
+     if (answer.getContent() != null){
+          return CommonResult.success(answer.getContent());
+     }else {
+          return CommonResult.success(noAnswerTips);
+     }
+}
+```
+
