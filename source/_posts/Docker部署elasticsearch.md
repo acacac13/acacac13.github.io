@@ -4,7 +4,7 @@ date: 2021-05-12 16:53:48
 tags:
   - Docker部署
   - ElasticSearch
-categories: java后端
+categories: Java后端
 ---
 
 # Docker部署ElasticSearch
