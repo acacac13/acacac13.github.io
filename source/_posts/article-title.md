@@ -1654,3 +1654,9 @@ ehcache.xml
 
 
 Redis数据库做缓存	K-V 
+
+
+
+
+
+**参考：[狂神说](https://www.bilibili.com/video/BV1S54y1R7SB)**
