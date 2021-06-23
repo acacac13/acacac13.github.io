@@ -103,12 +103,12 @@ theme: fluid
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  - type: git
-    repository: git@github.com:acacac13/acacac13.github.io.git
-    branch: master
-  - type: git
-    repository: git@e.coding.net:acacac13/blog.coding.me/blog.coding.me.git
-    branch: master
+  type: git
+  repository: git@github.com:acacac13/acacac13.github.io.git
+  branch: master
+#  - type: git
+#    repository: git@e.coding.net:acacac13/blog.coding.me/blog.coding.me.git
+#    branch: master
 #  - type: baidu_url_submitter
 
 # hexo-admin authentification
