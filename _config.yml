@@ -102,11 +102,14 @@ theme: fluid
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-deploy: 
-  type: git
-  repository: git@github.com:acacac13/acacac13.github.io.git
-  branch: master
-#- type: baidu_url_submitter
+deploy:
+  - type: git
+    repository: git@github.com:acacac13/acacac13.github.io.git
+    branch: master
+  - type: git
+    repository: git@e.coding.net:acacac13/blog.coding.me/blog.coding.me.git
+    branch: master
+#  - type: baidu_url_submitter
 
 # hexo-admin authentification
 admin:
@@ -132,7 +135,7 @@ live2d:
 
 #baidu_url_submit:
 #  count: 100                 # 提交最新的多少个链接
-#  host: www.acacac13.top       # 在百度站长平台中添加的域名
+#  host: acacac13.top       # 在百度站长平台中添加的域名
 #  token: ozE44Z3R0Q3gB6jQ       # 秘钥
 #  path: baidu_urls.txt
 
