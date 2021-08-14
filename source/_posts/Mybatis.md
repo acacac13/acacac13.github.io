@@ -1,6 +1,7 @@
 ---
-title: Mybatis-study
+title: Mybatis学习
 date: 2021-04-05 11:04:11
+index_img: https://gitee.com/acacac13/images/raw/master/20210814145158.jpg
 tags: ssm
 categories: Java后端
 ---

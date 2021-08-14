@@ -1,6 +1,7 @@
 ---
-title: SpringBoot
+title: SpringBoot学习
 date: 2021-04-23 09:25:24
+index_img: https://gitee.com/acacac13/images/raw/master/20210814145516.jpg
 tags: springboot
 categories: Java后端
 ---

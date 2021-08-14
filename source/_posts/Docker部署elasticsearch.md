@@ -1,6 +1,7 @@
 ---
 title: Docker部署elasticsearch
 date: 2021-05-12 16:53:48
+index_img: https://gitee.com/acacac13/images/raw/master/20210814145217.jpg
 tags:
   - Docker部署
   - ElasticSearch

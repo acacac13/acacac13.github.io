@@ -1,6 +1,7 @@
 ---
 title: v-if与v-show的区别
 date: 2021-04-28 13:59:04
+index_img: https://gitee.com/acacac13/images/raw/master/20210814145140.jpg
 tags: 
   - vue
   - 前端

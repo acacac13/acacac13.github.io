@@ -1,6 +1,7 @@
 ---
 title: ElasticSearch
 date: 2021-04-30 17:37:22
+index_img: https://gitee.com/acacac13/images/raw/master/20210814145231.jpg
 tags:
   - 搜索
   - ElasticSearch

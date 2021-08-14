@@ -518,7 +518,7 @@ post:
 
   # 文章在首页的默认封面图，当没有指定 index_img 时会使用该图片，若两者都为空则不显示任何图片
   # Path of the default post cover when `index_img` is not set. If both are empty, no image will be displayed
-  default_index_img:
+  default_index_img: /img/index.jpg
 
   # 文章标题下方的元信息
   # Meta information below title
@@ -717,7 +717,7 @@ gitalk:
 valine:
   appid: RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz
   appkey: xjP4U0FLblVtlDA1XXAP2906
-  placeholder: 吐槽 # 评论框占位提示符
+  placeholder: 说点什么 # 评论框占位提示符
   path: window.location.pathname # 当前文章页路径，用于区分不同的文章页，以保证正确读取该文章页下的评论列表
   avatar: retro # Gravatar 头像展示方式
   meta: ['nick', 'mail', 'link']  # 评论者相关属性
