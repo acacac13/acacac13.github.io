@@ -92,6 +92,10 @@ Lucene是一个全文检索引擎的架构。那什么是全文搜索引擎?
 
 3. 启动
 
+   双击elasticsearch.bat文件
+
+![](https://gitee.com/acacac13/images/raw/master/20210831144336.png)
+
 ![启动](https://gitee.com/acacac13/images/raw/master/image-20210430191321976.png)
 
 ![访问9200端口](https://gitee.com/acacac13/images/raw/master/image-20210430191459782.png)
