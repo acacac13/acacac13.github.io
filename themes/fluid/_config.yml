@@ -32,8 +32,6 @@ tab_title_separator: " - "
 # Force all links to be HTTPS (applicable to HTTP mixed error)
 force_https: false
 
-baidu_push: true
-
 # 代码块的增强配置
 # Enhancements to code blocks
 code:
@@ -194,20 +192,6 @@ font:
 
 # 页面点击小红心
 clicklove: true
-
-# 鼠标点击烟花爆炸效果
-fireworks: false
-
-# https://github.com/hustcc/canvas-nest.js
-# 配置详见： https://github.com/hustcc/canvas-nest.js#configuration
-# 动态线条效果，会向鼠标集中
-canvas_nest:
-  enable: true
-  color: '255, 235, 59'        # color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
-  pointColor: '156,39,176'     # color of points, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
-  opacity: '0.8'               # the opacity of line (0~1), default: 0.5.
-  count: '99'                  # the number of lines, default: 99.
-  zIndex: '-1'                 # z-index property of the background, default: -1.
 
 # 雪花特效
 snow: true
@@ -407,7 +391,7 @@ footer:
   statistics:
     enable: true
 
-    # 统计数据来源，如果使用 leancloud 需要设置 `web_analytics: leancloud` 中的参数；如果使用 busuanzi 可能会有请求失败的情况
+    # 统计数据来源，使用 leancloud 需要设置 `web_analytics: leancloud` 中的参数；使用 busuanzi 不需要额外设置，但是有时不稳定，另外本地运行时 busuanzi 显示统计数据很大属于正常现象，部署后会正常
     # Data source. If use leancloud, you need to set the parameter in `web_analytics: leancloud`
     # Options: busuanzi | leancloud
     source: "leancloud"
@@ -438,7 +422,6 @@ footer:
 index:
   # 首页 Banner 头图，可以是相对路径或绝对路径，以下相同
   # Path of Banner image, can be a relative path or an absolute path, the same on other pages
-#  banner_img: /img/default.png
   banner_img: /img/custom.jpg
 
   # 头图高度，屏幕百分比
@@ -511,7 +494,6 @@ index:
 # Post Page
 #---------------------------
 post:
-#  banner_img: /img/default.png
   banner_img: /img/custom.jpg
   banner_img_height: 70
   banner_mask_alpha: 0.3
@@ -609,6 +591,9 @@ post:
   # Zoom feature of images
   image_zoom:
     enable: true
+    # 放大后图片链接替换规则，可用于将压缩图片链接替换为原图片链接，如 ['-slim', ''] 是将链接中 `-slim` 移除；如果想使用正则请使用 `re:` 前缀，如 ['re:\\d{3,4}\\/\\d{3,4}\\/', '']
+    # The image url replacement when zooming, the feature can be used to replace the compressed image to the original image, eg: ['-slim', ''] removes `-slim` from the image url when zooming; if you want to use regular, use prefix `re:`, eg: ['re:\\d{3,4}\\/\\d{3,4}\\/','']
+    img_url_replace: ['', '']
 
   # 脚注语法，会在文章底部生成脚注，如果 Markdown 渲染器本身支持，则建议关闭，否则可能会冲突
   # Support footnote syntax, footnotes will be generated at the bottom of the post page. If the Markdown renderer itself supports it, please disable it, otherwise it may conflict
@@ -652,7 +637,7 @@ post:
     enable: true
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
-    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo
+    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis
     type: valine
 
 
@@ -704,19 +689,19 @@ gitalk:
   pagerDirection: last
   distractionFreeMode: false
   createIssueManually: true
-  # 默认 proxy 已失效，解决方法请见下方链接
-  # The default proxy is invalid, please see the links for the solution
+  # 默认 proxy 可能会失效，解决方法请见下方链接
+  # The default proxy may be invalid, refer to the links for solutions
   # https://github.com/gitalk/gitalk/issues/429
   # https://github.com/Zibri/cloudflare-cors-anywhere
-  proxy: <your own proxy>/https://github.com/login/oauth/access_token
+  proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token
 
 # Valine
 # 基于 LeanCloud
 # Based on LeanCloud
-# See: https://valine.js.org/configuration.html
+# See: https://valine.js.org/
 valine:
-  appid: RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz
-  appkey: xjP4U0FLblVtlDA1XXAP2906
+  appId: RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz
+  appKey: xjP4U0FLblVtlDA1XXAP2906
   placeholder: 说点什么 # 评论框占位提示符
   path: window.location.pathname # 当前文章页路径，用于区分不同的文章页，以保证正确读取该文章页下的评论列表
   avatar: retro # Gravatar 头像展示方式
@@ -726,6 +711,10 @@ valine:
   highlight: false # 代码高亮
   recordIP: false # 是否记录评论者IP
   serverURLs: https://rxykbovt.lc-cn-n1-shared.com
+  emojiCDN:
+  emojiMaps:
+  enableQQ: false
+  requiredFields: []
 
 # Waline
 # 从 Valine 衍生而来，额外增加了服务端和多种功能
@@ -740,11 +729,11 @@ waline:
   pageSize: 10
   lang: zh-CN
   highlight: true
-  avatarCDN:
+  avatarCDN: ''
   avatarForce: false
   requiredFields: []
-  emojiCDN: ''
-  emojiMaps: {}
+  emojiCDN:
+  emojiMaps:
   anonymous:
 
 # 畅言 Changyan
@@ -771,6 +760,7 @@ remark42:
   site_id:
   max_shown_comments: 10
   locale: zh
+  components: ['embed']
 
 # Twikoo
 # 基于腾讯云开发
@@ -781,13 +771,21 @@ twikoo:
   region: ap-shanghai
   path: window.location.pathname
 
+# Cusdis
+# 基于第三方服务或自托管服务
+# Based on third-party or self-hosted service
+# See https://cusdis.com
+cusdis:
+  host:
+  app_id:
+  lang: zh-cn
+
 #---------------------------
 # 归档页
 # Archive Page
 #---------------------------
 archive:
-#  banner_img: /img/default.png
-  banner_img: /img/custom.jpg
+  banner_img: /img/default.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
@@ -799,8 +797,7 @@ archive:
 #---------------------------
 category:
   enable: true
-#  banner_img: /img/default.png
-  banner_img: /img/custom.jpg
+  banner_img: /img/default.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
@@ -830,7 +827,6 @@ category:
 #---------------------------
 tag:
   enable: true
-#  banner_img: /img/default.png
   banner_img: /img/custom.jpg
   banner_img_height: 80
   banner_mask_alpha: 0.3
@@ -849,7 +845,6 @@ tag:
 #---------------------------
 about:
   enable: true
-#  banner_img: /img/default.png
   banner_img: /img/custom.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
@@ -863,8 +858,7 @@ about:
     - { class: "iconfont icon-github-fill", link: "https://github.com/acacac13", tip: "GitHub" }
     - { class: "iconfont icon-gitee-fill", link: "https://gitee.com/acacac13", tip: "Gitee" }
     - { class: "iconfont icon-qq-fill", link: "", tip: "694970281" }
-#    - { class: "iconfont icon-douban-fill", link: "https://douban.com", tip: "豆瓣" }
-#    - { class: "iconfont icon-wechat-fill", qrcode: "/img/icon.png" }
+
 
 #---------------------------
 # 自定义页
@@ -874,7 +868,6 @@ about:
 # Custom Page through `hexo new page`
 #---------------------------
 page:
-#  banner_img: /img/default.png
   banner_img: /img/custom.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
@@ -886,7 +879,6 @@ page:
 #---------------------------
 page404:
   enable: true
-#  banner_img: /img/default.png
   banner_img: /img/custom.jpg
   banner_img_height: 85
   banner_mask_alpha: 0.3
@@ -899,7 +891,6 @@ page404:
 #---------------------------
 links:
   enable: true
-#  banner_img: /img/default.png
   banner_img: /img/custom.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
@@ -934,19 +925,19 @@ links:
   # Custom content at the bottom of the links
   custom:
     enable: false
-    content: '<hr><p>在下方留言申请加入我的友链，按如下格式提供信息：</p><ul><li>博客名：Fluid</li><li>简介：Fluid 主题官方博客</li><li>链接：https://hexo.fluid-dev.com</li><li>图片：https://hexo.fluid-dev.com/img/icon.png</li></ul>'
+    content: '<hr><p>在下方留言申请加入我的友链，按如下格式提供信息：</p><ul><li>博客名：Fluid</li><li>简介：Fluid 主题官方博客</li><li>链接：https://hexo.fluid-dev.com</li><li>图片：https://hexo.fluid-dev.com/img/favicon.png</li></ul>'
 
   # 评论插件
   # Comment plugin
   comments:
-    enable: false
+    enable: true
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
-    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo
+    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis
     type: valine
     valine:
-      appid: RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz
-      appkey: xjP4U0FLblVtlDA1XXAP2906
+      appId: RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz
+      appKey: xjP4U0FLblVtlDA1XXAP2906
       placeholder: 吐槽 # 评论框占位提示符
       path: window.location.pathname # 当前文章页路径，用于区分不同的文章页，以保证正确读取该文章页下的评论列表
       avatar: retro # Gravatar 头像展示方式
@@ -975,44 +966,44 @@ static_prefix:
   internal_css: /css
   internal_img: /img
 
-  anchor: https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/
+  anchor: https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/
 
   github_markdown: https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/
 
   jquery: https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/
 
-  bootstrap: https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/
+  bootstrap: https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/
 
-  highlightjs: https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/
+  highlightjs: https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/
 
   prismjs: https://cdn.jsdelivr.net/npm/prismjs@1.23.0/
 
-  tocbot: https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/
+  tocbot: https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/
 
-  typed: https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/
+  typed: https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/
 
   fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/
 
   nprogress: https://cdn.jsdelivr.net/npm/nprogress@0.2.0/
 
-  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/
+  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/
 
-  katex: https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/
+  katex: https://cdn.jsdelivr.net/npm/katex@0.13.10/dist/
 
   busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
 
   clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/
 
-  mermaid: https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/
+  mermaid: https://cdn.jsdelivr.net/npm/mermaid@8.10.1/dist/
 
   valine: https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/
 
-  waline: https://cdn.jsdelivr.net/npm/@waline/client@0.14.8/dist/
+  waline: https://cdn.jsdelivr.net/npm/@waline/client@0.16.2/dist/
 
   gitalk: https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/
 
   disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/
 
-  twikoo: https://cdn.jsdelivr.net/npm/twikoo@1.3.0/dist/
+  twikoo: https://cdn.jsdelivr.net/npm/twikoo@1.3.1/dist/
 
   hint: /lib/hint/

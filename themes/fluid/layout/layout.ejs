@@ -89,30 +89,11 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
   <!-- SCRIPTS -->
   <%- partial('_partial/scripts') %>
 
-  <!-- 引入jQuery -->
-  <script type="text/javascript" src="//libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
-
-  <!-- 《页面点击小红心 -->
+  <!-- 页面点击小红心 -->
   <% if (theme.clicklove){ %>
-      <script type="text/javascript" src="/js/clicklove.js"></script>
+    <script type="text/javascript" src="/js/clicklove.js"></script>
   <% } %>
-  <!-- 页面点击小红心》 -->
-
-  <!--鼠标点击烟花爆炸效果，需要引入jQuery-->
-  <% if (theme.fireworks){ %>
-      <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
-      <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-      <script type="text/javascript" src="/js/fireworks.js"></script>
-  <% } %>
-
-  <!--动态线条背景-->
-  <% if (theme.canvas_nest.enable){ %>
-      <script type="text/javascript" color="<%=theme.canvas_nest.color %>" opacity="<%=theme.canvas_nest.opacity %>"
-          zIndex="<%=theme.canvas_nest.zIndex %>" count="<%=theme.canvas_nest.count %>"
-          src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
-      </script>
-  <% } %>
-
+  
   <!-- 雪花特效-->
   <% if (theme.snow){ %>
     <script type="text/javascript" src="/js/snow.js"></script>
@@ -120,10 +101,8 @@ var colorSchema = theme.dark_mode && theme.dark_mode.enable && theme.dark_mode.d
 
   <!--彩带1.点击自动替换彩带-->
   <% if (theme.ribbon){ %>
-      <!-- <script src="https://g.joyinshare.com/hc/ribbon.min.js" type="text/javascript"></script> -->
-      <script type="text/javascript" src="/js/ribbon.js"></script>
+    <script type="text/javascript" src="/js/ribbon.js"></script>
   <% } %>
-  
 
 </body>
 </html>
