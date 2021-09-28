@@ -2,6 +2,7 @@
 title: SpringMVC学习
 date: 2021-04-22 20:42:03
 index_img: https://gitee.com/acacac13/images/raw/master/20210814145532.jpg
+banner_img: https://gitee.com/acacac13/images/raw/master/20210814145532.jpg
 tags: ssm
 categories: Java后端
 ---

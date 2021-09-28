@@ -2,6 +2,7 @@
 title: 解决hexo d 报超时的问题
 date: 2021-04-25 19:48:40
 index_img: https://gitee.com/acacac13/images/raw/master/20210814145212.jpg
+banner_img: https://gitee.com/acacac13/images/raw/master/20210814145212.jpg
 tags: hexo
 categories: 博客问题
 ---

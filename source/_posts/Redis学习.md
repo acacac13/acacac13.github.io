@@ -2,6 +2,7 @@
 title: Redis学习
 date: 2021-06-08 20:11:35
 index_img: https://gitee.com/acacac13/images/raw/master/20210814145508.jpg
+banner_img: https://gitee.com/acacac13/images/raw/master/20210814145508.jpg
 tags:
   - redis
   - linux

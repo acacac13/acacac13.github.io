@@ -2,6 +2,7 @@
 title: Linux学习
 date: 2021-04-25 19:08:17
 index_img: https://gitee.com/acacac13/images/raw/master/20210814145235.jpg
+banner_img: https://gitee.com/acacac13/images/raw/master/20210814145235.jpg
 tags: linux
 categories: Linux学习
 ---
