@@ -1,8 +1,8 @@
 ---
 title: v-if与v-show的区别
 date: 2021-04-28 13:59:04
-index_img: https://gitee.com/acacac13/images/raw/master/20210814145140.jpg
-banner_img: https://gitee.com/acacac13/images/raw/master/20210814145140.jpg
+index_img: picture/20210814145140.jpg
+banner_img: picture/20210814145140.jpg
 tags: 
   - vue
   - 前端
@@ -20,7 +20,7 @@ categories: 前端
 
 ​	查看vue的官方文档
 
-![v-if vs v-show](https://gitee.com/acacac13/images/raw/master/20210428140527.png)
+![v-if vs v-show](picture/20210428140527.png)
 
 ​	简单来说就是v-if显示隐藏是将dom元素整个添加或删除，而v-show隐藏则是为该元素添加css--display:none，dom元素还在。
 

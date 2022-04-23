@@ -1,8 +1,8 @@
 ---
 title: Docker部署elasticsearch
 date: 2021-05-12 16:53:48
-index_img: https://gitee.com/acacac13/images/raw/master/20210814145217.jpg
-banner_img: https://gitee.com/acacac13/images/raw/master/20210814145217.jpg
+index_img: picture/20210814145217.jpg
+banner_img: picture/20210814145217.jpg
 tags:
   - Docker部署
   - ElasticSearch
@@ -80,7 +80,7 @@ http.cors.allow-origin: "*"
 docker restart elasticsearch
 ```
 
-![访问9200端口](https://gitee.com/acacac13/images/raw/master/20210512142827.png)
+![访问9200端口](picture/20210512142827.png)
 
 # Docker部署ElasticSearch-head
 
@@ -98,7 +98,7 @@ docker pull mobz/elasticsearch-head:5
 docker run -d --name es_admin -p 9100:9100 镜像id
 ```
 
-![访问9100端口](https://gitee.com/acacac13/images/raw/master/20210512143226.png)
+![访问9100端口](picture/20210512143226.png)
 
 ## 2.3 常见问题
 

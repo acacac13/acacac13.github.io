@@ -1,8 +1,8 @@
 ---
 title: Linux学习
 date: 2021-04-25 19:08:17
-index_img: https://gitee.com/acacac13/images/raw/master/20210814145235.jpg
-banner_img: https://gitee.com/acacac13/images/raw/master/20210814145235.jpg
+index_img: picture/20210814145235.jpg
+banner_img: picture/20210814145235.jpg
 tags: linux
 categories: Linux学习
 ---
@@ -21,15 +21,15 @@ Linux 能运行主要的 UNIX 工具软件、应用程序和网络协议。它�
 
 Linux 的发行版说简单点就是将 Linux 内核与应用软件做一个打包。
 
-![image-20210425183218207](https://gitee.com/acacac13/images/raw/master/20210425183218.png)
+![image-20210425183218207](picture/20210425183218.png)
 
 目前市面上较知名的发行版有：Ubuntu、RedHat、CentOS、Debian、Fedora、SuSE、OpenSUSE、Arch Linux、SolusOS 等。
 
-![image-20210425183235732](https://gitee.com/acacac13/images/raw/master/20210425183235.png)
+![image-20210425183235732](picture/20210425183235.png)
 
 > Linux vs  Windows
 
-![image-20210425183315039](https://gitee.com/acacac13/images/raw/master/20210425183346.png)
+![image-20210425183315039](picture/20210425183346.png)
 
 # 环境搭建
 
@@ -119,11 +119,11 @@ ls /
 
 会看到如下图所示
 
-![image-20210425184229128](https://gitee.com/acacac13/images/raw/master/20210425184229.png)
+![image-20210425184229128](picture/20210425184229.png)
 
 树状目录结构：
 
-![image-20210425184310421](https://gitee.com/acacac13/images/raw/master/20210425184310.png)
+![image-20210425184310421](picture/20210425184310.png)
 
 **以下是对这些目录的解释：**
 
@@ -278,7 +278,7 @@ Linux系统是一种典型的多用户系统，不同的用户处于不同的地
 
 每个文件的属性由左边第一部分的10个字符来确定（如下图）：
 
-![image-20210425185737757](https://gitee.com/acacac13/images/raw/master/20210425185737.png)
+![image-20210425185737757](picture/20210425185737.png)
 
 从左至右用 **0-9** 这些数字来表示。
 
@@ -383,11 +383,11 @@ Linux 链接分两种，一种被称为硬链接（Hard Link），另一种被�
 
 如果存在可以提前卸载
 
-![image-20210426111730039](https://gitee.com/acacac13/images/raw/master/20210426111737.png)
+![image-20210426111730039](picture/20210426111737.png)
 
 安装
 
-![image-20210426111748047](https://gitee.com/acacac13/images/raw/master/20210426111748.png)
+![image-20210426111748047](picture/20210426111748.png)
 
 配置环境变量：**/etc/profile**		在文件的最后面增加java的配置和window安装环境变量一样
 
@@ -411,7 +411,7 @@ ssm war就需要放到tomcat中运行
 tar -zxvf apache-tomcat-9.0.45.tar.gz
 ```
 
-![image-20210426114950688](https://gitee.com/acacac13/images/raw/master/20210426114950.png)
+![image-20210426114950688](picture/20210426114950.png)
 
 3、启动tomcat测试	./xxx.sh脚本即可运行
 
@@ -420,7 +420,7 @@ tar -zxvf apache-tomcat-9.0.45.tar.gz
 # 停止	./shutdown.sh
 ```
 
-![image-20210426115213412](https://gitee.com/acacac13/images/raw/master/20210426115213.png)
+![image-20210426115213412](picture/20210426115213.png)
 
 4、确保Linux的防火墙端口是开启的，如果是阿里云，需要保证阿里云的安全组策略是开放的
 
@@ -450,7 +450,7 @@ firewall-cmd --list-ports  # 只看端口信息
 --permanent   #永久生效，没有此参数重启后失效
 ```
 
-![image-20210426115231727](https://gitee.com/acacac13/images/raw/master/20210426115231.png)
+![image-20210426115231727](picture/20210426115231.png)
 
 ## Docker（yum安装）
 

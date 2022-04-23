@@ -1,8 +1,8 @@
 ---
 title: Spring的IOC
 date: 2021-10-12 21:32:01
-index_img: https://gitee.com/acacac13/images/raw/master/20211012213428.jpg
-banner_img: https://gitee.com/acacac13/images/raw/master/20211012213428.jpg
+index_img: picture/20211012213428.jpg
+banner_img: picture/20211012213428.jpg
 tags: 
   - Spring
   - IOC
@@ -88,7 +88,7 @@ IOC 是面向对象中的一种编程思想或原则。在传统方式中，当�
 
 上面为实现一个程序惯用的方式，如果需要修改获取的商品，则需要改动业务层代码
 
-![业务层代码修改](https://gitee.com/acacac13/images/raw/master/20211012204218.png)
+![业务层代码修改](picture/20211012204218.png)
 
 通过思考发现，目前的**控制权**在业务层，因此每次用户的需求发生变化时，业务层也需要跟着发生变化，所以便有了把控制权交给用户的做法，也就是控制权的反转。
 
@@ -130,7 +130,7 @@ public class User{
 
 **总结：**可以通过下面的图解来直观看到业务层加入 **set** 方法前后的变化，这就是 IOC 控制反转的核心思想。
 
-![前后变化](https://gitee.com/acacac13/images/raw/master/20211012210021.png)
+![前后变化](picture/20211012210021.png)
 
 因此可以得出一些 IOC 的优点：
 
