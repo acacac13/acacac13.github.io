@@ -1,8 +1,8 @@
 ---
 title: Mybatis学习
 date: 2021-04-05 11:04:11
-index_img: picture/20210814145158.jpg
-banner_img: picture/20210814145158.jpg
+index_img: ../picture/20210814145158.jpg
+banner_img: ../picture/20210814145158.jpg
 tags: ssm
 categories: Java后端
 ---
@@ -21,7 +21,7 @@ categories: Java后端
 
 ## 1.1、什么是Mybatis
 
-![image-20210126204430750](image-20210126204430750.png)
+![image-20210126204430750](Mybatis/image-20210126204430750.png)
 
 - MyBatis 是一款优秀的**持久层框架**
 - 它支持自定义 SQL、存储过程以及高级映射。
@@ -275,7 +275,7 @@ org.apache.ibatis.binding.BindingException: Type interface com.acacac.dao.UserDa
 
 核心配置文件中注册mappers
 
-![image-20210127214318311](image-20210127214318311.png)
+![image-20210127214318311](Mybatis/image-20210127214318311.png)
 
 注意
 
@@ -522,7 +522,7 @@ Mybatis默认的事务管理器就是JDBC，连接池：POOLED
 
 这些属性都是可外部配置且可动态替换的，既可以在典型的java属性文件中配置，亦可通过properties元素的子元素来传递。【db.properties】
 
-![image-20210128172423088](image-20210128172423088.png)
+![image-20210128172423088](Mybatis/image-20210128172423088.png)
 
 编写一个配置文件
 
@@ -587,9 +587,9 @@ public class User{
 
 这是MyBtis中极为重要的调整设置，它们会改变MyBatis的运行时行为。
 
-![image-20210128180332104](image-20210128180332104.png)
+![image-20210128180332104](Mybatis/image-20210128180332104.png)
 
-![image-20210128180413580](image-20210128180413580.png)
+![image-20210128180413580](Mybatis/image-20210128180413580.png)
 
 ## 6、其他配置
 
@@ -643,7 +643,7 @@ MapperRegistry：注册绑定我们的Mapper文件
 
 ## 8、生命周期和作用域
 
-![image-20210129095212057](image-20210129095212057.png)
+![image-20210129095212057](Mybatis/image-20210129095212057.png)
 
 作用域和生命周期类别是至关重要的，因为错误的使用会导致非常严重的**并发问题**。
 
@@ -675,7 +675,7 @@ MapperRegistry：注册绑定我们的Mapper文件
 
 数据库中的字段：
 
-![image-20210129100239054](image-20210129100239054.png)
+![image-20210129100239054](Mybatis/image-20210129100239054.png)
 
 新建一个项目，拷贝之前的，测试实体类字段不一致的情况
 
@@ -690,7 +690,7 @@ public class User {
 
 测试出现问题
 
-![image-20210129101449601](image-20210129101449601.png)
+![image-20210129101449601](Mybatis/image-20210129101449601.png)
 
 ```xml
 //        select * from mybatis.user where id = #{id}
@@ -749,7 +749,7 @@ id	name	password
 
 现在：日志工厂
 
-![image-20210129104446062](image-20210129104446062.png)
+![image-20210129104446062](Mybatis/image-20210129104446062.png)
 
 - SLF4J 
 - LOG4J 【掌握】
@@ -771,7 +771,7 @@ id	name	password
 </settings>
 ```
 
-![image-20210129110120211](article-title/image-20210129110120211.png)
+![image-20210129110120211](Mybatis/image-20210129110120211.png)
 
 ## 6.2、Log4j
 
@@ -830,7 +830,7 @@ log4j.logger.java.sql.PreparedStatement=DEBUG
 
 4.Log4j的使用，直接测试刚才的查询
 
-![image-20210130124844186](article-title/image-20210130124844186.png)
+![image-20210130124844186](Mybatis/image-20210130124844186.png)
 
 **简单使用**
 
@@ -854,7 +854,7 @@ logger.error("error:进入了testLog4j");
 
 解决：https://blog.csdn.net/weixin_43837880/article/details/111567307
 
-![image-20210130131532793](image-20210130131532793.png)
+![image-20210130131532793](Mybatis/image-20210130131532793.png)
 
 # 7、分页
 
@@ -917,7 +917,7 @@ public void getUserByLimit(){
 
 ## 7.3、分页插件
 
-![image-20210130214207059](image-20210130214207059.png)
+![image-20210130214207059](Mybatis/image-20210130214207059.png)
 
 了解即可
 
@@ -974,11 +974,11 @@ List<User> getUsers();
 
 底层：动态代理
 
-![image-20210201113534920](image-20210201113534920.png)
+![image-20210201113534920](Mybatis/image-20210201113534920.png)
 
 **Mybatis详细的执行流程**
 
-![image-20210201140903631](image-20210201140903631.png)
+![image-20210201140903631](Mybatis/image-20210201140903631.png)
 
 ## 8.3、CRUD
 
@@ -1095,13 +1095,13 @@ Never write another getter or equals method again, with one annotation your clas
 
 多对一：
 
-![image-20210201160828144](image-20210201160828144.png)
+![image-20210201160828144](Mybatis/image-20210201160828144.png)
 
 - 多个学生，对应一个老师
 - 对于学生这边而言，**关联**.. 多个学生，关联一个老师 【多对一】
 - 对于老师而言，**集合**，一个老师，有很多学生 【一对多】
 
-![image-20210201163322262](image-20210201163322262.png)
+![image-20210201163322262](Mybatis/image-20210201163322262.png)
 
 SQL：
 
@@ -1418,9 +1418,9 @@ select * from user where 1=1 and
 (id=1 or id=2 or id=3)
 ```
 
-![image-20210203120637938](image-20210203120637938.png)
+![image-20210203120637938](Mybatis/image-20210203120637938.png)
 
-![image-20210203120719677](image-20210203120719677.png)
+![image-20210203120719677](Mybatis/image-20210203120719677.png)
 
 ```xaml
 <!--
@@ -1520,7 +1520,7 @@ select * from user where 1=1 and
 - 2.测试在一个Session中查询两次相同记录
 - 3.查看日志输出
 
-![image-20210203155702652](image-20210203155702652.png)
+![image-20210203155702652](Mybatis/image-20210203155702652.png)
 
 缓存失效的情况：
 
@@ -1528,13 +1528,13 @@ select * from user where 1=1 and
 
 - 2.增删改操作，可能会改变原来的数据，所以必定会刷新缓存
 
-  ![image-20210203160134963](image-20210203160134963.png)
+  ![image-20210203160134963](Mybatis/image-20210203160134963.png)
 
 - 3.查询不同的Mapper.xml
 
 - 4.手动清理缓存
 
-  ![image-20210203160336527](image-20210203160336527.png)
+  ![image-20210203160336527](Mybatis/image-20210203160336527.png)
 
 小结：一级缓存默认是开启的，只在一次SqlSession中有效，也就是拿到连接到关闭连接这个区间段
 
@@ -1591,7 +1591,7 @@ select * from user where 1=1 and
 
 ## 13.5、缓存原理
 
-![image-20210203162940760](image-20210203162940760.png)
+![image-20210203162940760](Mybatis/image-20210203162940760.png)
 
 
 

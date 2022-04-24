@@ -1,8 +1,9 @@
 ---
 title: JavaWeb学习
 date: 2021-04-24 10:00:57
-index_img: picture/20210814145233.jpg
-banner_img: picture/20210814145233.jpg
+index_img: ../picture/20210814145233.jpg
+banner_img: ../picture/20210814145233.jpg
+hide: true
 tags: javaweb
 categories: Java后端
 ---

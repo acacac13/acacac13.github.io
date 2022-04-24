@@ -1,8 +1,8 @@
 ---
 title: SpringBoot学习
 date: 2021-04-23 09:25:24
-index_img: picture/20210814145516.jpg
-banner_img: picture/20210814145516.jpg
+index_img: ../picture/20210814145516.jpg
+banner_img: ../picture/20210814145516.jpg
 tags: springboot
 categories: Java后端
 ---
