@@ -1,8 +1,7 @@
 ---
 title: 单调栈
 date: 2022-04-27 19:19:54
-index_img: https://s1.ax1x.com/2022/04/28/LXYfeA.png
-banner_img: https://s1.ax1x.com/2022/04/28/LXNAgS.jpg
+index_img: ../picture/image-20220428001.jpg
 tags:
   - 栈
   - 单调栈
