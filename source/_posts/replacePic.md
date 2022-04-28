@@ -1,7 +1,7 @@
 ---
 title: 批量修改文件内容（解决图片失效问题）
 date: 2022-04-24 15:16:21
-index_img: https://imgtu.com/i/LXNW5t
+index_img: https://s1.ax1x.com/2022/04/28/LXNW5t.jpg
 tags:
  - hexo
  - 批量修改文件内容
