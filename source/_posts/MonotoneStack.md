@@ -1,6 +1,8 @@
 ---
 title: 单调栈
 date: 2022-04-27 19:19:54
+index_img: https://imgtu.com/i/LXYfeA
+banner_img: https://imgtu.com/i/LXNAgS
 tags:
   - 栈
   - 单调栈
