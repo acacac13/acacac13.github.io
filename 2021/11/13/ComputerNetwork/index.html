@@ -1,0 +1,1668 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="It&#39;s fine">
+  <meta name="author" content="AoCan">
+  <meta name="keywords" content="">
+  
+  <title>计网学习笔记 - Blog Of AC</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/a11y-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"acacac13.top","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz","app_key":"xjP4U0FLblVtlDA1XXAP2906","server_url":"https://rxykbovt.lc-cn-n1-shared.com"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>小朋友你回家吃饭吗</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/../picture/20211113102251.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="计网学习笔记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-13 10:18" pubdate>
+        November 13, 2021 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      17k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      178
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">计网学习笔记</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：June 20, 2022 pm
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="因特网概述"><a href="#因特网概述" class="headerlink" title="因特网概述"></a>因特网概述</h1><ul>
+<li>网络（Network）由若干<strong>结点</strong>（Node）和连接这些结点的<strong>链路</strong>（Link）组成。</li>
+<li>多个网络还可以通过路由器互连起来，这样就构成了一个覆盖范围更大的网络，即互联网。</li>
+<li>因特网（Internet）是世界上最大的互联网络（用户数以亿计，互连的网络数以百万计）。</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211101192730.png" srcset="/img/loading.gif" lazyload alt="因特网发展的三个阶段"></p>
+<blockquote>
+<p>ISP（Internet Service Provider）因特网服务提供者，普通用户接入因特网的过程就是通过ISP。</p>
+<p>ISP可以从因特网管理机构申请到成块的IP地址，同时拥有通信线路以及路由器等连网设备。任何机构或个人只要向ISP缴纳费用，就可以从ISP得到所需要的IP地址。（因特网上的主机必须有IP地址才能通信）</p>
+</blockquote>
+<p><img src="/2021/11/13/ComputerNetwork/20211101193403.png" srcset="/img/loading.gif" lazyload alt="基于ISP的三层结构的因特网示意图"></p>
+<p><strong>因特网组成：</strong></p>
+<ul>
+<li>边缘部分<ul>
+<li>由所有连接在因特网上的主机组成。这部分是用户直接使用的，用来进行通信（传送数据、音频或视频）和资源共享。</li>
+</ul>
+</li>
+<li>核心部分<ul>
+<li>由大量网络和连接这些网络的路由器组成。这部分是为边缘部分提供服务的（提供连通性和交换）。</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211101194132.png" srcset="/img/loading.gif" lazyload alt="因特网的组成"></p>
+<h1 id="三种交换方式"><a href="#三种交换方式" class="headerlink" title="三种交换方式"></a>三种交换方式</h1><h2 id="电路交换（Circuit-Switching）"><a href="#电路交换（Circuit-Switching）" class="headerlink" title="电路交换（Circuit Switching）"></a>电路交换（Circuit Switching）</h2><ul>
+<li>电话交换机接通电话线的方式称为电路交换</li>
+<li>从通信资源的分配角度来看，交换就是按照某种方式动态地分配传输线路的资源</li>
+<li>电路交换的三个步骤：<ul>
+<li>建立连接（分配通信资源）</li>
+<li>通话（一直占用通信资源）</li>
+<li>释放连接（归还通信资源）</li>
+</ul>
+</li>
+</ul>
+<p>当使用电路交换来传送计算机数据时，其线路的传输效率往往很低。</p>
+<h2 id="分组交换（Packet-Switching）"><a href="#分组交换（Packet-Switching）" class="headerlink" title="分组交换（Packet Switching）"></a>分组交换（Packet Switching）</h2><ul>
+<li>发送方：构造分组，发送分组</li>
+<li>路由器：缓存分组，转发分组（存储转发）</li>
+<li>接收方：接收分组，还原报文</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211101194820.png" srcset="/img/loading.gif" lazyload alt="分组交换"></p>
+<h2 id="报文交换（Message-Switching）"><a href="#报文交换（Message-Switching）" class="headerlink" title="报文交换（Message Switching）"></a>报文交换（Message Switching）</h2><p>也采用存储转发的方式</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211101195225.png" srcset="/img/loading.gif" lazyload alt="三种交换的对比"></p>
+<p><strong>三种交换的对比：</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:left">优点</th>
+<th style="text-align:left">缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">电路交换</td>
+<td style="text-align:left">1. 通信时延小<br>2. 有序传输<br>3. 没有冲突<br>4. 适用范围广<br>5. 实时性强<br>6. 控制简单</td>
+<td style="text-align:left">1. 建立连接时间长<br>2. 线路独占，使用效率低<br>3. 灵活性差<br>4. 难以规格化</td>
+</tr>
+<tr>
+<td style="text-align:center">报文交换</td>
+<td style="text-align:left">1. 无需建立连接<br>2. 动态分配线路<br>3. 提高线路可靠性<br>4. 提高线路利用率<br>5. 提供多目标服务</td>
+<td style="text-align:left">1. 引起了转发时延<br>2. 需要较大的存储缓存空间<br>3. 需要传输额外的信息量</td>
+</tr>
+<tr>
+<td style="text-align:center">分组交换</td>
+<td style="text-align:left">1. 无需建立连接<br>2. 线路利用率高<br>3. 简化了存储管理<br>4. 加速传输<br>5. 减少出错概率和重发数据量</td>
+<td style="text-align:left">1. 引起了转发时延<br>2. 需要传输额外的信息量<br>3. 对于数据报服务，存在失序、丢失或虫回复分组的问题；<br>    对于虚电路服务，存在呼叫建立、数据传输和虚电路释放三个过程</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>最简单的定义：一些<strong>互连</strong>、<strong>自治</strong>的计算机的集合。</p>
+<p>计算机网络较好的定义是：计算机网络主要是由一些<strong>通用的、可编程的硬件</strong>互连而成的，而这些硬件并非专门用来实现某一特定目的（例如，传送数据或视频信号）。这些可编程的硬件能够用来<strong>传送多种不同类型的数据</strong>，并能<strong>支持广泛的和日益增长的应用</strong>。</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
+<li>按交换技术分：电路交换网络、报文交换网络、分组交换网络</li>
+<li>按使用者分：公用网、专用网</li>
+<li>按传输介质分：有线网络、无线网络</li>
+<li>按覆盖范围分：广域网<code>WAN</code>、城域网<code>MAN</code>、局域网<code>LAN</code>、个域网<code>PAN</code></li>
+<li>按拓扑结构分：总线型网络、星型网络、环型网络、网状型网络</li>
+</ul>
+<h2 id="计算机网络的性能指标"><a href="#计算机网络的性能指标" class="headerlink" title="计算机网络的性能指标"></a>计算机网络的性能指标</h2><ul>
+<li>速率</li>
+<li>带宽</li>
+<li>吞吐量</li>
+<li>时延<ul>
+<li>发送时延 = 分组长度（b）/ 发送速率（b/s）</li>
+<li>传播时延 = 信道长度（m）/ 电磁波传播速率（m/s）</li>
+<li>处理时延：一般不便于计算，忽略</li>
+</ul>
+</li>
+<li>时延带宽积<ul>
+<li>时延带宽积  = 传播时延 x 带宽</li>
+</ul>
+</li>
+<li>往返时间</li>
+<li>利用率<ul>
+<li>信道利用率：用来表示某信道有百分之几的时间是被利用的（有数据通过）</li>
+<li>网络利用率：全网络的信道利用率的加权平均</li>
+</ul>
+</li>
+<li>丢包率</li>
+</ul>
+<h2 id="计算机网络体系结构"><a href="#计算机网络体系结构" class="headerlink" title="计算机网络体系结构"></a>计算机网络体系结构</h2><p><img src="/2021/11/13/ComputerNetwork/20211101202615.png" srcset="/img/loading.gif" lazyload alt="计算机网络体系结构"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211101202742.png" srcset="/img/loading.gif" lazyload alt="常见的加算计网络体系结构"></p>
+<h2 id="计算机网络体系结构分层的必要性"><a href="#计算机网络体系结构分层的必要性" class="headerlink" title="计算机网络体系结构分层的必要性"></a>计算机网络体系结构分层的必要性</h2><ul>
+<li>应用层：解决通过应用进程的交互来实现特定网络应用的问题</li>
+<li>运输层：解决进程之间基于网络发通信问题</li>
+<li>网络层：解决分组在多个网络上传输（路由）的问题</li>
+<li>数据链路层：解决分组在一个网络（或一段链路）上传输的问题</li>
+<li>物理层：解决使用何种信号来传输比特的问题</li>
+</ul>
+<h2 id="计算机网络中的专用术语"><a href="#计算机网络中的专用术语" class="headerlink" title="计算机网络中的专用术语"></a>计算机网络中的专用术语</h2><ul>
+<li><p>实体：任何可发送或接收信息的硬件或软件进程</p>
+<ul>
+<li>对等实体：收发双方相同层次中的实体</li>
+</ul>
+</li>
+<li><p>协议：控制两个对等实体进行逻辑通信的规则的集合</p>
+<ul>
+<li>三要素：语法、语义、同步</li>
+</ul>
+<p>语法：定义所交换信息的格式</p>
+<p>语义：定义收发双方所要完成的操作</p>
+<p>同步：定义收发双方的时序关系</p>
+</li>
+<li><p>服务：在协议的控制下，两个对等实体间的逻辑通信使得本层能够向上一层提供服务</p>
+</li>
+<li><p>服务访问点：在同一系统中相邻两层的实体交换信息的逻辑接口，用于区分不同的服务类型</p>
+<ul>
+<li>数据链路层的服务访问点为帧的“类型”字段。</li>
+<li>网络层的服务访问点为IP数据报首部中的“协议字段”。</li>
+<li>运输层的服务访问点为“端口号”。</li>
+</ul>
+</li>
+<li><p>服务原语：上层使用下层所提供的服务必须通过与下层交换一些命令，这些命令称为服务原语。</p>
+</li>
+<li><p>协议数据单元<code>PDU</code>：对等层次之间传送的数据包称为该层的协议数据单元。</p>
+</li>
+<li><p>服务数据单元<code>SDU</code>：同一系统内，层与层之间交换的数据包称为服务数据单元。</p>
+</li>
+<li><p>多个<code>SDU</code>可以合成为一个<code>PDU</code>；一个<code>SDU</code>也可划分为几个<code>PDU</code>。</p>
+</li>
+</ul>
+<p>==协议是”水平的“，服务是”垂直的“。==</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211101205703.png" srcset="/img/loading.gif" lazyload alt="上述专业术语示意图"></p>
+<h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>物理层考虑的是怎样才能在连接各种计算机的传输媒体上传输数据比特流。</p>
+<h2 id="物理层协议的主要任务"><a href="#物理层协议的主要任务" class="headerlink" title="物理层协议的主要任务"></a>物理层协议的主要任务</h2><ul>
+<li>机械特性：指明接口所用接线器的<strong>形状</strong>和<strong>尺寸</strong>、<strong>引脚数目</strong>和<strong>排列</strong>、<strong>固定</strong>和<strong>锁定</strong>装置。</li>
+<li>电气特性：指明在接口电缆的各条线上出现的<strong>电压的范围</strong>。</li>
+<li>功能特性：指明某条线上出现的某一电平的<strong>电压表示何种意义</strong>。</li>
+<li>过程特性：指明对于不同功能的各种可能<strong>事件的出现顺序</strong>。</li>
+</ul>
+<h2 id="物理层下面的传输媒体"><a href="#物理层下面的传输媒体" class="headerlink" title="物理层下面的传输媒体"></a>物理层下面的传输媒体</h2><p> 导引型传输媒体：同轴电缆、双绞线、光纤、电力线</p>
+<p>非导引型传输媒体：无线电波、微波、红外线、可见光</p>
+<h2 id="传输方式"><a href="#传输方式" class="headerlink" title="传输方式"></a>传输方式</h2><ul>
+<li><p>串行传输</p>
+</li>
+<li><p>并行传输</p>
+</li>
+</ul>
+<ul>
+<li><p>同步传输</p>
+<p>收发双方时钟同步的方法</p>
+<ul>
+<li>外同步：在收发双方之间添加一条单独的时钟信号线</li>
+<li>内同步：发送端将时钟同步信号编码到发送数据中一起传输（例如曼彻斯特编码）</li>
+</ul>
+</li>
+<li><p>异步传输</p>
+<ul>
+<li>字节之间异步（字节之间的时间间隔不固定）</li>
+<li>字节中的每个比特仍然要同步（各比特的持续时间是相同的）</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>单向通信（单工）</li>
+<li>双向交替通信（半双工）</li>
+<li>双向同时通信（全双工）</li>
+</ul>
+<h2 id="信道的极限容量"><a href="#信道的极限容量" class="headerlink" title="信道的极限容量"></a>信道的极限容量</h2><p>奈氏准则：在假定的理想条件下，为了避免码间串扰，码元传输速率是有上限的    （W指带宽）</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211101213359.png" srcset="/img/loading.gif" lazyload alt="奈氏准则"></p>
+<p>香农公式：</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211101213026.png" srcset="/img/loading.gif" lazyload alt="香农公式"></p>
+<p>在信道带宽一定的情况下，根据奈氏准则和香农公式，要想提高信息的传输速率就必须采用<strong>多元制</strong>（更好的调制方法）和努力<strong>提高信道中的信噪比</strong>。</p>
+<h2 id="编码与调制"><a href="#编码与调制" class="headerlink" title="编码与调制"></a>编码与调制</h2><p><img src="/2021/11/13/ComputerNetwork/20211103091136.png" srcset="/img/loading.gif" lazyload alt="常用编码"></p>
+<h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><p><img src="/2021/11/13/ComputerNetwork/20211103091459.png" srcset="/img/loading.gif" lazyload alt="数据链路层在网络体系结构中所处的地位"></p>
+<p><strong>链路（Link）</strong>就是从一个结点到相邻结点的一段物理线路，而中间没有任何其他的交换结点。</p>
+<p><strong>数据链路（Data Link）</strong>是指把实现通信协议的硬件和软件加到链路上，就构成了数据链路。</p>
+<p>数据链路层以<strong>帧</strong>为单位传输和处理数据。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211103091608.png" srcset="/img/loading.gif" lazyload alt="数据链路层"></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>使用点对点信道的数据链路层的三个重要问题</p>
+<ul>
+<li>封装成帧</li>
+<li>差错检测</li>
+<li>可靠传输</li>
+</ul>
+<p>尽管误码是不能完全避免的，但若能实现发送方发送什么，接收方就能收到什么，就称为可靠传输。</p>
+<p>使用广播信道的数据链路层</p>
+<ul>
+<li>共享式以太网的媒体接入控制协议<code>CSMA/CD</code></li>
+<li>802.11局域网的媒体接入控制协议<code>CSMA/CA</code></li>
+</ul>
+<p>数据链路层的互连设备</p>
+<ul>
+<li>网桥和交换机的工作原理</li>
+<li>集线器（物理层互连设备）与交换机的区别</li>
+</ul>
+<h2 id="封装成帧"><a href="#封装成帧" class="headerlink" title="封装成帧"></a>封装成帧</h2><p>封装成帧是指数据链路层给上层交付的协议数据单元添加帧头和帧尾使之称为帧。</p>
+<ul>
+<li>帧头和帧尾中包含有重要的控制信息</li>
+<li>帧头和帧尾的作用之一就是<strong>帧定界</strong></li>
+</ul>
+<p>透明传输是指<strong>数据链路层对上层交付的传输数据没有任何限制</strong>，就好像数据链路层不存在一样。</p>
+<p>（即数据部分含有与帧首尾相同的字符或比特，此时应该加上转义字符）</p>
+<ul>
+<li>面向字节的物理链路使用字节填充（或称字符填充）的方法实现透明传输</li>
+<li>面向比特的物理链路使用比特填充的方法实现透明传输</li>
+</ul>
+<p>为了提高帧的传输效率，应当使<strong>帧的数据部分的长度尽可能大些</strong>。</p>
+<p>考虑到差错控制等多种因素，每一种数据链路层协议都规定了帧的数据部分的长度上限，即<strong>最大传送单元MTU</strong>（Maximum Transfer Unit）。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211103095110.png" srcset="/img/loading.gif" lazyload alt="帧"></p>
+<h2 id="差错检测"><a href="#差错检测" class="headerlink" title="差错检测"></a>差错检测</h2><p>实际的通信链路都不是理想的，比特在传输过程中可能会产生差错：1可能会变成0，而0也可能变成1。这称为<strong>比特差错</strong>。</p>
+<p>在一段时间内，传输错误的比特占所传输比特总数的比率称为<strong>误码率BER</strong>（Bit Error Rate）。</p>
+<p>使用<strong>差错检测码</strong>来检测数据在传输过程中是否产生了比特差错，是数据链路层所要解决的重要问题之一。</p>
+<p><strong>奇偶校验</strong></p>
+<ul>
+<li>在待发送的数据后面<strong>添加1位奇偶校验位</strong>，使整个数据（包括所添加的校验位在内）中<strong>“1”的个数</strong>为奇数（奇校验）或偶数（偶校验）。</li>
+<li>如果有<strong>奇数个位发生误码</strong>，则奇偶性发生变化，<strong>可以检查出误码</strong>；</li>
+<li>如果有<strong>偶数个位发生误码</strong>，则奇偶性发生变化，<strong>不能检查出误码（漏检）</strong>；</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211103100000.png" srcset="/img/loading.gif" lazyload alt="奇校验和偶校验"></p>
+<p><strong>循环冗余校验CRC（Cyclic Redundancy Check）</strong></p>
+<ul>
+<li>收发双方约定好一个<strong>生成多项式G(x)</strong>；</li>
+<li>发送方基于待发送的数据和生成多项式计算出差错检测码（<strong>冗余码</strong>），将其添加到待传输数据的后面一起传输；</li>
+<li>接收方通过生成多项式来计算收到的数据是否产生了误码；</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211103100811.png" srcset="/img/loading.gif" lazyload alt="循环冗余校验CRC"></p>
+<p><strong>检错码</strong>只能检测出帧在传输过程中出现了差错，但并不能定位错误，因此无法<strong>纠正错误</strong>。</p>
+<p>要想纠正传输中的差错，可以使用冗余信息更多的<strong>纠错码</strong>进行<strong>前向纠错</strong>。但纠错码的开销比较大，在<strong>计算机网络中较少使用</strong>。</p>
+<p>循环冗余校验<strong>CRC</strong>有很好的检错能力（<strong>漏检率非常低</strong>），虽然计算比较复杂，但非常<strong>易于用硬件实现</strong>，因此被<strong>广泛应用于数据链路层</strong>。</p>
+<h2 id="可靠传输"><a href="#可靠传输" class="headerlink" title="可靠传输"></a>可靠传输</h2><ul>
+<li><p>使用<strong>差错检测技术</strong>（例如循环冗余校验CRC），接收方的数据链路层就可检测出帧在传输过程中是否产生了<strong>误码</strong>（比特错误）。</p>
+</li>
+<li><p>数据链路层向上提供的服务类型</p>
+<ul>
+<li><strong>不可靠传输服务</strong>：<strong>仅仅丢弃有误码的帧</strong>，其他什么也不做；</li>
+<li><strong>可靠传输服务</strong>：想办法实现<strong>发送端发送什么</strong>，<strong>接收端就收到什么</strong>。</li>
+</ul>
+</li>
+<li><p>一般情况下，<strong>有线链路</strong>的误码率比较低，为了减小开销，并<strong>不要求数据链路层</strong>向上提供可靠传输服务。即使出现了误码，<strong>可靠</strong>传输的问题由其上层处理。</p>
+</li>
+<li><p><strong>无线链路</strong>易受干扰，误码率比较高，因此<strong>要求数据链路层</strong>必须向上层提供<strong>可靠</strong>传输服务。</p>
+</li>
+<li><p><strong>比特差错</strong>只是传输差错中的一种。</p>
+</li>
+<li><p>从整个计算机网络体系结构来看，传输差错还包括<strong>分组丢失</strong>、<strong>分组失序</strong>以及<strong>分组重复</strong>。</p>
+</li>
+<li><p>分组丢失、分组失序以及分组重复这些传输差错，一般不会出现在数据链路层，而会出现在其上层。</p>
+</li>
+<li><p><strong>可靠传输服务并不仅局限于数据链路层</strong>，其他各层均可选择实现可靠传输。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211103104455.png" srcset="/img/loading.gif" lazyload alt="可靠传输"></p>
+</li>
+<li><p>可靠传输的实现比较复杂，开销也比较大，是否使用可靠传输取决于应用要求。</p>
+</li>
+</ul>
+<h3 id="可靠传输的实现机制-—-停止-等待协议SW"><a href="#可靠传输的实现机制-—-停止-等待协议SW" class="headerlink" title="可靠传输的实现机制 — 停止-等待协议SW"></a>可靠传输的实现机制 — 停止-等待协议SW</h3><p><img src="/2021/11/13/ComputerNetwork/20211103203228.png" srcset="/img/loading.gif" lazyload alt="停止-等待协议SW"></p>
+<p>【注意事项】</p>
+<ul>
+<li>接收端检测到数据分组有误码时，将其丢弃并等待发送方的超时重传。但对于误码率较高的点对点链路，为使发送方<strong>尽早重传</strong>，也可<strong>给发送方发送NAK分组</strong>。</li>
+<li>为了让接收方能够判断所收到的数据分组是否是重复的，需要给<strong>数据分组编号</strong>。由于停止-等待协议的停等特性，<strong>只需1个比特编号</strong>就够了，即编号0和1。</li>
+<li>为了让发送方能够判断所收到的ACK分组是否是重复的，需要给<strong>ACK分组编号</strong>，所用比特数量<strong>与数据分组编号所用比特数量一样</strong>。数据链路层一般不会出现ACK分组迟到的情况，因此在<strong>数据链路层实现停止-等待协议可以不用给ACK分组编号</strong>。</li>
+<li>超时计时器设置的<strong>重传时间</strong>应仔细选择。一般可将重传时间选为<strong>略大于“从发送方到接收方的平均往返时间”</strong>。<ul>
+<li>在数据链路层点对点的往返时间比较确定，重传时间比较好设定。</li>
+<li>然而在运输层，由于端到端往返时间非常不确定，设置合适的重传时间有时并不容易。</li>
+</ul>
+</li>
+<li>当往返时延<code>RTT</code>远大于数据帧发送时延<code>TD</code>时（例如使用卫星链路)，信道利用率非常低。</li>
+</ul>
+<p>停止-等待协议的信道利用率如下（一般<code>TA</code>远小于<code>TD</code>）</p>
+<script type="math/tex; mode=display">
+U = \frac{T_D}{T_D + RTT + T_A} \approx \frac{T_D}{T_D + RTT}</script><p><img src="/2021/11/13/ComputerNetwork/20211103204247.png" srcset="/img/loading.gif" lazyload alt="信息传输示意图"></p>
+<h3 id="可靠传输的实现机制-—-回退N帧协议GBN（Go-Back-N）"><a href="#可靠传输的实现机制-—-回退N帧协议GBN（Go-Back-N）" class="headerlink" title="可靠传输的实现机制 — 回退N帧协议GBN（Go-Back-N）"></a>可靠传输的实现机制 — 回退N帧协议GBN（Go-Back-N）</h3><p><img src="/2021/11/13/ComputerNetwork/20211104091957.png" srcset="/img/loading.gif" lazyload alt="无差错情况"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211104093038.png" srcset="/img/loading.gif" lazyload alt="累积确认（ACK1丢失）"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211104093428.png" srcset="/img/loading.gif" lazyload alt="有差错情况"></p>
+<p>在有差错情况中，尽管序号为6，7，0，1的数据分组正确到达接受方，但由于5号数据分组误码不被接受，它们也“受到牵连”而不被接受，发送方还要重传这些数据分组，这就是所谓的<code>Go-back-N</code>（回退N帧）。</p>
+<p>回退N帧协议在流水线传输的基础上利用发送窗口来限制发送方连续发送数据分组的数量，是一种连续ARQ协议。</p>
+<p>可见，当通信线路质量不好的时候，回退N帧协议的信道利用率并不比停止-等待协议高。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211104094207.png" srcset="/img/loading.gif" lazyload alt="WT超过取值范围时"></p>
+<p>【小结】</p>
+<p><strong>发送方</strong></p>
+<ul>
+<li>发送窗口尺寸<code>WT = 1</code>时，为停止-等待协议，<code>WT &gt; 2^n - 1</code>时，接收方会无法分辨新旧数组。</li>
+<li>发送方只有收到对已发送数据分组的确认时，发送窗口才能向前相应滑动。</li>
+<li>发送方收到多个重复确认时，可在重传计时器超时前尽早开始重传，由具体实现决定。</li>
+</ul>
+<p><strong>接收方</strong></p>
+<ul>
+<li>接收方的接收窗口尺寸<code>WR</code>的取值范围是<code>WR = 1</code>，因此接收方只能按序接收数据分组。</li>
+<li>接收方可以连续收到好几个按序到达且无误码的数据分组后，才针对最后一个数据分组发送确认分组，称为累积确认。</li>
+<li>接收方收到未按序到达的数据分组，除丢弃外，还要对最近按序接收的数据分组进行确认。</li>
+</ul>
+<h3 id="可靠传输的实现机制-—-选择重传协议SR"><a href="#可靠传输的实现机制-—-选择重传协议SR" class="headerlink" title="可靠传输的实现机制 — 选择重传协议SR"></a>可靠传输的实现机制 — 选择重传协议SR</h3><p><strong>回退N帧协议</strong>的接收窗口尺寸<strong><code>WR</code>只能等于1</strong>，一个数据分组的误码会导致后续多个数据分组不能被接收而丢弃，会造成对通信资源的浪费。为了提高性能，可以设法只重传出现误码的数据分组。因此，接收窗口的尺寸<strong><code>WR</code>应大于1</strong>，以便<strong>接收方先收下失序到达但无误码并且序号落在接收窗口内的那些数据分组</strong>，等到所缺分组收齐后再一并送交上层。这就是<strong>选择重传协议</strong>。</p>
+<p>窗口尺寸要求：</p>
+<ul>
+<li>发送方的发送窗口尺寸<code>WT</code>必须满足 <code>1 &lt; WT &lt; 2^(n-1)</code>，其中<code>n</code>是构成分组序号的比特数量<ul>
+<li>若<code>WT = 1</code> ：与停止-等待协议相同</li>
+<li>若<code>WT &gt; 2^(n-1)</code>：造成接收方无法分辨新、旧数据分组的问题</li>
+</ul>
+</li>
+<li>接收方的接收窗口尺寸<code>WR</code>必须满足<code>1 &lt; WR &lt;= WT</code><ul>
+<li>若<code>WR = 1</code>：与回退<code>N</code>帧协议相同</li>
+<li>若<code>WR &gt; WT</code>：无意义</li>
+</ul>
+</li>
+</ul>
+<p>【小结】</p>
+<p><strong>发送方</strong></p>
+<ul>
+<li>发送窗口尺寸<code>WT = 1</code>时，为停止-等待协议，<code>WT &gt; 2^(n-1)</code>时，接收方会无法分辨新旧数组。</li>
+<li>发送方可在未收到接收方确认分组的情况下，将序号落在发送窗口内的多个数据分组全部发送出去。</li>
+<li>发送方只有按序收到对已发送数据分组的确认时，发送窗口才能向前相应滑动。</li>
+</ul>
+<p><strong>接收方</strong></p>
+<ul>
+<li>接收方的接收窗口尺寸<code>WR</code>必须满足<code>1 &lt; WR &lt;= WT</code></li>
+<li><strong>选择重传协议</strong>为了使发送方仅重传出现差错的分组，接收方<strong>不能再采用累积确认</strong>，而需要对每个正确接受到的数据分组进行<strong>逐一确认</strong>。</li>
+<li>接收方只有在按序接收数据分组后，接收窗口才能向前相应滑动。</li>
+</ul>
+<h2 id="点对点协议PPP"><a href="#点对点协议PPP" class="headerlink" title="点对点协议PPP"></a>点对点协议PPP</h2><p>点对点协议<code>PPP（Point-to-Point Protocol）</code>是目前使用最广泛的点对点数据链路层协议。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211104104920.png" srcset="/img/loading.gif" lazyload alt="用户接入因特网"></p>
+<p><code>PPP</code>协议为在点对点链路传输各种协议数据报提供了一个标准方法，主要由以下三部分组成：</p>
+<ul>
+<li>对各种协议数据包的封装方法（封装成帧）</li>
+<li>链路控制协议<code>LCP</code>                用于建立、配置以及测试数据链路的连接</li>
+<li>一套网络控制协议<code>NCPs</code>      其中的每一个协议支持不同的网络层协议</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211104105817.png" srcset="/img/loading.gif" lazyload alt="帧格式"></p>
+<p>实现透明传输：</p>
+<ul>
+<li>面向字节的异步链路：字节填充法，插入“转义字符”</li>
+<li>面向比特的同步链路：比特填充法，插入“比特0”</li>
+</ul>
+<p>实现差错检测：接收方每收到一个<code>PPP</code>帧，就进行<code>CRC</code>检验。若<code>CRC</code>检验正确，就收下这个帧；反之丢弃。使用<code>PPP</code>的数据链路层<strong>向上不提供可靠传输服务</strong>。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211104110637.png" srcset="/img/loading.gif" lazyload alt="工作状态"></p>
+<h2 id="媒体接入控制"><a href="#媒体接入控制" class="headerlink" title="媒体接入控制"></a>媒体接入控制</h2><p>共享信道要着重考虑的一个问题就是如何协调多个发送和接收站点对一个共享传输媒体的占用，即<strong>媒体接入控制MAC</strong>（Medium Access Control）。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211104111034.png" srcset="/img/loading.gif" lazyload alt="分类"></p>
+<p>随机接入</p>
+<ul>
+<li>总线局域网使用的协议：<code>CSMA/CD</code></li>
+<li>无线局域网使用的协议：<code>CSMA/CA</code></li>
+</ul>
+<h2 id="MAC地址、IP地址以及ARP协议"><a href="#MAC地址、IP地址以及ARP协议" class="headerlink" title="MAC地址、IP地址以及ARP协议"></a>MAC地址、IP地址以及ARP协议</h2><ul>
+<li><code>MAC</code>地址是以太网的<code>MAC</code>子层所使用的地址；（数据链路层）</li>
+<li><code>IP</code>地址是<code>TCP/IP</code>体系结构网际层所使用的地址； （网际层）</li>
+<li><code>ARP</code>协议属于<code>TCP/IP</code>体系结构的网际层，其作用是，已知设备所分配到的<code>lP</code>地址使用<code>ARP</code>协议可以通过该<code>IP</code>地址获取到设备的<code>MAC</code>地址； （网际层）</li>
+</ul>
+<h3 id="MAC地址"><a href="#MAC地址" class="headerlink" title="MAC地址"></a>MAC地址</h3><ul>
+<li>多个主机连接在同一广播信道上时，实现通信每个主机必须有一个唯一的标识，即一个数据链路层地址。</li>
+<li>每个主机发送的<strong>帧中必须携带标识发送主机和接收主机的地址</strong>。由于这类地址是用于媒体接入控制<code>MAC(Media Access Control)</code>，因此被称为<code>MAC</code>地址。<ul>
+<li><code>MAC</code>地址一般被固化在网卡（网络适配器）的电可擦可编程只读存储器<code>EEPROM</code>中，因此<code>MAC</code>地址也被称为<strong>硬件地址</strong></li>
+<li><code>MAC</code>地址也被称为<strong>物理地址</strong>。但是不表示<code>MAC</code>地址属于物理层！</li>
+</ul>
+</li>
+<li>一般主机会有两个网络适配器：有线局域网适配器（有线网卡）和无限局域网适配器（无线网卡）。每个网络适配器有一个全球唯一的<code>MAC</code>地址。而交换机和路由器有更多的网络接口，所以会有更多的<code>MAC</code>地址。所以严格来说，<strong><code>MAC</code>地址是对网络上各接口的唯一标识，而不是对网络上各设备的唯一标识</strong>。</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211104114750.png" srcset="/img/loading.gif" lazyload alt="IEEE 802局域网的MAC地址格式"></p>
+<h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h3><p><code>IP</code>地址是因特网上的主机和路由器使用的地址，用于标识两部分信息：</p>
+<ul>
+<li>网络编号：标识因特网上数以百万计的网络</li>
+<li>主机编号：标识同一网络上不同主机（或路由器各接口）</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211104115843.png" srcset="/img/loading.gif" lazyload alt="IP地址示意图"></p>
+<p>显然<code>MAC</code>地址是没有区分不同网络的功能的</p>
+<ul>
+<li>如果只是一个单独的网络，不接入因特网，可以只使用<code>MAC</code>地址</li>
+<li>如果主机要接入因特网，则<code>IP</code>地址和<code>MAC</code>地址都需要使用</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211104120553.png" srcset="/img/loading.gif" lazyload alt="数据包转发过程中IP地址与MAC地址的变化情况"></p>
+<p>由上图可得数据包转发过程中源<code>IP</code>地址和目的<code>IP</code>地址保持<strong>不变</strong>，源<code>MAC</code>地址和目的<code>MAC</code>地址逐个链路（或逐个网络）<strong>改变</strong>。</p>
+<h3 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h3><ul>
+<li>源主机在自己的<strong><code>ARP</code>高速缓存表</strong>中查找目的主机的<code>IP</code>地址所对应的<code>MAC</code>地址，若找到了，则可以封装<code>MAC</code>帧进行发送；若找不到，则<strong>发送<code>ARP</code>请求</strong>（封装在广播<code>MAC</code>帧中）；</li>
+<li>目的主机收到<code>ARP</code>请求后，将源主机的<code>IP</code>地址与<code>MAC</code>地址记录到自己的<code>ARP</code>高速缓存表中，然后给源主机发送<strong><code>ARP</code>响应（封装在单播<code>MAC</code>帧中）</strong>，<code>ARP</code>响应中包含有目的主机的<code>IP</code>地址和<code>MAC</code>地址；</li>
+<li><code>ARP</code>的作用范围：<strong>逐段链路</strong>或<strong>逐个网络</strong>使用；</li>
+<li>除<code>ARP</code>请求和响应外，<code>ARP</code>还有其他类型的报文（例如用于检查<code>IP</code>地址冲突的“无故<code>ARP</code>、免费<code>ARP(Gratuitous ARP)</code>”）;</li>
+<li><code>ARP</code>没有安全验证机制，<strong>存在<code>ARP</code>欺骗（攻击）问题</strong>。</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211104145654.png" srcset="/img/loading.gif" lazyload alt="ARP请求报文传递过程"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211104145829.png" srcset="/img/loading.gif" lazyload alt="ARP响应报文传递过程"></p>
+<p><code>ARP</code>高速缓存表中的地址有两种类型：</p>
+<ul>
+<li>动态：自动获取，生命周期默认为2分钟</li>
+<li>静态：手工设置，不同操作系统下的生命周期不同，例如系统重启后不存在或者系统重启后依然有效</li>
+</ul>
+<h2 id="集线器与交换机的区别"><a href="#集线器与交换机的区别" class="headerlink" title="集线器与交换机的区别"></a>集线器与交换机的区别</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">集线器HUB（淘汰）</th>
+<th style="text-align:left">交换机SWITCH</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1. 早期以太网的互连设备<br>2. 工作在<code>OSI</code>体系结构的物理层<br>3. 对接收到的信号进行放大、转发<br>4. 使用集线器作为互连设备的以太网仍然术语共享总线式以太网。集线器互连起来的所有主机共享总线带宽，属于同一个碰撞域和广播域</td>
+<td style="text-align:left">1. 目前以太网中使用最广泛的互连设备<br>2. 工作在<code>OSI</code>体系结构的数据链路层（也包括物理层）<br>3. 根据<code>MAC</code>地址对帧进行转发<br>4. 使用交换机作为互连设备的以太网，称为交换式以太网。交换机可以根据<code>MAC</code>地址过滤帧，即隔离碰撞域<br>5. 交换机的每个接口是一个独立的碰撞域<br>6. 交换机隔离碰撞域但不隔离广播域（<code>VLAN</code>除外）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="以太网交换机自学习和转发帧的流程"><a href="#以太网交换机自学习和转发帧的流程" class="headerlink" title="以太网交换机自学习和转发帧的流程"></a>以太网交换机自学习和转发帧的流程</h2><ol>
+<li>收到帧后进行<strong>登记</strong>。登记的内容为<strong>帧的源<code>MAC</code>地址</strong>及进入交换机的<strong>接口号</strong></li>
+<li>根据<strong>帧的目的<code>MAC</code>地址</strong>和交换机的<strong>帧交换表</strong>对帧进行<strong>转发</strong>，有以下三种情况：<ol>
+<li><strong>明确转发</strong>：交换机知道应该从哪个（或哪些）接口转发该帧（单播，多播，广播）</li>
+<li><strong>盲目转发</strong>：交换机不知道应该从哪个端口转发帧，只能将其通过除进入交换机的接口外的其他所有接口转发（也称为泛洪）</li>
+<li><strong>明确丢弃</strong>：交换机知道不应该转发该帧，将其丢弃</li>
+</ol>
+</li>
+</ol>
+<p><img src="/2021/11/13/ComputerNetwork/20211104153532.png" srcset="/img/loading.gif" lazyload alt="A-&gt;B"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211104153630.png" srcset="/img/loading.gif" lazyload alt="B-&gt;A"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211104153742.png" srcset="/img/loading.gif" lazyload alt="E-&gt;A"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211104153920.png" srcset="/img/loading.gif" lazyload alt="G-&gt;A"></p>
+<p>【注意】</p>
+<p>帧交换表中的每一条记录都有自己的<strong>有效时间</strong>，到期自动删除！这是因为<strong><code>MAC</code>地址与交换机接口的关系并不是永久性的</strong>！</p>
+<p>原因如下：</p>
+<ul>
+<li>交换机的接口改接了另一台主机</li>
+<li>主机更换了网卡</li>
+</ul>
+<h2 id="以太网交换机的生成树协议STP"><a href="#以太网交换机的生成树协议STP" class="headerlink" title="以太网交换机的生成树协议STP"></a>以太网交换机的生成树协议STP</h2><p>如何提高以太网的可靠性？</p>
+<p>添加<strong>冗余链路</strong>可以，但会带来负面效应——形成<strong>网络环路</strong>，网络环路会带来以下问题：</p>
+<ul>
+<li><p>广播风暴（重复转发套娃）</p>
+<p>大量消耗网络资源，使得网络无法正常转发其他数据帧</p>
+</li>
+<li><p>主机收到重复的广播帧</p>
+<p>大量消耗主机资源</p>
+</li>
+<li><p>交换机的帧交换表震荡（漂移）</p>
+</li>
+</ul>
+<p>以太网交换机使用<strong>生成树协议</strong><code>STP(Spanning Tree Protocol)</code>，可以在增加冗余链路来提高网络可靠性的同时又<strong>避免网络环路带来的各种问题</strong>。</p>
+<ul>
+<li>不论交换机之间采用怎样的物理连接，交换机都能<strong>自动计算并构建一个逻辑上没有环路的网络</strong>，其逻辑拓扑结构必须是树型的（无逻辑环路）</li>
+<li>最终生成的树型逻辑拓扑要<strong>确保连通整个网络</strong></li>
+<li>当首次连接交换机或网络<strong>物理拓扑发生变化</strong>时（有可能是人为改变或故障），交换机都将进行<strong>生成树的重新计算</strong></li>
+</ul>
+<h2 id="虚拟局域网VLAN"><a href="#虚拟局域网VLAN" class="headerlink" title="虚拟局域网VLAN"></a>虚拟局域网VLAN</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>网络中会频繁出现广播信息</p>
+<ul>
+<li><code>TCP/IP</code>协议栈中的很多协议都会使用广播：<ul>
+<li>地址解析协议<code>ARP</code>（已知<code>IP</code>地址，找出其相应的<code>MAC</code>地址）</li>
+<li>路由信息协议<code>RIP</code>（一种小型的内部路由协议）</li>
+<li>动态主机配置协议<code>DHCP</code>（用于自动配置<code>IP</code>地址）</li>
+</ul>
+</li>
+<li><code>NetBEUI</code>：<code>Windows</code>下使用的广播型协议</li>
+<li><code>IPX/SPX</code>：<code>Novell</code>网络的协议栈</li>
+<li><code>Apple Talk</code>：<code>Apple</code>公司的网络协议栈</li>
+</ul>
+<p>分割广播域的方法</p>
+<ul>
+<li>使用路由器，但成本较高</li>
+<li>虚拟局域网<code>VLAN</code>技术</li>
+</ul>
+<p>虚拟局域网<code>VLAN(Virtual Local Area Network)</code>是一种将局域网内的设备划分成与物理位置无关的逻辑组的技术，这些逻辑组具有某些共同的需求。</p>
+<h3 id="实现机制"><a href="#实现机制" class="headerlink" title="实现机制"></a>实现机制</h3><ol>
+<li><strong><code>IEEE 802.1Q</code>帧</strong></li>
+</ol>
+<p><code>IEEE 802.1Q</code>帧（也称<code>Dot One Q</code>帧）对以太网的<code>MAC</code>帧格式进行了扩展，插入了<strong>4字节的<code>VLAN</code>标记</strong>。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211104162859.png" srcset="/img/loading.gif" lazyload alt="普通MAC帧与插入标记后的MAC帧"></p>
+<p><code>VLAN</code>标记的<strong>最后 12 比特</strong>称为<strong><code>VLAN</code>标识符<code>VID</code></strong>，它唯一地标志了以太网帧术语哪一个<code>VLAN</code>。</p>
+<ul>
+<li><code>VID</code>的取值范围是 0 ~ 4095（0 ~ 2^12 - 1）</li>
+<li>0 和 4095 都不用来表示<code>VLAN</code>，因此用于表示<code>VLAN</code>的<strong><code>VID</code>的有效取值范围是 1 ~ 4094</strong></li>
+</ul>
+<p><strong><code>802.1Q</code>帧是由交换机来处理的，而不是用户主机来处理的</strong>。</p>
+<ul>
+<li>当交换机<strong>收到普通的以太网帧</strong>时，会将其插入 4 字节的<code>VLAN</code>标记转变为<code>802.1Q</code>帧，简称“<strong>打标签</strong>”</li>
+<li>当交换机<strong>转发<code>802.1Q</code>帧</strong>时，<strong>可能</strong>会删除其 4 字节<code>VLAN</code>标记转变为普通以太网帧，简称“<strong>去标签</strong>”</li>
+</ul>
+<ol>
+<li>交换机的端口类型</li>
+</ol>
+<p>交换机的端口类型有以下三种：</p>
+<ul>
+<li><p><code>Access</code></p>
+<p>一般用于<strong>连接用户计算机</strong>，只能属于一个<code>VLAN</code>，端口的<code>PVID</code>值与端口所属<code>VLAN</code>的<code>ID</code>值相同（默认为1）。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211104165120.png" srcset="/img/loading.gif" lazyload alt="Access端口发送与接收处理方法"></p>
+</li>
+<li><p><code>Trunk</code></p>
+<p>一般用于<strong>交换机之间或交换机与路由器之间的互连</strong>，可以属于多个<code>VLAN</code>，用户可以设置端口的<code>PVID</code>值（默认为1）。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211104165037.png" srcset="/img/loading.gif" lazyload alt="Trunk端口发送与接收处理方法"></p>
+</li>
+<li><p><code>Hybrid</code></p>
+<p>华为交换机私有，既可用于连接用户计算机也能连接交换机和路由器，可以属于多个<code>VLAN</code>，<code>PVID</code>可设置（默认为1）。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211104165508.png" srcset="/img/loading.gif" lazyload alt="Hybrid端口发送与接收处理方法"></p>
+</li>
+</ul>
+<p>交换机个端口的缺省<code>VLAN ID</code></p>
+<ul>
+<li>在思科交换机上称为<code>Native VLAN</code>，即本征<code>VLAN</code></li>
+<li>在华为交换机上称为<code>Port VLAN ID</code>，即端口<code>VLAN ID</code>，简记为<code>PVID</code></li>
+</ul>
+<h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><h2 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h2><p>网络层的主要任务是<strong>实现网络互连</strong>，进而<strong>实现数据包在各网络之间的传输</strong>。</p>
+<p>要实现网络层任务，需要解决以下主要问题：</p>
+<ul>
+<li>网络层向运输层提供怎样的服务（“可靠传输”还是“不可靠传输”）</li>
+<li>网络层寻址问题</li>
+<li>路由选择问题</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211105162949.png" srcset="/img/loading.gif" lazyload alt="示意图"></p>
+<h2 id="网络层提供的两种服务"><a href="#网络层提供的两种服务" class="headerlink" title="网络层提供的两种服务"></a>网络层提供的两种服务</h2><h3 id="面向连接的虚电路服务"><a href="#面向连接的虚电路服务" class="headerlink" title="面向连接的虚电路服务"></a>面向连接的虚电路服务</h3><ul>
+<li><strong>可靠通信由网络来保证</strong></li>
+<li>必须建立<strong>网络层的连接——虚电路<code>VC(Virtual Circuit)</code></strong></li>
+<li>通信双方<strong>沿着已建立的虚电路发送数组</strong></li>
+<li>目的主机的地址仅在连接建立阶段使用，之后每个<strong>分组的首部只需携带一条虚电路的编号</strong>（构成虚电路的每一段链路都有一个虚电路编号）</li>
+<li>这种通信方式如果再使用可靠传输的网络协议，就可使所发送的分组最终正确到达接收方（无差错按序到达、不丢失、不重复)。</li>
+<li><strong>通信结束后，需要释放之前所建立的虚电路</strong></li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211105165251.png" srcset="/img/loading.gif" lazyload alt="面向连接的虚电路服务"></p>
+<h3 id="无连接的数据报服务"><a href="#无连接的数据报服务" class="headerlink" title="无连接的数据报服务"></a>无连接的数据报服务</h3><ul>
+<li><strong>可靠通信由用户主机来保证</strong></li>
+<li><strong>不需要建立网络层连接</strong></li>
+<li><strong>每个分组可走不同的路径</strong></li>
+<li>每个分组的<strong>首部必须携带目的主机的完整地址</strong></li>
+<li>这种通信方式所传送的分组可能误码、丢失、重复和失序</li>
+<li>由于<strong>网络本身不提供端到端的可靠传输服务</strong>，所以网络中路由器可以做的比较简单</li>
+<li>因特网采用了这种设计思想，<strong>将复杂的网络处理功能置于因特网的边缘（用户主机和其内部的运输层）</strong>，而将相对简单的尽最大努力的分组交付功能置于因特网核心</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211105165419.png" srcset="/img/loading.gif" lazyload alt="无连接的数据报服务"></p>
+<h2 id="IPv4地址"><a href="#IPv4地址" class="headerlink" title="IPv4地址"></a>IPv4地址</h2><h3 id="概述-3"><a href="#概述-3" class="headerlink" title="概述"></a>概述</h3><p><code>IPv4</code>地址就是给因特网上的<strong>每一台主机（或路由器）的每一个接口</strong>分配一个在全世界范围内是<strong>唯一的32比特的标识符</strong>。</p>
+<p><code>IPv4</code>地址的编址方法经理了下面3个历史阶段</p>
+<ul>
+<li>分类编址</li>
+<li>划分子网</li>
+<li>无分类编址</li>
+</ul>
+<p>32比特的<code>IPv4</code>地址不方便阅读、记录以及输入等，因此采用<strong>点分十进制表示方法</strong>以便用户使用。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211105170641.png" srcset="/img/loading.gif" lazyload alt="举例"></p>
+<h3 id="分类编址"><a href="#分类编址" class="headerlink" title="分类编址"></a>分类编址</h3><p><img src="/2021/11/13/ComputerNetwork/20211105170848.png" srcset="/img/loading.gif" lazyload alt="分类编址的IPv4地址"></p>
+<p>【注意事项】</p>
+<ul>
+<li>只有 A 类、B 类和 C 类地址可分配给网络中的主机或路由器的各接口</li>
+<li>主机号为“全0”的地址是网络地址，不能分配给主机或路由器的各接口</li>
+<li>主机号为“全1”的地址是广播地址，不能分配给主机或路由器的各接口</li>
+</ul>
+<p>判断网络地址类型：</p>
+<ul>
+<li>根据地址左起第一个十进制数的值，可以判断出网络类别（小于127的为A类，128~191的为B类，192~223的为C类）</li>
+<li>根据网络类别，就可找出地址中的网络号部分和主机号部分（A类地址网络号为左起第一个字节，B类地址网络号为左起前两个字节，C类地址网络号为左起前三个字节）</li>
+<li>以下三种情况的地址不能指派给主机或路由器接口<ul>
+<li>A 类网络号 0 和 127</li>
+<li>主机号为“全 0”，这是网络地址</li>
+<li>主机号为“全 1”，这是广播地址</li>
+</ul>
+</li>
+</ul>
+<p>特殊的<code>IP</code>地址</p>
+<ul>
+<li><code>0.0.0.0</code>：本网络上的本主机，只能作为源<code>IP</code>地址，不能作为目的<code>IP</code>地址</li>
+<li><code>127.0.0.1</code>：常用的环回测试地址</li>
+<li><code>255.255.255.255</code>：只能作为目的地址使用，表示“只在本网络上进行广播（各路由器均不转发）”</li>
+</ul>
+<h3 id="划分子网"><a href="#划分子网" class="headerlink" title="划分子网"></a>划分子网</h3><p><strong>32比特的子网掩码可以表明分类<code>IP</code>地址的主机号部分被借用了几个比特作为子网号</strong></p>
+<ul>
+<li>子网掩码使用<strong>连续的比特1来对应网络号和子网号</strong></li>
+<li>子网掩码使用<strong>连续的比特0来对应主机号</strong></li>
+<li>将划分子网的<strong><code>IPv4</code>地址</strong>与其对应的<strong>子网掩码</strong>进行<strong>逻辑与运算</strong>就可得到<code>IPv4</code>地址<strong>所在子网的网络地址</strong></li>
+</ul>
+<p>给定一个分类的<code>IP</code>地址和其相应的子网掩码，就可以得到子网划分的细节：</p>
+<ul>
+<li>划分出的子网数量</li>
+<li>每个子网可分配的<code>IP</code>地址数量</li>
+<li>每个子网的网络地址（起始）和广播地址（结尾）</li>
+<li>每个子网可分配的最小和最大地址</li>
+</ul>
+<p>默认的子网掩码是指在未划分子网的情况下使用的子网掩码</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211105174723.png" srcset="/img/loading.gif" lazyload alt="默认子网掩码"></p>
+<h3 id="无分类编址"><a href="#无分类编址" class="headerlink" title="无分类编址"></a>无分类编址</h3><p>划分子网在一定程度上缓解了因特网在发展中遇到的困难，但是<strong>数量巨大的 C 类网</strong>因为其<strong>地址空间太小</strong>并<strong>没有得到充分利用</strong>。为此，提出了采用<strong>无分类编址</strong>的方法来解决<code>IP</code>地址紧张的问题。</p>
+<p>1993 年发布了无分类域间路由选择<code>CIDR(Classles Inter-Domain Routing)</code>：</p>
+<ul>
+<li><code>CIDR</code>消除了传统的 A 类、B 类和 C 类地址，以及划分子网的概念</li>
+<li><code>CIDR</code>可以更加有效地分配<code>IPv4</code>的地址空间，并且可以在新的<code>IPv6</code>使用之前允许因特网的规模继续增长</li>
+</ul>
+<p><code>CIDR</code>使用“<strong>斜线记法</strong>”，或称<code>CIDR</code>记法。即在<code>IPv4</code>地址后面加上斜线“/”，在<strong>斜线后面写上网络前缀所占的比特数量</strong></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211105180252.png" srcset="/img/loading.gif" lazyload alt="举例"></p>
+<p><code>CIDR</code>实际上是将网络前缀都相同的连续的IP地址组成一个“CIDR地址块”，我们只要知道<code>CIDR</code>地址块中的任何一个地址，就可以知道该地址块的全部细节。</p>
+<p><strong>路由聚合</strong>（构造超网）</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211105195535.png" srcset="/img/loading.gif" lazyload alt="举例"></p>
+<ul>
+<li><strong>网络前缀越长，地址块越小，路由越具体</strong></li>
+<li>若路由器查表转发分组时发现有多条路由可选，则选择网络前缀最长的那条，这称为<strong>最长前缀匹配</strong>，因为这样的路由更具体</li>
+</ul>
+<h3 id="应用规划"><a href="#应用规划" class="headerlink" title="应用规划"></a>应用规划</h3><p>有两种方法，分别是<strong>定长的子网掩码</strong><code>FLSM(Fixed Length Subnet Mask)</code>和<strong>变长的子网掩码</strong><code>VLSM(Variable Length Subnet Mask)</code>。</p>
+<p>定长的子网掩码<code>FLSM</code></p>
+<ul>
+<li>使用同一个子网掩码来划分子网</li>
+<li>每个子网多分配的<code>IP</code>地址数量相同，造成<code>IP</code>地址的浪费</li>
+</ul>
+<p>变长的子网掩码<code>VLSM</code></p>
+<ul>
+<li>使用不同的子网掩码来划分子网</li>
+<li>每个子网所分配的<code>IP</code>地址数量可以不同，尽可能减少对<code>IP</code>地址的浪费</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211105201305.png" srcset="/img/loading.gif" lazyload alt="FLSM举例"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211105201759.png" srcset="/img/loading.gif" lazyload alt="VLSM举例"></p>
+<h2 id="IP数据报的发送和转发过程"><a href="#IP数据报的发送和转发过程" class="headerlink" title="IP数据报的发送和转发过程"></a>IP数据报的发送和转发过程</h2><p>包含以下两部分：</p>
+<ul>
+<li>主机发送<code>IP</code>数据报</li>
+<li>路由器转发<code>IP</code>数据报</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211108093525.png" srcset="/img/loading.gif" lazyload alt="间接交付--C向F发送数据报"></p>
+<p>当本网络中的主机要和其他网络中的主机进行通信时，会将<code>IP</code>数据报传输给默认网关，由默认网关即路由器帮主机将<code>IP</code>数据报转发出去。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211108093941.png" srcset="/img/loading.gif" lazyload alt="默认网关"></p>
+<p>路由器收到<code>IP</code>数据报后的转发过程：</p>
+<ul>
+<li>检查<code>IP</code>数据报首部是否出错，若出错，则直接丢弃该<code>IP</code>数据报并通告源主机；若没有出错，则进行转发</li>
+<li>根据<code>IP</code>数据报的目的地址在路由表中查找匹配的条目，若找到，则按条目转发；若找不到，则丢弃该<code>IP</code>数据报并通告源主机</li>
+</ul>
+<h2 id="静态路由配置"><a href="#静态路由配置" class="headerlink" title="静态路由配置"></a>静态路由配置</h2><p>静态路由配置是指用户或网络管理员使用路由器的相关命令给路由器<strong>人工配置路由表</strong>。</p>
+<ul>
+<li>这种人工配置方式简单、开销小。但不能及时适应网络状态（流量、拓扑等）的变化</li>
+<li>一般只在小规模网络中采用</li>
+</ul>
+<p>路由条目的类型</p>
+<ul>
+<li>直连网络</li>
+<li>静态路由（人工配置）</li>
+<li>动态路由（路由选择协议）</li>
+</ul>
+<p>特殊的静态路由条目</p>
+<ul>
+<li>默认路由（目的网络为<code>0.0.0.0</code>，地址掩码为<code>0.0.0.0</code>）</li>
+<li>特定主机路由（目的网络为特定主机的<code>IP</code>地址，地址掩码为<code>255.255.255.255</code>）</li>
+<li>黑洞路由（下一跳为<code>null0</code>）</li>
+</ul>
+<p>使用静态路由配置可能出现以下<strong>导致</strong>产生<strong>路由环路</strong>的错误</p>
+<ul>
+<li>配置错误</li>
+<li>聚合了不存在的网络</li>
+<li>网络故障</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211108111831.png" srcset="/img/loading.gif" lazyload alt="特定主机路由与默认路由"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211108112019.png" srcset="/img/loading.gif" lazyload alt="路由环路举例1"></p>
+<p>为了防止<code>IP</code>数据报在路由环路中永久兜圈，在<code>IP</code>数据报首部设有生存时间<code>TTL</code>字段。<code>IP</code>数据报进入路由器后，<code>TTL</code>字段的值减1。若<code>TTL</code>的值不等于0，则被路由器转发，否则被丢弃。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211108112857.png" srcset="/img/loading.gif" lazyload alt="路由环路举例2"></p>
+<p>解决办法是在路由表中添加黑洞路由：</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211108112953.png" srcset="/img/loading.gif" lazyload alt="添加黑洞路由"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211108113246.png" srcset="/img/loading.gif" lazyload alt="路由环路举例3"></p>
+<p>解决办法也是在路由表中添加黑洞路由：</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211108113337.png" srcset="/img/loading.gif" lazyload alt="添加黑洞路由"></p>
+<h2 id="路由选择协议概述"><a href="#路由选择协议概述" class="headerlink" title="路由选择协议概述"></a>路由选择协议概述</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">静态路由选择</th>
+<th style="text-align:left">动态路由选择</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1. 由<strong>人工配置</strong>的网络路由、默认路由、特定主机路由、黑洞路由等都属于静态路由<br>2. 人工配置方式简单、开销小。但不<strong>能及时适应网络状态（流量、拓扑等）的变化</strong><br>3. 一般只在<strong>小规模网络</strong>中采用</td>
+<td style="text-align:left">1. 路由器通过路由选择协议<strong>自动获取路由信息</strong><br>2. 比较复杂、开销比较大。<strong>能较好地适应网络状态的变化</strong><br>3. 适用于<strong>大规模网络</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>路由选择协议的主要特点：</p>
+<ul>
+<li>自适应：动态路由选择，能较好地适应网络状态的变化</li>
+<li>分布式：路由器之间交换路由信息</li>
+<li>分层次：将整个因特网划分为许多较小的自治系统<code>AS(Atonomous System)</code></li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211108114958.png" srcset="/img/loading.gif" lazyload alt="常见的路由选择协议"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211108115519.png" srcset="/img/loading.gif" lazyload alt="路由器的基本结构"></p>
+<h2 id="IPv4数据报的首部格式"><a href="#IPv4数据报的首部格式" class="headerlink" title="IPv4数据报的首部格式"></a>IPv4数据报的首部格式</h2><p><img src="/2021/11/13/ComputerNetwork/20211108150845.png" srcset="/img/loading.gif" lazyload alt="IPv4数据报的首部格式"></p>
+<h2 id="网际控制报文协议ICMP"><a href="#网际控制报文协议ICMP" class="headerlink" title="网际控制报文协议ICMP"></a>网际控制报文协议ICMP</h2><p>为了更有效地转发<code>IP</code>数据报和提高交付成功的机会，在网际层使用了网际控制报文协议<code>ICMP(Internet Control Message Protocol)</code>。</p>
+<p>主机或路由i去使用<code>ICMP</code>来发送<strong>差错报告报文</strong>和<strong>询问报文</strong>。 </p>
+<p><strong><code>ICMP</code>报文被封装在<code>IP</code>数据报</strong>中发送。</p>
+<p><code>ICMP</code>差错报文共有五种： </p>
+<ul>
+<li><p>终点不可达</p>
+<p>路由器或主机不能交付数据报时，就向源点发送终点不可达报文。</p>
+</li>
+<li><p>源点抑制</p>
+<p>路由器或主机由于拥塞而丢弃数据报时，就向源点发送源点抑制报文。</p>
+</li>
+<li><p>时间超过</p>
+<p>路由器收到一个目的<code>IP</code>地址不是自己的<code>IP</code>数据报，会将其生存时间<code>TTL</code>字段的值减1。若结果不为0，则将该<code>IP</code>数据报转发出去；若结果为0，除丢弃该<code>IP</code>数据报后，还要向源点发送时间超过报文。</p>
+<p>另外，当终点在预先规定的时间内不能收到一个数据报的全部数据报片时，就把已收到的数据报片都丢弃，也会向源点发送时间超过报文。</p>
+</li>
+<li><p>参数问题</p>
+<p>路由器或目的主机收到<code>IP</code>数据报后，根据其首部中的检验和字段发现首部在传输过程中出现了误码，就丢弃该数据报，并向源点发送参数问题报文。</p>
+</li>
+<li><p>改变路由（重定向）</p>
+<p>路由器把改变路由报文发送给主机，让主机知道下次应将数据报发送给另外的路由器（可通过更好的路由）。</p>
+</li>
+</ul>
+<p>不应发送<code>ICMP</code>差错报告报文的情况：</p>
+<ul>
+<li>对<code>ICMP</code>差错报告报文不再发送<code>ICMP</code>差错报告报文</li>
+<li>对第一个分片的数据报片的所有后续数据报片都不发送<code>ICMP</code>差错报告报文</li>
+<li>对具有多播地址的数据报都不发送<code>ICMP</code>差错报告报文</li>
+<li>对具有特殊地址（如<code>127.0.0.1</code>或<code>0.0.0.0</code>）的数据报不发送<code>ICMP</code>差错报告报文</li>
+</ul>
+<p>常用的<code>ICMP</code>询问报文：</p>
+<ul>
+<li><p>回送请求报文</p>
+<p><code>ICMP</code>回送请求报文是由主机或路由器向一个特定的目的主机发出的询问。收到此报文的主机必须给源主机或者路由器发送<code>ICMP</code>回送回答报文。<strong>用来测试目的站是否可达</strong>。</p>
+</li>
+<li><p>时间戳请求和回答</p>
+<p><code>ICMP</code>时间戳请求报文是请某个主机或路由器回答当前的日期和时间。<strong>用来进行时钟同步和测量时间</strong>。</p>
+</li>
+</ul>
+<p><code>ICMP</code>应用举例</p>
+<ul>
+<li><p>分组网间探测<code>PING(Packet InterNet Groper)</code></p>
+<ul>
+<li>用来测试主机或路由器间的连通性</li>
+<li>应用层直接使用网际层的<code>ICMP</code>（没有通过运输层的<code>TCP</code>或<code>UDP</code>）</li>
+<li>使用<code>ICMP</code>回送请求和回答报文</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211108161305.png" srcset="/img/loading.gif" lazyload alt="ping示例"></p>
+</li>
+<li><p>跟踪路由<code>traceroute</code></p>
+<ul>
+<li>用来测试<code>IP</code>数据报从源主机到达目的主机要经过哪些路由器</li>
+<li>Windows<ul>
+<li>tracert命令</li>
+<li>应用层直接使用网际层<code>ICMP</code></li>
+<li>使用了<code>ICMP</code>回送请求报文和回答报文以及差错报告报文</li>
+</ul>
+</li>
+<li>Unix<ul>
+<li>traceroute命令</li>
+<li>在运输层使用<code>UDP</code>协议</li>
+<li>仅使用<code>ICMP</code>差错报告报文</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211108161204.png" srcset="/img/loading.gif" lazyload alt="跟踪示例"></p>
+</li>
+</ul>
+<h2 id="虚拟专用网-VPN-与网络地址转换-NAT"><a href="#虚拟专用网-VPN-与网络地址转换-NAT" class="headerlink" title="虚拟专用网 VPN 与网络地址转换 NAT"></a>虚拟专用网 VPN 与网络地址转换 NAT</h2><p>虚拟专用网<code>VPN(Virtual Private Network)</code></p>
+<ul>
+<li><p>内联网<code>VPN</code></p>
+<p>同一机构内不同部门的内部网络所构成的虚拟专用网<code>VPN</code>。 </p>
+</li>
+<li><p>外联网<code>VPN</code></p>
+<p>一个机构的<code>VPN</code>需要有某些外部机构参加进来。</p>
+</li>
+<li><p>远程接入<code>VPN</code></p>
+<p>在外网环境下运行<code>VPN</code>软件来与公司的主机建立<code>VPN</code>隧道，即可访问专用网络即内网中的资源。</p>
+</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211108162215.png" srcset="/img/loading.gif" lazyload alt="内联网VPN"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211108163115.png" srcset="/img/loading.gif" lazyload alt="专用网络地址即本地地址"></p>
+<p>网络地址转换<code>NAT(Network Address Translation)</code></p>
+<p><code>NAT</code>能使大量使用内部专用地址的专用网络用户共享少量外部全球地址来访问因特网上的主机和资源。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211108163741.png" srcset="/img/loading.gif" lazyload alt="网络地址转换NAT"></p>
+<p>这种转换方法会由于NAT路由器中的全球<code>IP</code>地址有限而受限，至多只能有对应数量的内网主机能够和因特网上的主机通信。</p>
+<p>由于绝大多数的网络应用都是使用运输层协议<code>TCP</code>或<code>UDP</code>来传送数据，因此可以利用运输层的端口号和<code>IP</code>地址一起进行转换。这样用<strong>一个全球<code>IP</code>地址</strong>就可以使<strong>多个本地主机</strong>同时和因特网上的主机痛惜。这种将端口号和<code>IP</code>地址一起进行转换的技术叫做<strong>网络地址与端口号转换<code>NAPT(Network Address and Port Translation)</code></strong>。</p>
+<h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><h2 id="概述-4"><a href="#概述-4" class="headerlink" title="概述"></a>概述</h2><ul>
+<li>物理层、数据链路层以及网络层它们共同解决了将主机通过异构网络互联起来所面临的问题，<strong>实现了主机到主机的通信</strong>。</li>
+<li>实际上在计算机网络中进行<strong>通信的真正实体是位于通信两端主机中的进程</strong>。</li>
+<li><strong>如何为运行在不同主机上的应用进程提供直接的通信服务是运输层的任务</strong>，运输层协议又称为端到端协议。</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211110103624.png" srcset="/img/loading.gif" lazyload alt="示意图"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211110103941.png" srcset="/img/loading.gif" lazyload alt="不同主机上的应用进程通信"></p>
+<p>运输层直接为应用进程间的逻辑通信提供服务。</p>
+<p>根据应用需求的不同，<strong>因特网的运输层</strong>为应用层提供了两种不同的运输协议，即面向连接的<code>TCP</code>和无连接的<code>UDP</code>。</p>
+<h2 id="运输层端口号、复用与分用"><a href="#运输层端口号、复用与分用" class="headerlink" title="运输层端口号、复用与分用"></a>运输层端口号、复用与分用</h2><ul>
+<li>运行在计算机上的进程使用<strong>进程标识符</strong><code>PID</code>来标志。</li>
+<li>不同的操作系统使用<strong>不同格式的进程标识符</strong>。</li>
+<li>为了使不同操作系统的计算机的应用进程之间能够通信，就必须<strong>使用统一的方法对<code>TCP\IP</code>体系的应用进程进行标识</strong>。</li>
+<li><code>TCP\IP</code>体系的运输层使用<strong>端口号</strong>来区分应用层的不同应用进程。<ul>
+<li>端口号使用<strong>16比特表示</strong>，取值范围 <strong>0~65535</strong>；<ul>
+<li>熟知端口号：0~1023，<code>TCP\IP</code>中最重要的一些应用协议，如：<code>FTP</code>使用 21/20，<code>HTTP</code>使用 80，<code>DNS</code>使用 53。</li>
+<li>登记端口号：1024~49151，为没有熟知端口号的应用程序使用。按规定手续登记，防止重复。如：<code>Microsoft RDP</code>微软远程桌面使用的端口是3389。</li>
+<li>短暂端口号：49252~65535，苦于给客户进程选择暂时使用。通信结束后可供其他客户进程使用。</li>
+</ul>
+</li>
+<li><strong>端口号只具有本地意义</strong>，即端口号只是为了<strong>标识本计算机应用层中的各进程</strong>，在因特网中，<strong>不同计算机中的相同端口号是没有联系的</strong>。</li>
+</ul>
+</li>
+</ul>
+<p>发送方的复用和接收方的分用</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211110110441.png" srcset="/img/loading.gif" lazyload alt="发送方的复用和接收方的分用"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211110110533.png" srcset="/img/loading.gif" lazyload alt="TCP/IP体系的应用层常用协议所使用的运输层熟知端口号"></p>
+<h2 id="UDP-与-TCP-的对比"><a href="#UDP-与-TCP-的对比" class="headerlink" title="UDP 与 TCP 的对比"></a>UDP 与 TCP 的对比</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">用户数据报协议UDP(User Datagram Protocol)</th>
+<th style="text-align:left">传输控制协议TCP(Transmission Control Protocol)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1. 可随时发送数据，无连接的<code>UDP</code><br>2. 支持单播、多播以及广播，即支持一对一，一对多，一对全的通信<br>3. <code>UDP</code>是面向应用报文的<br>4. <code>UDP</code>向上层提供无连接<strong>不可靠的传输</strong>服务（适用于<code>IP</code>电话、视频会议等实时应用）<br>5. <code>UDP</code>用户数据报首部仅8字节</td>
+<td style="text-align:left">1. 数据传输之前必须通过“三报文握手”建立连接，数据传输完成后必须通过“四报文挥手”释放连接，<strong>面向连接的<code>TCP</code></strong><br>2. 仅支持单播，即一对一通信，因为数据传输前需要建立连接<br>3. <code>TCP</code>是面向字节流的<br>4. <code>TCP</code>向上层提供面向连接的<strong>可靠传输</strong>服务（适用于要求可靠传输的应用，例如文件传输）<br>5. <code>TCP</code>报文段首部最小20字节，最大60字节</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="/2021/11/13/ComputerNetwork/20211110112746.png" srcset="/img/loading.gif" lazyload alt="UDP用户数据报与TCP报文段的首部对比"></p>
+<h2 id="TCP-的流量控制"><a href="#TCP-的流量控制" class="headerlink" title="TCP 的流量控制"></a>TCP 的流量控制</h2><p>所谓流量控制<code>(flow control)</code>就是<strong>让发送方的发送速率不要太快，要让接收方来得及接收</strong>。</p>
+<p>利用<strong>滑动窗口</strong>机制可以很方便地在<code>TCP</code>连接上实现对发送方的流量控制。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211110114215.png" srcset="/img/loading.gif" lazyload alt="举例"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211110114340.png" srcset="/img/loading.gif" lazyload alt="TCP死锁"></p>
+<p><strong>解决<code>TCP</code>死锁问题：</strong></p>
+<p><code>TCP</code>为每一个连接设有一个持续计时器。只要<code>TCP</code>连接的一方收到对方的零窗口通知，就启动持续计时器。若计时器超时，就发送一个零窗口探测报文，仅携带 1 字节的数据，对方在确认这个探测报文段时，给出自己现在的接收窗口值。如果仍然是0，那么收到这个报文段的一方就重新启动持续计时器，若不为0，死锁的局面就可以打破了。</p>
+<p>若零窗口探测报文段丢失，也能打破死锁的局面，因为零窗口探测报文段也有重传计时器。当超时后，零窗口探测报文段会被重传。</p>
+<h2 id="TCP-的拥塞控制"><a href="#TCP-的拥塞控制" class="headerlink" title="TCP 的拥塞控制"></a>TCP 的拥塞控制</h2><p>对网络中某一资源的需求超过了该资源所能提供的可用部分，网络性能就要变坏。这种情况就叫做<strong>拥塞</strong><code>(congestion)</code>。</p>
+<p>若出现拥塞而不进行控制，整个网络的吞吐量将随输入负荷的增大而下降。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211110115714.png" srcset="/img/loading.gif" lazyload alt="输入负载与吞吐量的关系"></p>
+<p><code>TCP</code>的拥塞控制算法</p>
+<ul>
+<li>慢开始<code>(slow-start)</code></li>
+<li>拥塞避免<code>(congestion avoidance)</code></li>
+<li>快重传<code>(fast retransmit)</code></li>
+<li>快恢复<code>(fast recovery)</code></li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211110120517.png" srcset="/img/loading.gif" lazyload alt="慢开始和拥塞避免"></p>
+<ul>
+<li><p>“慢开始”是指一开始向网络注入的报文段少，并不是指拥塞窗口<code>cwnd</code>增长速度慢</p>
+</li>
+<li><p>“拥塞避免”并非是指完全能够避免拥塞， 而是指拥塞避免阶段将拥塞窗口控制为按线性规律增长，比较不容易出现拥塞</p>
+</li>
+<li><p>所谓快重传就是使发送方尽快进行重传，而不是等超时重传计时器超时再重传。</p>
+<ul>
+<li>接收方<strong>立即发送确认</strong></li>
+<li>即使收到失序的报文段也要立即发出对已收到报文段的<strong>重复确认</strong></li>
+<li>发送方一旦收到 3 个连续的重复确认，就将相应报文段<strong>立即重传</strong>，而不是等到超时重传</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211110121356.png" srcset="/img/loading.gif" lazyload alt="示意图"></p>
+</li>
+<li><p>发送方一旦收到 3 个重复确认，就可以知道只是丢失了个别报文段。故不启动慢开始算法，而<strong>执行快恢复算法</strong></p>
+<ul>
+<li>发送方将慢开始门限<code>ssthresh</code>值和拥塞窗口<code>cwnd</code>值调整为当前窗口的一半；开始执行拥塞避免算法。</li>
+<li>也有的快恢复实现是把快恢复开始时的拥塞窗口<code>cwnd</code>值再增大一些，即等于新的<code>ssthresh + 3</code><ul>
+<li>接收到 3 个重复的确认表明有 3 个数据报文段已经离开了网络，因此可以适当扩大拥塞窗口</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211110122059.png" srcset="/img/loading.gif" lazyload alt="4种算法"></p>
+<h2 id="TCP-超时重传时间的选择"><a href="#TCP-超时重传时间的选择" class="headerlink" title="TCP 超时重传时间的选择"></a>TCP 超时重传时间的选择</h2><p><img src="/2021/11/13/ComputerNetwork/20211110151246.png" srcset="/img/loading.gif" lazyload alt="示意图"></p>
+<ul>
+<li><p>不能直接使用某次测量得到的<code>RTT</code>样本来计算超时重传时间<code>RTO</code></p>
+</li>
+<li><p>利用每次测量得到的<code>RTT</code>样本，计算加权平均往返时间<code>RTTs</code>（又称为平滑的往返时间）</p>
+</li>
+<li><p>超时重传时间<code>RTO</code>应略大于加权平均往返时间<code>RTTs</code></p>
+</li>
+</ul>
+<ul>
+<li><p>针对<strong>出现超时重传时无法测准往返时间</strong><code>RTT</code>的问题，<code>Karn</code>提出了一个算法：在计算加权平均往返时间<code>RTTs</code>时，只要报文段重传了，就不采用其往返时间<code>RTT</code>样本。但这样会引起新的问题，如果报文段的时延突然增大了很多并且保持很长一段时间，那么在原有的重传时间内是收不到确认报文的，那么会反复重传报文。</p>
+</li>
+<li><p>因此对<code>Karn</code>算法进行修正：报文段每重传一次，就把超时重传时间<code>RTO</code>增大一些。典型做法是增大到原来的 2 倍。</p>
+</li>
+</ul>
+<h2 id="TCP-可靠传输的实现"><a href="#TCP-可靠传输的实现" class="headerlink" title="TCP 可靠传输的实现"></a>TCP 可靠传输的实现</h2><p><code>TCP</code>基于<strong>以字节为单位的滑动窗口</strong>来实现可靠传输。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211112113930.png" srcset="/img/loading.gif" lazyload alt="示意图"></p>
+<ul>
+<li>虽然发送方的发送窗口是根据接收方的接收窗口设置的，但在同一时刻，<strong>发送方的发送窗口并不总是和接收方的接收窗口</strong>一样大<ul>
+<li>网络传送窗口值需要经历一定时间的滞后</li>
+<li>发生拥塞发送方需减小发送窗口尺寸</li>
+</ul>
+</li>
+<li>对于<strong>不按序到达的数据应如何处理</strong>，<code>TCP</code>无明确规定<ul>
+<li>若一律丢弃，那么接收窗口的管理会比较简单，但这样对网络资源的利用不利，因为发送方会重复传送较多的数据</li>
+<li>通常是先临时存放在接收窗口中，等到字节流中所缺少的字节收到后，再<strong>按序交付上层的应用进程</strong></li>
+</ul>
+</li>
+<li><code>TCP</code>要求接收方必须有<strong>累计确认和捎带确认机制</strong>，这样可以减小传输开销。接收方可以在合适的时候发送确认，也可以在自己有数据要发送时把确认信息顺便捎带上。<ul>
+<li><strong>接收方不应过分推迟发送确认</strong>，否则会导致发送方不必要的超时重传，这反而会浪费网络资源。<code>TCP</code>标准规定，确认推迟的时间不应超过 0.5 秒</li>
+<li>捎带确认实际上很少发生，因为大多数应用程序很少同时在两个方向上发送数据</li>
+</ul>
+</li>
+<li><strong><code>TCP</code>的通信是全双工通信</strong>。通信中的每一方都在发送和接收报文段。因此，每一方都有自己的发送窗口和接收窗口</li>
+</ul>
+<h2 id="TCP-的运输连接管理"><a href="#TCP-的运输连接管理" class="headerlink" title="TCP 的运输连接管理"></a>TCP 的运输连接管理</h2><h3 id="TCP-的连接建立"><a href="#TCP-的连接建立" class="headerlink" title="TCP 的连接建立"></a>TCP 的连接建立</h3><ul>
+<li><p><code>TCP</code>是面向连接的协议，它基于运输连接来传送<code>TCP</code>报文段</p>
+</li>
+<li><p><code>TCP</code>运输连接的建立和释放是每一次面向连接的通信中必不可少的过程</p>
+</li>
+<li><p><code>TCP</code>运输连接有三个阶段，建立<code>TCP</code>连接、数据传送和释放<code>TCP</code>连接</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211112115950.png" srcset="/img/loading.gif" lazyload alt="TCP连接的三个阶段"></p>
+</li>
+<li><p><code>TCP</code>的运输连接管理就是使运输连接的建立和释放都能正常地进行</p>
+</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211112120425.png" srcset="/img/loading.gif" lazyload alt="TCP使用“三报文握手”建立连接"></p>
+<p>【注意】</p>
+<ul>
+<li><code>TCP</code>标准规定<code>SYN = 1</code>的报文段不能携带数据，但要消耗掉一个序号</li>
+<li><code>TCP</code>标准规定普通的确认报文段如果不携带数据，则不消耗序号</li>
+</ul>
+<p><code>TCP</code>客户进程最后发送一个普通的<code>TCP</code>确认报文段是否多余即是否可以使用两报文握手？</p>
+<p>不多余，这是为了防止已失效的连接请求报文段突然又传送到了<code>TCP</code>服务器，因而导致错误。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211112120832.png" srcset="/img/loading.gif" lazyload alt="原因"></p>
+<h3 id="TCP-的连接释放"><a href="#TCP-的连接释放" class="headerlink" title="TCP 的连接释放"></a>TCP 的连接释放</h3><p><img src="/2021/11/13/ComputerNetwork/20211112121839.png" srcset="/img/loading.gif" lazyload alt="TCP通过”四报文挥手“来释放连接"></p>
+<p><strong><code>TCP</code>客户进程在发送完最后一个确认报文段后，进入时间等待状态是否有必要？</strong></p>
+<p>有必要，因为发送的最后一个确认报文段可能会丢失，导致<code>TCP</code>服务器没有接收到进行超时重传，而此时若<code>TCP</code>客户端已进入关闭状态，则会收不到导致<code>TCP</code>服务器无法进入关闭状态。另外，<code>TCP</code>客户进程在发送完最后一个确认报文段后，再经过<code>2MSL</code>时长，就可以使本次连接持续时间内多产生的所有报文段都从网络中消失，这样就会使下一个<code>TCP</code>连接中不会出现就链接中的报文段。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211112122144.png" srcset="/img/loading.gif" lazyload alt="原因"></p>
+<p><strong>当<code>TCP</code>客户端出现故障时，<code>TCP</code>服务器如何发现？</strong></p>
+<p>TCP服务器进程每收到一次TCP客户进程的数据，就重新设置并启动<strong>保活计时器</strong>（2小时定时）。</p>
+<p>若保活计时器定时周期内未收到<code>TCP</code>客户进程发来的数据，则<strong>当保活计时器到时后，<code>TCP</code>服务器进程就向<code>TCP</code>客户进程发送一个探测报文段</strong>，以后则每隔75秒钟发送一次。若一连发送10个探测报文段后仍无<code>TCP</code>客户进程的响应，<code>TCP</code>服务器进程就认为<code>TCP</code>客户进程所在主机出了故障，接着就关闭这个连接。</p>
+<h2 id="TCP-报文段的首部格式"><a href="#TCP-报文段的首部格式" class="headerlink" title="TCP 报文段的首部格式"></a>TCP 报文段的首部格式</h2><p><img src="/2021/11/13/ComputerNetwork/20211112200056.png" srcset="/img/loading.gif" lazyload alt="TCP 报文段的首部格式"></p>
+<ul>
+<li><strong>源端口</strong>：占16比特，写入源端口号，用来<strong>标识发送该<code>TCP</code>报文段的应用进程</strong>。</li>
+<li><strong>目的端口</strong>：占16比特，写入目的端口号，用来<strong>标识接收该<code>TCP</code>报文段的应用进程</strong>。</li>
+<li><strong>序号</strong>：占32比特，取值范围<code>[0, 2^32 - 1]</code>，序号增加到最后一个后，下一个序号就又回到0。<strong>指出本<code>TCP</code>报文段数据载荷的第一个字节的序号</strong>。</li>
+<li><strong>确认号</strong>：占32比特，取值范围<code>[0, 2^32 - 1]</code>，确认号增加到最后一个后，下一个确认号就又回到0。<strong>指出期望收到对方下一个<code>TCP</code>报文段的数据载荷的第一个字节的序号</strong>，同时也是对之前收到的所有数据的确认。若确认号为 n ，则表明到序号<code>n - 1</code>为止的所有数据都已正确接收，期望接收序号为 n 的数据。</li>
+<li><strong>确认标志位<code>ACK</code></strong>：取值为1时确认号字段才有效；取值为0时确认号字段无效。<code>TCP</code>规定，在连接建立后所有传送的<code>TCP</code>报文段都必须把<code>ACK</code>置1。</li>
+<li><img src="/2021/11/13/ComputerNetwork/20211112201509.png" srcset="/img/loading.gif" lazyload alt="示意图"></li>
+<li><strong>数据偏移</strong>：占4比特，并以4字节为单位。用来<strong>指出<code>TCP</code>报文段的数据载荷部分的起始处距离<code>TCP</code>报文段的起始处有多远</strong>。这个字段实际上是指出了<code>TCP</code>报文段的首部长度。故数据偏移字段的最小值为<code>0101</code>（20 / 4），最大值为<code>1111</code>（60 / 4）。</li>
+<li><strong>保留</strong>：占6比特，保留为今后使用，但目前应置为0。</li>
+<li><strong>窗口</strong>：占16比特，以字节为单位。<strong>指出发送本报文段的一方的接收窗口</strong>。窗口值作为接收方让发送方设置其发送窗口的依据。这是以接收方的接收能力来控制发送方的发送能力，称为流量控制。</li>
+<li><strong>校验和</strong>：占16比特，检查范围包括<code>TCP</code>报文段的首部和数据载荷两部分。在计算校验和时，要在<code>TCP</code>报文段的前面加上12字节的伪首部。</li>
+<li><strong>同步标志位<code>SYN</code></strong>：在<code>TCP</code>连接建立时用来同步序号。</li>
+<li><strong>终止标志位<code>FIN</code></strong>：用来释放<code>TCP</code>连接。</li>
+<li><strong>复位标志位<code>RST</code></strong>：用来复位<code>TCP</code>连接。当<code>RST = 1</code>时，标识<code>TCP</code>连接出现了异常，必须释放连接，然后再重新建立连接。<code>RST</code>置1还用来拒绝一个非法的报文段或拒绝打开一个<code>TCP</code>连接。</li>
+<li><strong>推送标志位<code>PSH</code></strong>：接受方的<code>TCP</code>收到该标志位为1的报文段会<strong>尽快上交应用进程</strong>，而不必等到接收缓存都填满后再向上交付。</li>
+<li><strong>紧急标志位<code>URG</code></strong>：取值为1时紧急指针字段有效；取值为0时紧急指针字段无效。</li>
+<li><strong>紧急指针</strong>：占16比特，以字节为单位，用来指明紧急数据的长度。当发送方有紧急数据时，可将紧急数据插队到发送缓存的最前面，并立刻封装到一个<code>TCP</code>报文段中进行发送。</li>
+<li><strong>选项</strong>：<ul>
+<li>最大报文段长度<code>MSS</code>选项</li>
+<li>窗口扩大选项</li>
+<li>时间戳选项</li>
+<li>选择确认选项</li>
+</ul>
+</li>
+<li><strong>填充</strong>：由于选项的长度可变，因此使用填充来<strong>确保报文段首部能被4整除</strong>（因为数据偏移字段，也就是首部长度字段，是以4字节为单位的）。</li>
+</ul>
+<h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1><h2 id="概述-5"><a href="#概述-5" class="headerlink" title="概述"></a>概述</h2><p>应用层是计算机网络体系结构的<strong>最顶层</strong>，是<strong>设计和建立计算机网络的最终目的</strong>，也是计算机网络中发展最快的部分。</p>
+<h2 id="客户-服务器方式（C-S）和对等方式（P2P）"><a href="#客户-服务器方式（C-S）和对等方式（P2P）" class="headerlink" title="客户/服务器方式（C / S）和对等方式（P2P）"></a>客户/服务器方式（C / S）和对等方式（P2P）</h2><p><strong>客户/服务器（Client/Server）方式</strong></p>
+<ul>
+<li>客户和服务器是指通信中所设计的两个应用进程。</li>
+<li>客户/服务器方式所描述的是进程之间服务和被服务的关系。</li>
+<li>客户是服务请求方，服务器是服务提供方。</li>
+<li>服务器总是处于运行状态，并等待客户的服务请求。服务器具有固定端口号（例如<code>HTTP</code>服务器的默认端口号为80），而运行服务器的主机也具有固定的<code>IP</code>地址。</li>
+</ul>
+<p><strong>对等（Peer-to-Peer）方式</strong></p>
+<ul>
+<li>再<code>P2P</code>方式中，<strong>没有固定的服务请求者和服务提供者</strong>，分布在网络边缘各端系统中的应用进程是对等的，被称为<strong>对等方</strong>。<strong>对等方相互之间直接通信</strong>，每个对等方既是服务的请求者，又是服务的提供者。</li>
+<li>目前流行的<code>P2P</code>应用主要包括<code>P2P</code>文件共享、即时通信、<code>P2P</code>流媒体、分布式存储等。</li>
+<li>基于<code>P2P</code>的应用是<strong>服务分散型</strong>的。</li>
+<li><code>P2P</code>方式的最突出特性之一就是它的<strong>可扩展性</strong>。因为每增加一个对等方，不仅增加了服务请求者，也增加了提供者，系统性能不会因规模的增大而降低。</li>
+</ul>
+<h2 id="动态主机配置协议-DHCP"><a href="#动态主机配置协议-DHCP" class="headerlink" title="动态主机配置协议 DHCP"></a>动态主机配置协议 DHCP</h2><ul>
+<li>动态主机配置协议<code>DHCP(Dynamic Host Configuration Protocol)</code>提供了一种机制，称为即插即用连网。这种机制<strong>允许一台计算机加入新网络时可自动获取<code>IP</code>地址等网络配置信息而不用手工参与</strong>。</li>
+<li><code>DHCP</code>报文<strong>在运输层使用<code>UDP</code>协议封装</strong>。</li>
+<li><code>DHCP</code>客户在未获取到<code>IP</code>地址时使用地址<code>0.0.0.0</code>。</li>
+<li>在每一个网络上都设置一个<code>DHCP</code>服务器会使<code>DHCP</code>服务器的数量太多。因此现在是使每一个网络至少有一个<code>DHCP</code>中继代理（通常是一台路由器），它配置了<code>DHCP</code>服务器的<code>IP</code>地址信息，作为各网络中计算机与<code>DHCP</code>服务器的桥梁。</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211112211406.png" srcset="/img/loading.gif" lazyload alt="DHCP的作用"></p>
+<h2 id="域名系统-DNS"><a href="#域名系统-DNS" class="headerlink" title="域名系统 DNS"></a>域名系统 DNS</h2><ul>
+<li>因特网采用<strong>层次树状结构的域名结构</strong>。</li>
+<li>域名的结构由若干个分量组成，各分量之间用“点”隔开，分别代表不同级别的域名。<ul>
+<li>每一级的域名都由英文字母和数字组成，不超过63个字符，不区分大小写字母</li>
+<li>级别最低的域名写在最左边，而级别最高的顶级域名写在最右边</li>
+<li>完整的域名不超过255个字符</li>
+</ul>
+</li>
+</ul>
+<p>顶级域名<code>TLD(Top Level Domain)</code>分为三类：</p>
+<ul>
+<li><p>国家顶级域名<code>nTLD</code></p>
+<p>如<code>cn</code>、<code>us</code>、<code>uk</code>等。</p>
+</li>
+<li><p>通用顶级域名<code>gTLD</code></p>
+<p>最常见的7个：<code>com</code>、<code>net</code> 、<code>org</code>、<code>int</code>、<code>edu</code>、<code>gov</code>、<code>mil</code>。</p>
+</li>
+<li><p>反向域<code>arpa</code></p>
+<p>用于反向域名解析，即<code>IP</code>地址反向解析为域名。</p>
+</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211112213954.png" srcset="/img/loading.gif" lazyload alt="域名空间"></p>
+<p>域名和IP地址的映射关系必须保存在域名服务器中，供所有其他应用查询。显然不能将所有信息都储存在一台域名服务器中。DNS使用<strong>分布在各地的域名服务器</strong>来实现域名到IP地址的转换。</p>
+<p>域名服务器可以划分为以下四种不同的类型：</p>
+<ul>
+<li><p><strong>根域名服务器</strong></p>
+<p>根域名服务器通常并不直接对域名进行解析，而是返回该域名所属顶级域名的顶级域名服务器的<code>IP</code>地址。</p>
+</li>
+<li><p><strong>顶级域名服务器</strong></p>
+<p>管理在该顶级域名服务器注册的所有二级域名。</p>
+</li>
+<li><p><strong>权限域名服务器</strong></p>
+<p>管理某个区的域名。</p>
+</li>
+<li><p><strong>本地域名服务器</strong></p>
+<p>本地域名服务器起着代理的作用，会将该报文转发到上述的域名服务器的等级结构中。</p>
+</li>
+</ul>
+<p>域名解析过程有<strong>递归查询</strong>和<strong>迭代查询</strong>。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211112214558.png" srcset="/img/loading.gif" lazyload alt="递归查询"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211112214621.png" srcset="/img/loading.gif" lazyload alt="递归 + 迭代查询（常用）"></p>
+<p>为了提高DNS的查询效率，并减轻根域名服务器的负荷和减少因特网上的DNS查询报文数量，在域名服务器中广泛地使用了<strong>高速缓存</strong>。高速缓存用来存放最近查询过的域名以及从何处获得域名映射信息的记录。</p>
+<p>由于域名到IP地址的映射关系并不是永久不变，为保持高速缓存中的内容正确，域名服务器<strong>应为每项内容设置计时器并删除超过合理时间的项</strong>（例如，每个项目只存放两天）。</p>
+<p>不但在本地域名服务器中需要高速缓存，在用户主机中也很需要。</p>
+<p><code>DNS</code>报文使用运输层的<code>UDP</code>协议进行封装，运输层<strong>端口号为53</strong>。</p>
+<h2 id="文件传送协议-FTP"><a href="#文件传送协议-FTP" class="headerlink" title="文件传送协议 FTP"></a>文件传送协议 FTP</h2><p>文件传送协议<code>FTP(File Transfer Protocol)</code>是因特网上使用的最广泛的文件传送协议。</p>
+<ul>
+<li><code>FTP</code><strong>提供交互式的访问</strong>，允许客户<strong>指明文件的类型与格式</strong>（如指明是否使用<code>ASCII</code>码），并允许文件具有存取权限（如访问文件的用户必须经过授权）。</li>
+<li><code>FTP</code>屏蔽了各计算机系统的细节，因而适合在异构网络中任意计算机之间传送文件。</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211112215837.png" srcset="/img/loading.gif" lazyload alt="主动模式与被动模式"></p>
+<h2 id="电子邮件"><a href="#电子邮件" class="headerlink" title="电子邮件"></a>电子邮件</h2><p>电子邮件发送过程：</p>
+<ol>
+<li>发件人将邮件发送到自己的<strong>邮件服务器</strong></li>
+<li>邮件服务器按1其目的地址转发</li>
+<li>收件人随时可获取收到的电子邮件</li>
+</ol>
+<p>电子邮件系统采用 C/S 方式，有3个主要组成构件：用户代理，邮件服务器以及电子邮件所需要的协议。</p>
+<ul>
+<li><strong>用户代理</strong>是用户与电子邮件系统的接口，又称为<strong>电子邮件客户端软件</strong>。</li>
+<li><strong>邮件服务器</strong>是电子邮件系统的基础设施，其功能是<strong>发送和接收邮件</strong>，同时还要负责维护用户的邮箱。</li>
+<li>协议包括邮件发送协议（例如<code>SMTP</code>）和邮件读取协议（例如<code>POP3</code>，<code>IMAP</code>）。</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211112220644.png" srcset="/img/loading.gif" lazyload alt="邮件发送过程"></p>
+<p><code>SMTP(Simple Mail Transfer Protocol)</code>协议只能传送<code>ASCII</code>码文本数据，不能传送可执行文件或其他的二进制对象。不能满足传送多媒体邮件的需要，为解决<code>SMTP</code>传送非<code>ASCII</code>码文本的问题，提出了多用途因特网邮件扩展<code>MIME(Multipurpose Internet MailExtensions)</code>。</p>
+<h2 id="万维网-WWW"><a href="#万维网-WWW" class="headerlink" title="万维网 WWW"></a>万维网 WWW</h2><p>万维网<code>WWW(World Wide Web)</code><strong>并非某种特殊的计算机网络</strong>。它是一个大规模的、联机式的信息储藏所，<strong>是运行在因特网上的一个分布式应用</strong>。</p>
+<ul>
+<li><p>万维网利用网页之间的<strong>超链接</strong>将不同网站的网页链接成一张逻辑上的信息网。</p>
+</li>
+<li><p>万维网使用<strong>统一资源定位符<code>URL</code></strong>来指明因特网上任何种类“资源”的位置。</p>
+</li>
+<li><code>URL</code>的一般形式由以下四个部分组成：<code>&lt;协议&gt;://&lt;主机&gt;:&lt;端口&gt;/&lt;路径&gt;</code></li>
+</ul>
+<p><strong>超文本传输协议<code>HTTP(HyperText Transfer Protocol)</code></strong></p>
+<p><code>HTTP</code>定义了浏览器怎样向万维网服务器请求万维网文档，以及万维网服务器怎样把万维网文档传送给浏览器。</p>
+<ul>
+<li><p><code>HTTP/1.0</code>采用<strong>非持续连接</strong>方式。在该方式下，每次浏览器要请求一个文件都要与服务器建立<code>TCP</code>连接，当收到响应后就立即关闭连接。</p>
+<ul>
+<li><strong>每请求一个文档就要有两倍的<code>RTT</code>的开销</strong>。若一个网页上有很多引用对象（例如图片等)，那么请求每一个对象都需要花费<code>2RTT</code>    的时间。</li>
+<li>为了减小时延，<strong>浏览器通常会建立多个并行的<code>TCP</code>连接同时请求多个对象</strong>。但是，这会大量占用万维网服务器的资源，特别是万维网服务器往往要同时服务于大量客户的请求，这会使其负担很重。</li>
+</ul>
+<p><img src="/2021/11/13/ComputerNetwork/20211113094310.png" srcset="/img/loading.gif" lazyload alt="请求文档过程"></p>
+</li>
+<li><p><code>HTTP/1.1</code>采用<strong>持续连接</strong>方式。在该方式下，万维网服务器在发送响应后仍然保持这条连接，使同一个客户（浏览器）和该服务器可以继续在这条连接上传送后续的<code>HTTP</code>请求报文和响应报文。这并不局限于传送同一个页面上引用的对象，而是只要这些文档都在同一个服务器上就行。</p>
+<ul>
+<li>为了进一步提高效率，<code>HTTP/1.1</code>的持续连接还可以使用<strong>流水线</strong>方式工作，即浏览器在收到HTTP的响应报文之前就能够连续发送多个请求报文。</li>
+</ul>
+</li>
+</ul>
+<p><code>HTTP</code>的报文格式</p>
+<p><code>HTTP</code>是<strong>面向文本</strong>的，其报文中的每一个<strong>字段</strong>都是一些<strong><code>ASCII</code>码串</strong>，并且每个字段的<strong>长度</strong>都是<strong>不确定</strong>的。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211113094654.png" srcset="/img/loading.gif" lazyload alt="HTTP请求报文格式"></p>
+<p><img src="/2021/11/13/ComputerNetwork/20211113094744.png" srcset="/img/loading.gif" lazyload alt="HTTP响应报文格式"></p>
+<p><code>Cookie</code>是一种对无状态的<code>HTTP</code>进行状态化的技术，使得万维网服务器能够记住用户。</p>
+<p><img src="/2021/11/13/ComputerNetwork/20211113095102.png" srcset="/img/loading.gif" lazyload alt="Cookie原理"></p>
+<p>万维网缓存与代理服务器</p>
+<ul>
+<li>利用缓存机制可以提高万维网效率</li>
+<li>万维网缓存又称为<code>Web缓存(Web Cache)</code>，可位于客户机，也可位于中间系统上，位于中间系统上的<code>Web</code>缓存又称为<strong>代理服务器</strong><code>(Proxy Server)</code>。</li>
+<li><code>Web</code>缓存把最近的一些请求和响应暂存在本地磁盘中。当新请求到达时，若发现这个请求与暂时存放的请求相同，就返回暂存的响应，而不需要按<code>URL</code>的地址再次去因特网访问资源。</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1c4411d7jb">计算机网络微课堂-湖科大教书匠</a></li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/11/28/DistributedLock/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">分布式锁</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/12/SpringIOC/">
+                        <span class="hidden-mobile">Spring的IOC</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz","appKey":"xjP4U0FLblVtlDA1XXAP2906","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://rxykbovt.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  <div>
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>
+    <script>
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("4/5/2021 12:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){
+                  mnum = "0" + mnum;
+        }
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){
+                  snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "本站已经运行&nbsp"+dnum+"&nbsp天";
+        document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+    }
+    setInterval("createtime()",250);
+    </script>
+  </div>  
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+  <!-- 页面点击小红心 -->
+  
+    <script type="text/javascript" src="/js/clicklove.js"></script>
+  
+  
+  <!-- 雪花特效-->
+  
+    <script type="text/javascript" src="/js/snow.js"></script>
+  
+
+  <!--彩带1.点击自动替换彩带-->
+  
+    <script type="text/javascript" src="/js/ribbon.js"></script>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

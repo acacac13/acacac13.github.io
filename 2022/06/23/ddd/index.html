@@ -1,0 +1,957 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="It&#39;s fine">
+  <meta name="author" content="AoCan">
+  <meta name="keywords" content="">
+  
+  <title>ddd - Blog Of AC</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/a11y-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"acacac13.top","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz","app_key":"xjP4U0FLblVtlDA1XXAP2906","server_url":"https://rxykbovt.lc-cn-n1-shared.com"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>小朋友你回家吃饭吗</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/custom.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="ddd">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-06-23 23:07" pubdate>
+        June 23, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      9.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      101
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">ddd</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：June 24, 2022 am
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>DDD 全称是（Domain-Driven Desgin，简称 DDD），领域驱动设计。</p>
+<h1 id="为什么要学习-DDD-领域驱动设计？"><a href="#为什么要学习-DDD-领域驱动设计？" class="headerlink" title="为什么要学习 DDD 领域驱动设计？"></a>为什么要学习 DDD 领域驱动设计？</h1><p>在早期软件开发，对于一些简单业务，只需要使用一个模块，编写多个业务逻辑就可以搞定。但是随着业务增长，当需要修改其中某一项功能，则修改困难，原因是该功能可能会侵蚀其他代码模块。修改需要谨慎，投入时间成本，人力成本过高。DDD 模型可以很好的解决这个问题。</p>
+<h1 id="DDD-模型解决了什么问题？"><a href="#DDD-模型解决了什么问题？" class="headerlink" title="DDD 模型解决了什么问题？"></a>DDD 模型解决了什么问题？</h1><p>粒度更小，架构更加清晰，业务需求变化的时候，系统架构也能随之变化。DDD 所呈现的系统必然是高内聚，低耦合的，在业务系统中，不会因为修改 A 模块影响到了 B 模块的使用。</p>
+<h2 id="过度耦合"><a href="#过度耦合" class="headerlink" title="过度耦合"></a>过度耦合</h2><p>在系统创建初期，业务初期，功能对于基础设计都非常简单，普通的 CRUD 就可以满足业务需要，但是随着系统的迭代，业务逻辑变得复杂，此时系统的冗余程度也会随之增加。此时需要修改其中的某个节点的逻辑，可能伴随着影响到其他模块的业务逻辑。此问题的根源出现在系统架构不清晰，划分出来的模块内聚度低，高耦合。</p>
+<p>有一种解决方案，按照演进式设计的理论，让系统的设计随着系统的实现增长而增长。不需要提前设计，就让系统伴随业务成长而演进。敏捷实践中的重构、测试驱动设计及持续集成可以对付各种混乱问题。</p>
+<p>事实上，在解决现实问题的时候，我们会将问题映射到脑海中的概念模型，在模型中解决问题，再将解决方案转换为实际的代码。上述问题在于我们解决了设计到代码之间的重构，但提炼出来的设计模型，并不具有实际的业务含义，这就导致在开发需求的时候，其他同学不能自然的将业务问题映射到该设计模型。并不具有实际的业务含义。</p>
+<p>用 DDD 则可以很好的解决领域驱动模型到设计模型的同步、演化，最后再将反映了领域的设计模型转为实际的代码。</p>
+<h2 id="贫血症和失忆症"><a href="#贫血症和失忆症" class="headerlink" title="贫血症和失忆症"></a>贫血症和失忆症</h2><p>贫血领域对象：贫血领域对象（Academic Domain Object）是指仅用做数据载体，而没有行为和动作的领域对象。</p>
+<ul>
+<li>场景需求</li>
+</ul>
+<p>奖池中配置了很多奖项，我们需要按运营预先配置的概率抽中一个奖项。实现非常简单，生成一个随机数，匹配符合该随机数生成概率的奖项即可。</p>
+<ul>
+<li>贫血模型实现方案</li>
+</ul>
+<p>先设计奖池和奖项的库 2张数据库表</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AwardPool</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> awardPoolId;<br>    List&lt;Award&gt; awards;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Award&gt; <span class="hljs-title">getAwards</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> awards;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setAwards</span><span class="hljs-params">(List&lt;Award&gt; awards)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.awards = awards;<br>    &#125;<br>    ......<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Award</span> </span>&#123;<br>   <span class="hljs-keyword">int</span> awardId;<br>   <span class="hljs-keyword">int</span> probability;<span class="hljs-comment">//概率</span><br><br>   ......<br>&#125;<br><br><span class="hljs-comment">// Service的实现</span><br>AwardPool awardPool = awardPoolDao.getAwardPool(poolId);<span class="hljs-comment">//sql查询，将数据映射到AwardPool对象</span><br><span class="hljs-keyword">for</span> (Award award : awardPool.getAwards()) &#123;<br>   <span class="hljs-comment">//寻找到符合award.getProbability()概率的award</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>按照传统开发思想可以发现，我们的业务逻辑都是在 Service 中去编写的，Award 只是一个数据载体，没有任何行为。简单的业务系统采用这种贫血模型和过程化设计是没有问题的，但是业务逻辑一旦复杂了，业务逻辑状态会散落在大量的方法中，原本的代码意图会渐渐不明确，我们将这种情况称为由贫血引起的<strong>失忆症</strong>。</p>
+<p>更好的是采用领域模型的开发方式，将数据和行为封装在一起，并与现实世界中的业务对象映射。各类具备明确的职责划分，将领域逻辑分散到领域对象中。按照这种思想，上述的例子就应该把概率放在 AwardPool 中。</p>
+<h1 id="DDD-相比-MVC"><a href="#DDD-相比-MVC" class="headerlink" title="DDD 相比 MVC"></a>DDD 相比 MVC</h1><p><img src="file:///Users/aocan/Desktop/code/acacac13.github.io/source/_posts/ddd/bj-ea220c42c286a9495b6d0123f4807b25b7d4abec.png" srcset="/img/loading.gif" lazyload title alt data-align="center"></p>
+<ol>
+<li><p><strong>用户接口层</strong> 用户接口层负责向用户显示信息和解释用户指令。</p>
+</li>
+<li><p><strong>应用层</strong> 应用层是很薄的一层，理论上不应该由业务规则或逻辑，主要面向用例和流程相关的操作。也可以完成编排多个聚合服务和领域对象完成业务操作；调用其他微服务的应用服务，完成微服务之间服务的组合和编排。<br>应用服务是在应用层的，它负责服务的组合、编排和转发，负责处理业务用例的执行顺序以及结果的拼装，以粗粒度的服务通过 API 网关向前端发布。还有，应用服务还可以进行安全认证、权限校验、事务控制、发送或订阅领域事件等。</p>
+</li>
+<li><p><strong>领域层（domain层）</strong> 领域层的作用是<strong>实现企业核心业务逻辑</strong>，通过各种校验手段保证业务的正确性。领域层主要体现领域模型的业务能力，它用来表达业务概念，业务状态和业务规则；领域层包含聚合根，实体，值对象。领域服务等领域模型中的领域对象；领域模型的业务逻辑主要是由实体和领域服务来实现的。</p>
+<p><strong>实体会采用充血模型来实现所有与之相关的业务功能。</strong> 实体和领域对象在实现业务逻辑上是同级的，当领域中的某些功能，单一实体（或者值对象）不能实现时，领域服务就会出马他可以组合聚合内的多个实体（或者值对象），实现复杂的业务逻辑。</p>
+</li>
+<li><p><strong>基础层（Repository）</strong> 基础层是贯穿所有层的，它的作用就是为其它各层提供通用的技术和基础服务，包括第三方工具、驱动、消息中间件、网关、文件、缓存以及数据库等。比较常见的功能还是提供数据库持久化。</p>
+<p>基础层包含基础服务，它采用依赖倒置设计，封装基础资源服务，实现应用层、领域层与基础层的解耦，降低外部资源变化对应用的影响。</p>
+<p>比如说，在传统架构设计中，由于上层应用对数据库的强耦合，很多公司在架构演进中最担忧的可能就是换数据库了，因为一旦更换数据库，就可能需要重写大部分的代码，这对应用来说是致命的。那采用依赖倒置的设计以后，应用层就可以通过解耦来保持独立的核心业务逻辑。当数据库变更时，我们只需要更换数据库基础服务就可以了，这样就将资源变更对应用的影响降到了最低。</p>
+</li>
+</ol>
+<h1 id="设计领域模型的一般步骤"><a href="#设计领域模型的一般步骤" class="headerlink" title="设计领域模型的一般步骤"></a>设计领域模型的一般步骤</h1><ol>
+<li>根据需求划分出初步的领域和限界上下文，以及上下文之间的关系；</li>
+<li>进一步分析每个上下文内部，识别出哪些是实体，哪些是值对象</li>
+<li>对实体、值对象进行关联聚合，划分出聚合的范畴和聚合根</li>
+<li>为聚合根设计仓储，并思考实体或值对象的创建方式</li>
+<li>在工程中实践领域模型，并且在实践中检验模型的合理性，倒推模型中的不足的地方并重构</li>
+</ol>
+<h1 id="贫血模型"><a href="#贫血模型" class="headerlink" title="贫血模型"></a>贫血模型</h1><p>贫血模型定义对象的简单的属性值，没有业务逻辑上的方法。将“行为”和“状态”分离到不用的对象中。</p>
+<ul>
+<li><p>“行为”：逻辑、过程</p>
+</li>
+<li><p>“状态”：数据，对应到语言就是对象成员变量</p>
+</li>
+<li><p>只有状态的对象就是所谓的“贫血对象”（常称为 VO）</p>
+</li>
+<li><p>只有行为的对象就是，我们常见的N层结构中的 Logic/Service/Manager 层</p>
+</li>
+</ul>
+<p>贫血领域模型是一个存在已久的反模式。</p>
+<p><img src="https://pic2.zhimg.com/v2-75522d954d602361789e16497e519739_r.jpg" srcset="/img/loading.gif" lazyload title alt="preview" data-align="center"></p>
+<p>贫血领域模型的基本特征是第一眼看起来还真像这么回事。项目中有许多对象，他们的命名都是根据领域来的。对象之间有着丰富的连接方式，和真正的领域模型非常相似。而且这些对象基本没有任何行为，仅仅是一堆 getter/setter。</p>
+<p>其实这些对象在设计之初就被定义为只能包含数据，不能加入领域逻辑；逻辑要全部写入 Service 的对象中，而 Service 则构建在领域模型上，需要使用这些模型来传递数据。</p>
+<p>面向对象设计主张将数据和行为绑定在一起，而贫血领域模型则更像是一种面向过程设计，如今，面向对象的概念已经传播的很广泛了，而要反对这种贫血领域模型的做法，还需要更多论据。贫血领域模型的根本问题是，它引入了领域模型设计的所有成本，却没有带来任何好处。最主要的成本是将对象映射到数据库中，从而产生了一个 O/R（对象关系）映射层。</p>
+<p>只有当充分使用了面向对象设计来组织复杂的业务逻辑后，这一成本才能够被抵消。如果将所有行为都写入到 Service 对象，那最终就会得到一组事务脚本，从而错过了领域模型带来的好处。</p>
+<p>将行为放入领域模型，这点和分层设计（领域层、持久层、展现层等）并不冲突。因为领域模型中放入的是和领域相关的逻辑—验证、计算、业务规则等。一些面向对象专家的观点有时会让人产生疑惑，他们认为的确应该有一个面向过程的服务层。但是这并不意味着领域模型就不应该包含行为。事实上，service 层需要和一组富含行为的领域模型结合使用。</p>
+<h2 id="应用层（即-Service-层）"><a href="#应用层（即-Service-层）" class="headerlink" title="应用层（即 Service 层）"></a>应用层（即 Service 层）</h2><p>描述应用程序所要做的工作，并调度丰富的领域模型来完成它。这个层次的任务是描述业务逻辑，或和其它项目的应用层做交互。这层很薄，不包含任何业务规则或知识，仅用于调度和派发任务给下一层的领域模型。这层没有业务状态，但可以为用户或程序提供任务状态。</p>
+<h2 id="领域层（或者叫模型层）"><a href="#领域层（或者叫模型层）" class="headerlink" title="领域层（或者叫模型层）"></a>领域层（或者叫模型层）</h2><p>表示业务逻辑、业务场景和规则。该层次会控制和使用业务状态，即使这些状态最终会交由持久层来存储。总之，该层是软件核心。</p>
+<p>服务层很薄—所有重要的业务逻辑都写在领域层。他在服务模式中复述了这一观点：如今人们常犯的错误是不愿花时间将业务逻辑放到合适的领域模型中，从而逐渐形成面向过程的程序设计。</p>
+<h1 id="充血模型"><a href="#充血模型" class="headerlink" title="充血模型"></a>充血模型</h1><p>面向对象设计的本质是：“一个对象是拥有状态和行为的”。</p>
+<p>比如一个人：</p>
+<ul>
+<li><p>他眼睛什么样鼻子怎么样这就是状态</p>
+</li>
+<li><p>人可以去打游戏或是写程序，这就是行为</p>
+</li>
+</ul>
+<p>为什么需要由一个“人 Manager”这样的东西存在去帮人“打游戏”呢？举个简单的 J2EE 案例，设计一个用户（User）相关功能。</p>
+<p>传统设计一般是：</p>
+<ul>
+<li><p>类：User + UserManager</p>
+</li>
+<li><p>保存用户调用：<code>userManager.save(User user)</code></p>
+</li>
+</ul>
+<p>充血的设计则可能会是：</p>
+<ul>
+<li><p>类：User</p>
+</li>
+<li><p>保存用户调用：<code>user.save()</code></p>
+</li>
+<li><p>User 有一个行为是：保存它自己</p>
+</li>
+</ul>
+<p>OOP 总是比面向过程的编程有更丰富的语义、更合理的组织、更强的可维护性，当然也更难掌握。</p>
+<p>在实际工程场景中使用充血模型还有很多细节问题，其中最大的难关就是”如何设计充血模型“或者说”如何从复杂的业务中分离出恰到好处且包含予以的逻辑放到 VO 的行为中“。如果一个对象包含其他对象，那就将职责继续委托下去，由具体的 POJO 执行业务逻辑，将策略模式更加细粒度，而不是写 <code>ifelse</code>。</p>
+<h1 id="DDD-与充血模型的关系"><a href="#DDD-与充血模型的关系" class="headerlink" title="DDD 与充血模型的关系"></a>DDD 与充血模型的关系</h1><p>我们在平时进行web开发的时候，就是定义DTO，定义数据库Model，BO等，对其进行get set方法，然后通过service 对Bo对象进行操作，最后通过copy属性持久化数据库和DTO传输。但是如果是充血模型的话，就不用在service进行属性赋值，而是在创建这个对象的时候，进行业务操作，赋予其属性值。这里也就是DDD的思想，这个对象也就是DDD所定义的Entity 或者 value 。Service也就是domianService，由多个Entity 和value 组成，构造最终的领域模型。</p>
+<p><img src="https://pic1.zhimg.com/v2-2bc4c559fad595f71016f2097c15cb8c_r.jpg" srcset="/img/loading.gif" lazyload title alt="preview" data-align="center"></p>
+<h1 id="传统架构对比-DDD"><a href="#传统架构对比-DDD" class="headerlink" title="传统架构对比 DDD"></a>传统架构对比 DDD</h1><p>软件架构模式发展到现在可以主要经历了三个阶段：UI + DataBase的两层架构、UI + Service + DataBase的多层SOA架构、分布式微服务架构。</p>
+<h2 id="传统架构的缺点"><a href="#传统架构的缺点" class="headerlink" title="传统架构的缺点"></a>传统架构的缺点</h2><p>在前两种架构中，系统分析、设计和开发往往是独立、分阶段割裂进行的。</p>
+<ol>
+<li><p>两层架构是面向发数据库的架构，根本没有灵活性。</p>
+</li>
+<li><p>微服务盛行的今天，多层 SOA 架构已经完全不能满足微服务架构应用的需求，它存在一些问题</p>
+</li>
+</ol>
+<ul>
+<li><p>臃肿的 Service</p>
+</li>
+<li><p>三层分层后文件的随意组装方式</p>
+</li>
+<li><p>技术导向分层，导致业务分离，不能快速定位</p>
+</li>
+</ul>
+<h1 id="DDD-领域驱动"><a href="#DDD-领域驱动" class="headerlink" title="DDD 领域驱动"></a>DDD 领域驱动</h1><p>虽说分布式微服务有这么好的优点，但也不是适合所有的系统，而且也会有许多问题。</p>
+<p>微服务的粒度应该多大呀？微服务到底应该如何拆分和设计呢？微服务的边界应该在哪里？这些都是微服务设计要解决的问题，但是很久以来都没有一套系统的理论和方法可以指导微服务的拆分，综合来看，我认为微服务拆分困境产生的根本原因就是不知道业务或者微服务的边界到底在什么地方。换句话说，确定了业务边界和应用边界，这个困境也就迎刃而解了。</p>
+<p><strong>DDD 核心思想是通过领域驱动设计方法定义领域模型，从而确定业务和应用边界，保证业务模型与代码模型的一致性。</strong></p>
+<p>领域驱动设计是一种以<strong>业务</strong>为导向的软件设计方法和思路。我们在开发前，通常需要进行大量的业务知识梳理，而后到达软件设计的层面，最后才是开发。而在业务知识梳理的过程中，我们必然会形成某个领域知识，根据领域知识来一步步驱动软件设计，就是领域驱动设计的基本概念。而领域驱动设计的核心就在于建立正确的领域驱动模型。</p>
+<h2 id="DDD-包括战略设计和战术设计两部分"><a href="#DDD-包括战略设计和战术设计两部分" class="headerlink" title="DDD 包括战略设计和战术设计两部分"></a>DDD 包括战略设计和战术设计两部分</h2><p><strong>战略设计</strong>主要从业务视角出发，建立业务领域模型，划分领域边界，建立通用语言的限界上下文，限界上下文可以作为微服务设计的参考边界。</p>
+<p><strong>战术设计</strong>则从技术视角出发，侧重于领域模型的技术实现，完成软件开发和落地，包括：聚合根、实体、值对象、领域服务、应用服务和资源库等代码扩及的设计和实现。</p>
+<p>战略设计时构建的领域模型，是微服务设计和开发的输入，它确定了微服务的边界、聚合、代码对象以及服务等关键领域对象。领域模型边界划分得请不清晰，领域对象定义得名不明确，会决定微服务的设计和开发质量。没有领域模型的输入，基于 DDD 的微服务的设计和开发将无从谈起。因此我们不仅需要重视战术设计，更要重视战略设计。</p>
+<h1 id="DDD-的优势"><a href="#DDD-的优势" class="headerlink" title="DDD 的优势"></a>DDD 的优势</h1><ol>
+<li>接触到需求第一步就是考虑领域模型，而不是将其切割成数据和行为，然后数据用数据库实现，行为使用服务实现，最后造成需求的首肢分离。DDD让你首先考虑的是业务语言，而不是数据。重点不同导致编程世界观不同。</li>
+<li>DDD可以更加领域模型界限上下文边界快速拆分微服务，实现系统架构适应业务的快速变化，例如：系统的用户量并发量增长得很快，单体应用很快就支持不了，如果我们一开始就采用DDD领域驱动设计，那我们就能很快的把服务拆分成多个微服务，以适应快速增长的用户量。</li>
+<li>DDD 是一套完整而系统的设计方法，它能带给你从战略设计到战术设计的标准设计过程，使得你的设计思路能够更加清晰，设计过程更加规范。</li>
+<li>使用DDD可以降低服务的耦合性，让系统设计更加规范，即使是刚加入团队的新人也可以根据业务快速找到对应的代码模块，降低维护成本。</li>
+<li>DDD 善于处理与领域相关的拥有高复杂度业务的产品开发，通过它可以建立一个核心而稳定的领域模型，有利于领域知识的传递与传承。</li>
+<li>DDD 强调团队与领域专家的合作，能够帮助你的团队建立一个沟通良好的氛围，构建一致的架构体系。</li>
+<li>DDD 的设计思想、原则与模式有助于提高你的架构设计能力。</li>
+<li>无论是在新项目中设计微服务，还是将系统从单体架构演进到微服务，都可以遵循 DDD 的架构原则。</li>
+</ol>
+<h1 id="DDD-设计原则"><a href="#DDD-设计原则" class="headerlink" title="DDD 设计原则"></a>DDD 设计原则</h1><ol>
+<li>要领域驱动设计，而不是数据驱动设计，也不是界面驱动设计。</li>
+<li>要边界清晰的微服务，而不是泥球小单体。</li>
+<li>要职能清晰的分层，而不是什么都放的大箩筐。</li>
+<li>要做自己能 hold 住的微服务，而不是过度拆分的微服务。</li>
+</ol>
+<h1 id="微服务拆分需要考虑哪些元素？"><a href="#微服务拆分需要考虑哪些元素？" class="headerlink" title="微服务拆分需要考虑哪些元素？"></a>微服务拆分需要考虑哪些元素？</h1><p>理论上一个限界上下文内的领域模型可以被设计为微服务，但是由于领域建模主要从业务视角出发，没有考虑非业务因素，比如需求变更频率、高性能、安全、团队以及技术异构等因素，而这些非业务因素对于领域模型的系统落地也会起到决定性作用，因此在微服务拆分时我们需要重点考虑它们。</p>
+<p><strong>基于领域模型</strong></p>
+<ul>
+<li>基于领域模型进行拆分，围绕业务领域按职责单一性、功能完整性拆分。</li>
+</ul>
+<p><strong>基于业务需求变化频率</strong></p>
+<ul>
+<li>识别领域模型中的业务需求变动频繁的功能，考虑业务变更频率与相关度，将业务需求变动较高和功能相对稳定的业务进行分离。这是因为需求的经常性变动必然会导致代码的频繁修改和版本发布，这种分离可以有效降低频繁变动的敏态业务对稳态业务的影响。</li>
+</ul>
+<p><strong>基于应用性能</strong></p>
+<ul>
+<li>识别领域模型中性能压力较大的功能。因为性能要求高的功能可能会拖累其它功能，在资源要求上也会有区别，为了避免对整体性能和资源的影响，我们可以把在性能方面有较高要求的功能拆分出去。</li>
+</ul>
+<p><strong>基于组织架构和团队规模</strong></p>
+<ul>
+<li>除非有意识地优化组织架构，否则微服务的拆分应尽量避免带来团队和组织架构的调整，避免由于功能的重新划分，而增加大量且不必要的团队之间的沟通成本。拆分后的微服务项目团队规模保持在 10～12 人左右为宜。</li>
+</ul>
+<p><strong>基于安全边界</strong></p>
+<ul>
+<li>有特殊安全要求的功能，应从领域模型中拆分独立，避免相互影响。</li>
+</ul>
+<p><strong>基于技术异构</strong></p>
+<ul>
+<li>领域模型中有些功能虽然在同一个业务域内，但在技术实现时可能会存在较大的差异，也就是说领域模型内部不同的功能存在技术异构的问题。由于业务场景或者技术条件的限制，有的可能用.NET，有的则是 Java，有的甚至大数据架构。对于这些存在技术异构的功能，可以考虑按照技术边界进行拆分。</li>
+</ul>
+<h1 id="CQRS-架构"><a href="#CQRS-架构" class="headerlink" title="CQRS 架构"></a>CQRS 架构</h1><p>核心思想是将应用程序的<strong>查询</strong>部分和<strong>命令</strong>部分完全隔离，这两部分可以用完全不同的模型和技术去实现。比如命令部分可以通过领域驱动设计来实现；查询部分可以直接用最快的非面向对象的方式去实现，比如用 SQL。这样的思想有很多好处：</p>
+<ol>
+<li><p>实现命令部分的领域模型不用经常为了领域对象可能会被如何查询而做一些折中处理；</p>
+</li>
+<li><p>由于命令和查询是隔离开的，所以这两部分可以用不同的技术架构实现，包括数据库设计都可以分开设计，每一部分可以充分发挥其长处；</p>
+</li>
+<li><p>高性能，命令端因为没有返回值，可以像消息队列一样接受命令，放在队列中，慢慢处理；处理完后，可以通过异步的方式通知查询端，这样查询端可以做数据同步的处理。</p>
+</li>
+</ol>
+<h1 id="Event-Sourcing（事件溯源）"><a href="#Event-Sourcing（事件溯源）" class="headerlink" title="Event Sourcing（事件溯源）"></a>Event Sourcing（事件溯源）</h1><p>对于 ddd 中的聚合，不保存聚合的当前状态，而是保存对象上发生的每个事件。当要重建一个聚合对象时，可以通过这些事件（即让这些事件重新发生）来让对象恢复到某个特定的状态；因为有时一个聚合可能会发生很多事件，所以每次要在重建对象时都从头回溯事件，会导致性能低下，所以我们会在一定的时候为聚合创建一个快照。</p>
+<h1 id="四色模型"><a href="#四色模型" class="headerlink" title="四色模型"></a>四色模型</h1><ul>
+<li><p>时刻-时间段原型（Moment-Interval Archetype）</p>
+<p>表示在某个时刻或某一段时间内发生的某个活动。使用粉色表示，简写为 MI。</p>
+</li>
+<li><p>参与方-地点-物品原型（Part-Place-Thing Archetype）</p>
+<p>表示参与某个活动的人或物，地点则是活动的发生地。使用绿色表示。简写为 PPT。</p>
+</li>
+<li><p>描述原型（Description Archetype）</p>
+<p>表示对 PPT 的本质描述，不是 PPT 的分类。使用蓝色表示，简写为 DESC。</p>
+</li>
+<li><p>角色原型（Role Archetype）</p>
+<p>角色就是我们平时所理解的“身份”。使用黄色表示，简写为 Role。</p>
+</li>
+</ul>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="1-应用服务和领域服务的区别？为什么需要应用层来连接领域层和接口层？"><a href="#1-应用服务和领域服务的区别？为什么需要应用层来连接领域层和接口层？" class="headerlink" title="1. 应用服务和领域服务的区别？为什么需要应用层来连接领域层和接口层？"></a>1. 应用服务和领域服务的区别？为什么需要应用层来连接领域层和接口层？</h2><p><strong>应用服务</strong></p>
+<p>应用服务负责组织业务场景，编排业务。它将要实现的功能委托给一个或多个领域对象来实现，它本身只负责处理业务用例的执行顺序以及结果的拼装。通过这样一种方式，它隐藏了领域层的复杂性及其内部实现机制，隔离场景对领域层的差异。</p>
+<p>应用层相对来说是较“薄”的一层，除了定义应用服务之外，在该层我们可以进行安全认证，权限校验，持久化事务控制，或者向其他系统发生基于事件的消息通知，另外还可以用于创建邮件以发送给客户等。</p>
+<p><strong>领域服务</strong></p>
+<p>领域服务是用来协调领域对象完成某个操作，用来处理业务逻辑的，它本身是一个行为，所以是无状态的。状态由领域对象（具有状态和行为）保存。</p>
+<p>一般来说，在下面的几种情况下，我们可以使用领域服务：</p>
+<ul>
+<li>执行一个显著的业务操作过程</li>
+<li>对领域对象进行转换</li>
+<li>以多个领域对象为输入，返回一个值对象。</li>
+</ul>
+<p><strong>为什么需要应用层？</strong></p>
+<p>应用层作为用户接口层与领域层的桥梁。用户接口层与应用层通过DTO（数据传输对象）进行数据交互，从而达到展现层与DO（领域对象）解耦的目的。</p>
+<p>如果没有应用层，导致领域服务和场景绑定，复用性大大降低。例如系统接受用户自己注册，也可以使用微信登录完成一个隐藏的用户注册。另外一个例子，对于新用户，系统会为他赠送一些积分，在没有应用层的情况下，服务被前端直接调用，于是服务不得不定义来自不同渠道的 API。随着对接的业务越来越多，微服务中的代码的分支条件越来越多。所以需要你添加一层来隔离差异。</p>
+<p>应用层和领域层的定位：</p>
+<blockquote>
+<p>领域层，实现具体的业务逻辑、规则，为应用层提供无差别的服务能力。<br>应用层，组织业务场景，编排业务，隔离场景对领域层的差异。</p>
+</blockquote>
+<h2 id="2-基础设施层能直接调用领域层的对象吗？"><a href="#2-基础设施层能直接调用领域层的对象吗？" class="headerlink" title="2. 基础设施层能直接调用领域层的对象吗？"></a>2. 基础设施层能直接调用领域层的对象吗？</h2><p>基础设施层能直接调用领域层的对象，因为依赖倒置了，基础设施层与领域层依赖于相同的抽象接口，但领域层不能使用基础设施层的对象。</p>
+<h2 id="3-dao和Repository（资源库）有什么区别？"><a href="#3-dao和Repository（资源库）有什么区别？" class="headerlink" title="3. dao和Repository（资源库）有什么区别？"></a>3. dao和Repository（资源库）有什么区别？</h2><p>dao 是 Data Access Object 的缩写，是一种结构型设计模式，用于分离业务层（应用）和持久化层（数据库）。dao 模式是一种分层的思想，这层就是用于处理和数据库交互（CRUD），而业务层不需要知道 dao 层的实现细节。<strong>dao 模式可以理解为数据库操作的简单封装。</strong></p>
+<p><strong>资源库的定义类似 dao，位于 dao 之上的更高一层，更接近于业务层。</strong> 资源库位于领域模型和数据映射层之间，就像一个位于内存的领域对象集合，提供了一种管理领域对象的机制。资源库的工作流程是：业务层使用近乎自然语言构建查询条件提交给资源库，资源库执行对象增删改查操作（就像操作集合一样），最后资源库自动将操作转为 SQL 的 CRUD 并执行。资源库可以使用 dao 执行数据查询，将返回结果转为领域对象，或新建领域对象，戏院哭执行新增操作，它自动转为 dao 新增方法实现数据持久化。</p>
+<p><strong>对比</strong></p>
+<ul>
+<li><p>dao 抽象数据持久化，资源库抽象领域对象集合；</p>
+</li>
+<li><p>dao 是底层概念，更接近数据库，资源库是高层概念，更接近领域对象（业务逻辑）；</p>
+</li>
+<li><p>dao 简单、通用，可以简单理解为 CRUD 的封装，操作对象是 SQL 语句，资源库复杂、抽象，可以理解为对领域模型的封装，操作对象是领域对象，不再关心数据库；</p>
+</li>
+<li><p>dao 旨在隐藏数据库操作的复杂性，资源库旨在隐藏领域对象的复杂性，使领域业务逻辑更加清晰；</p>
+</li>
+<li><p>dao 不能使用资源库，但资源库可以使用 dao，可以简单认为：资源库 = dao + 领域对象。</p>
+</li>
+</ul>
+<h2 id="4-依赖倒置有什么好处？"><a href="#4-依赖倒置有什么好处？" class="headerlink" title="4. 依赖倒置有什么好处？"></a>4. 依赖倒置有什么好处？</h2><blockquote>
+<p>在面向对象编程领域中，依赖反转原则是指一种特定的解耦形式，使得高层次的模块不依赖于低层次的模块的实现细节，依赖关系被颠倒，从而使得低层次模块依赖于高层次模块的需求抽象。</p>
+<p>该原则规定：</p>
+<ol>
+<li><p>高层次的模块不应该依赖于低层次的模块，两者都应该依赖于抽象接口。</p>
+</li>
+<li><p>抽象接口不应该依赖于具体实现。而具体实现则应该依赖于抽象接口</p>
+</li>
+</ol>
+<p>——维基百科</p>
+</blockquote>
+<p>依赖倒置原则的定义在DDD设计中可以改述为：领域层等其他层不应该依赖于基础实施层，两者都应该依赖于抽象，具体落地的时候，这些抽象的接口定义放在了领域层等下方层中。这也就是意味着一个重要的落地指导原则： <strong>所有依赖基础实施实现的抽象接口，都应该定义在领域层或应用层中</strong>。</p>
+<p><img src="/2022/06/23/ddd/aocan/Desktop/code/acacac13.github.io/source/_posts/ddd/647-1aeff661566da6a0.png" srcset="/img/loading.gif" lazyload alt></p>
+<p>依赖倒置原则 DIP 的好处是：</p>
+<ol>
+<li>通过依赖于接口，隔离了具体实现类</li>
+<li>低一层的变动并不会导致高一层的变动</li>
+<li>提高了代码的容错性、扩展性和易于维护</li>
+</ol>
+<p>这种分层结构更加地高内聚低耦合。每一层只依赖于抽象，因为具体的实现在基础实施层，无需关心。只要抽象不变，就无需改动那一层，实现如果需要改变，只需要修改基础实施层就可以了。</p>
+<h2 id="5-应该在哪一层处理多个聚合之间的关系？"><a href="#5-应该在哪一层处理多个聚合之间的关系？" class="headerlink" title="5. 应该在哪一层处理多个聚合之间的关系？"></a>5. 应该在哪一层处理多个聚合之间的关系？</h2><p>应该在应用层编排多个聚合之间的关系。因为应用服务负责组织业务场景，编排业务。它将要实现的功能委托给一个或多个领域对象来实现，它本身只负责处理业务用例的执行顺序以及结果的拼装。</p>
+<h2 id="6-除了vo和entity以外，还有哪些对象定义？"><a href="#6-除了vo和entity以外，还有哪些对象定义？" class="headerlink" title="6. 除了vo和entity以外，还有哪些对象定义？"></a>6. 除了vo和entity以外，还有哪些对象定义？</h2><p>如下表：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>领域元素</th>
+<th>英文</th>
+<th>命名规则</th>
+<th>举例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>实体</td>
+<td>Entity</td>
+<td>类名以Entity结尾</td>
+<td>OrderEntity</td>
+<td><br></td>
+</tr>
+<tr>
+<td>2</td>
+<td>值对象</td>
+<td>Value Object</td>
+<td>类名以VO结尾</td>
+<td>AddressVO</td>
+<td>现存有些UI/视图DTO对象也叫xxxVO，建议改为xxxUO</td>
+</tr>
+<tr>
+<td>3</td>
+<td>领域服务</td>
+<td>Domain Service</td>
+<td>以动词命名领域服务类和方法，并以DomainService结尾</td>
+<td>ValidatingOrderDomainService</td>
+<td><br></td>
+</tr>
+<tr>
+<td>4</td>
+<td>工厂</td>
+<td>Factory</td>
+<td>类名以Factory结尾</td>
+<td>OrderFactory</td>
+<td><br></td>
+</tr>
+<tr>
+<td>5</td>
+<td>资源库</td>
+<td>Repository</td>
+<td>类名以Repository结尾</td>
+<td>OrderRepository</td>
+<td><br></td>
+</tr>
+<tr>
+<td>6</td>
+<td>领域事件</td>
+<td>Domain Event</td>
+<td>类名以名词+动词过去式+Event命名</td>
+<td>OrderCreatedEvent</td>
+<td><br></td>
+</tr>
+<tr>
+<td>7</td>
+<td>应用服务</td>
+<td>Application Service</td>
+<td>类名以AppService结尾</td>
+<td>PlaceOrderAppService</td>
+<td><br></td>
+</tr>
+<tr>
+<td>8</td>
+<td>DTO</td>
+<td>data transfer object</td>
+<td>类名分别以Cmd、Qry、UO、DTO结尾</td>
+<td>OrderAddCmd、OrderQry、OrderUO、OrderDTO</td>
+<td>sdk里暴露的DTO可细分为：<br><br>1. 入参xxxCmd：表示写数据接口的入参<br> <br>2. 入参xxxQry：表示读数据接口的入参<br> <br>3. 出参xxxUO，表示面向UI/视图组装的对象<br> <br>4. 出参xxxDTO，表示面向接口组装的对象<br> <br>5. 不符合上述场景的用xxxDTO<br><br></td>
+</tr>
+<tr>
+<td>9</td>
+<td>对应db表的数据对象</td>
+<td>PO</td>
+<td>类名以PO结尾</td>
+<td>OrderPO</td>
+<td><br></td>
+</tr>
+<tr>
+<td>10</td>
+<td>转换类</td>
+<td>Convertor</td>
+<td>app层：在DTO和entity间相互转换</td>
+<td>OrderDTOConvertor</td>
+<td><br></td>
+</tr>
+<tr>
+<td>11</td>
+<td>infra层：在PO和entity间相互转换</td>
+<td>OrderPOConvertor</td>
+<td><br></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>领域层里的函数命名</td>
+<td><br></td>
+<td>尽量用有领域语义化的词语命名，尽量不要用getxxx，setxxx</td>
+<td><br></td>
+<td><br></td>
+</tr>
+<tr>
+<td>13</td>
+<td>测试类</td>
+<td>XXXTest</td>
+<td>单元测试、集成测试类</td>
+<td>OrderEntityTest</td>
+<td><br></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="7-DDD-和-MVC-的区别是什么？"><a href="#7-DDD-和-MVC-的区别是什么？" class="headerlink" title="7. DDD 和 MVC 的区别是什么？"></a>7. DDD 和 MVC 的区别是什么？</h2><p>MVC 三层架构中的 M 表示 Model，V 表示 View，C 表示 Controller。它将整个项目分为三层：展示层、逻辑层、数据层。</p>
+<p>MVC 的缺点就是虽然 M 和 V 是两份文件，但是数据和业务逻辑高度耦合的，也就是说，M 只负责了数据的定义，而数据的操作都在 V，一旦修改了 M，改 V 是真是苦不堪言，这种将数据与操作分离的特点，破坏了面向对象的封装特性，是一种典型的面向过程的编程风格。</p>
+<p>导致了这么一些问题：</p>
+<ol>
+<li>臃肿的servcie</li>
+<li>三层分层后文件的随意组装方式</li>
+<li>技术导向分层，导致业务分离，不能快速定位。</li>
+</ol>
+<p>DDD 核心思想是通过领域驱动设计方法定义领域模型，从而确定业务和应用边界，保证业务模型与代码模型的一致性。</p>
+<p>领域驱动设计是一种以业务为导向的软件设计方法和思路。我们在开发前，通常需要进行大量的业务知识梳理，而后到达软件设计的层面，最后才是开发。而在业务知识梳理的过程中，我们必然会形成某个领域知识，根据领域知识来一步步驱动软件设计，就是领域驱动设计的基本概念。而领域驱动设计的核心就在于建立正确的领域驱动模型。</p>
+<p>领域模型具有以下特点：</p>
+<ol>
+<li>领域模型是对具有某个边界的领域的一个抽象，反映了领域内用户业务需求的本质；领域模型是有边界的，只反应了我们在领域内所关注的部分；</li>
+<li><strong>领域模型只反映业务，和任何技术实现无关</strong>；领域模型不仅能反映领域中的一些实体概念，如货物，书本，应聘记录，地址，等；还能反映领域中的一些过程概念，如资金转账，等；</li>
+<li>领域模型确保了我们的软件的业务逻辑都在一个模型中，都在一个地方；这样对提高软件的可维护性，业务可理解性以及可重用性方面都有很好的帮助；</li>
+<li>领域模型能够帮助开发人员相对平滑地将领域知识转化为软件构造；</li>
+<li>领域模型贯穿软件分析、设计，以及开发的整个过程；领域专家、设计人员、开发人员通过领域模型进行交流，彼此共享知识与信息；因为大家面向的都是同一个模型，所以可以防止需求走样，可以让软件设计开发人员做出来的软件真正满足需求；</li>
+<li>要建立正确的领域模型并不简单，需要领域专家、设计、开发人员积极沟通共同努力，然后才能使大家对领域的认识不断深入，从而不断细化和完善领域模型；</li>
+<li>为了让领域模型看的见，我们需要用一些方法来表示它；图是表达领域模型最常用的方式，但不是唯一的表达方式，代码或文字描述也能表达领域模型；</li>
+<li>领域模型是整个软件的核心，是软件中最有价值和最具竞争力的部分；设计足够精良且符合业务需求的领域模型能够更快速的响应需求变化；</li>
+</ol>
+<h2 id="8-聚合的意义是什么？"><a href="#8-聚合的意义是什么？" class="headerlink" title="8. 聚合的意义是什么？"></a>8. 聚合的意义是什么？</h2><p><strong>聚合</strong>: 聚合往往是一些实体为了某项业务而聚类在一起形成的集合 ，举个例子， 社会是由一个个的个体组成的，象征着我们每一个人。随着社会的发展，慢慢出现了社团、机构、部门等组织，我们开始从个人变成了组织的一员，大家可以协同一致的工作，朝着一个最大的目标前进，发挥出更大的力量。领域模型内的实体和值对象就好比个体，而能让实体和值对象协同工作的组织就是聚合，它用来确保这些领域对象在实现共同的业务逻辑时，能保证数据的一致性。可以这么理解，聚合就是由业务和逻辑紧密关联的实体和值对象组合而成的，聚合是数据修改和持久化的基本单元，每一个聚合对应一个仓储，实现数据的持久化。</p>
+<p><strong>聚合划分的原则</strong></p>
+<ul>
+<li>生命周期一致性</li>
+<li>问题域一致性</li>
+<li>场景频率一致性</li>
+<li>聚合内的元素尽可能少</li>
+</ul>
+<p><strong>如何设计聚合？</strong></p>
+<p>DDD 领域建模通常采用事件风暴，它通常采用用例分析、场景分析和用户旅程分析等方法，通过头脑风暴列出所有可能的业务行为和事件，然后找出产生这些行为的领域对象，并梳理领域对象之间的关系，找出聚合根，找出与聚合根业务紧密关联的实体和值对象，再将聚合根、实体和值对象组合，构建聚合。</p>
+<p>下面以保险的投保业务场景为例，看一下聚合的构建过程。</p>
+<p><img src="file:///Users/aocan/Desktop/code/acacac13.github.io/source/_posts/ddd/2002319-20210608002338829-1627378702.png" srcset="/img/loading.gif" lazyload title alt data-align="center"></p>
+<ol>
+<li><p>采用事件风暴，根据业务行为，梳理出在投保过程中发生这些行为的所有的实体和值对象，比如投保单、标的、客户、被保人等等。</p>
+</li>
+<li><p>从众多实体中选出适合作为对象管理者的根实体，也就是聚合根。判断一个实体是否是聚合根，你可以结合以下场景分析：是否有独立的生命周期？是否有全局唯一 ID？是否可以创建或修改其它对象？是否有专门的模块来管这个实体。图中的聚合根分别是投保单和客户实体。</p>
+</li>
+<li><p>根据业务单一职责和高内聚原则，找出与聚合根关联的所有紧密依赖的实体和值对象。构建出 1 个包含聚合根（唯一）、多个实体和值对象的对象集合，这个集合就是聚合。在图中我们构建了客户和投保这两个聚合。</p>
+</li>
+<li><p>在聚合内根据聚合根、实体和值对象的依赖关系，画出对象的引用和依赖模型。这里我需要说明一下：投保人和被保人的数据，是通过关联客户 ID 从客户聚合中获取的，在投保聚合里它们是投保单的值对象，这些值对象的数据是客户的冗余数据，即使未来客户聚合的数据发生了变更，也不会影响投保单的值对象数据。从图中我们还可以看出实体之间的引用关系，比如在投保聚合里投保单聚合根引用了报价单实体，报价单实体则引用了报价规则子实体。</p>
+</li>
+<li><p>多个聚合根据业务语义和上下文一起划分到同一个限界上下文内。这就是一个聚合诞生的完整过程了。</p>
+</li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java%E5%90%8E%E7%AB%AF/">Java后端</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%9E%B6%E6%9E%84/">架构</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/09/SlidingWindow/">
+                        <span class="hidden-mobile">滑动窗口算法</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz","appKey":"xjP4U0FLblVtlDA1XXAP2906","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://rxykbovt.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  <div>
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>
+    <script>
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("4/5/2021 12:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){
+                  mnum = "0" + mnum;
+        }
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){
+                  snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "本站已经运行&nbsp"+dnum+"&nbsp天";
+        document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+    }
+    setInterval("createtime()",250);
+    </script>
+  </div>  
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+  <!-- 页面点击小红心 -->
+  
+    <script type="text/javascript" src="/js/clicklove.js"></script>
+  
+  
+  <!-- 雪花特效-->
+  
+    <script type="text/javascript" src="/js/snow.js"></script>
+  
+
+  <!--彩带1.点击自动替换彩带-->
+  
+    <script type="text/javascript" src="/js/ribbon.js"></script>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

@@ -1,0 +1,662 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="It&#39;s fine">
+  <meta name="author" content="AoCan">
+  <meta name="keywords" content="">
+  
+  <title>红黑树 - Blog Of AC</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/a11y-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"acacac13.top","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz","app_key":"xjP4U0FLblVtlDA1XXAP2906","server_url":"https://rxykbovt.lc-cn-n1-shared.com"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>小朋友你回家吃饭吗</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/../picture/202108231143729.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="红黑树">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-08-23 10:24" pubdate>
+        August 23, 2021 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      25
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">红黑树</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：June 20, 2022 pm
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h1><h2 id="二叉查找树"><a href="#二叉查找树" class="headerlink" title="二叉查找树"></a>二叉查找树</h2><p>二叉查找树又叫二叉排序树，也叫二叉搜索树，左节点小于根节点，右节点大于根节点。没有键值相等的结点。</p>
+<p>示例图：</p>
+<p><img src="/2021/08/23/RBTree/20210819160450.png" srcset="/img/loading.gif" lazyload alt="示例图"></p>
+<p><strong>实现：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BinarySearchTree</span>&lt;<span class="hljs-title">T</span>&gt; </span>&#123;<br>    T data;<br>    BinarySearchTree&lt;T&gt; left;<br>    BinarySearchTree&lt;T&gt; right;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BinarySearchTree</span><span class="hljs-params">(T data)</span></span>&#123;<br>        <span class="hljs-keyword">this</span>(data, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>);<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BinarySearchTree</span><span class="hljs-params">(T data, BinarySearchTree&lt;T&gt; left, BinarySearchTree&lt;T&gt; right)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.data = data;<br>        <span class="hljs-keyword">this</span>.left = left;<br>        <span class="hljs-keyword">this</span>.right = right;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p>每一个结点的左子树和右子树的高度差最多为1的二叉查找树。因此查找、插入和删除的时间复杂度都变成了O(logn)</p>
+<blockquote>
+<p>为了反映每个结点的高度差，在二叉查找树的结点中应该增加一个新的域——被称为平衡因子(BF)，它的值是某个根结点的左子树深度减右子树深度的值。易知，<strong>对于一棵平衡二叉树，每个结点的平衡因子只可能是-1、0、1三种可能</strong></p>
+</blockquote>
+<h1 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h1><p>含有红黑结点并能自平衡的二叉查找树，时间复杂度为O(logn)</p>
+<p><strong>一颗含有n个结点的红黑树的高度最多为2log(n+1)</strong></p>
+<p>性质：</p>
+<ol>
+<li>每个结点要么是黑色，要么是红色</li>
+<li>根结点是黑色</li>
+<li>每个叶子结点是黑色</li>
+<li>每个红色结点的两个子结点一定都是黑色，可以出现连续的黑色结点</li>
+<li><strong>任意一结点到每个叶子结点的路径都包含数量相同的黑结点</strong><ul>
+<li>如果一个结点存在黑子结点，那么该结点肯定有两个子结点</li>
+</ul>
+</li>
+</ol>
+<p>下图为一颗红黑树，其中的红色结点H和M同样存在叶子结点，并且是黑色的</p>
+<p><img src="/2021/08/23/RBTree/202108221555291.png" srcset="/img/loading.gif" lazyload alt="红黑树"></p>
+<blockquote>
+<p>红黑树并不是一个完美平衡二叉查找树，根结点P的左子树显然比右子树高，但左子树和右子树的黑结点的层数是相等的，这种平衡叫做<strong>黑色完美平衡</strong></p>
+</blockquote>
+<p>红黑树实现代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RBTree</span>&lt;<span class="hljs-title">T</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Comparable</span>&lt;<span class="hljs-title">T</span>&gt;, <span class="hljs-title">D</span>&gt;</span>&#123;<br><br>    <span class="hljs-comment">//根节点</span><br>    <span class="hljs-keyword">private</span> RBNode&lt;T, D&gt; root;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">    * 结点的颜色</span><br><span class="hljs-comment">    */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Boolean RED = <span class="hljs-keyword">false</span>;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Boolean BLACK = <span class="hljs-keyword">true</span>;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RBNode</span>&lt;<span class="hljs-title">T</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Comparable</span>&lt;<span class="hljs-title">T</span>&gt;, <span class="hljs-title">D</span>&gt;</span>&#123;<br>        <span class="hljs-comment">//结点颜色</span><br>        <span class="hljs-keyword">private</span> Boolean color;<br>        <span class="hljs-comment">//键值</span><br>        <span class="hljs-keyword">private</span> T key;<br>        <span class="hljs-comment">//具体的数据</span><br>        <span class="hljs-keyword">private</span> D data;<br>        <span class="hljs-keyword">private</span> RBNode&lt;T, D&gt; parent;<br>        <span class="hljs-keyword">private</span> RBNode leftChild;<br>        <span class="hljs-keyword">private</span> RBNode rightChild;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">RBNode</span><span class="hljs-params">(Boolean color, T key, D data, RBNode&lt;T, D&gt; parent, RBNode leftChild, RBNode rightChild)</span> </span>&#123;<br>            <span class="hljs-keyword">this</span>.color = color;<br>            <span class="hljs-keyword">this</span>.key = key;<br>            <span class="hljs-keyword">this</span>.data = data;<br>            <span class="hljs-keyword">this</span>.parent = parent;<br>            <span class="hljs-keyword">this</span>.leftChild = leftChild;<br>            <span class="hljs-keyword">this</span>.rightChild = rightChild;<br>        &#125;<br>    &#125;<br>    ...<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>红黑树能够自平衡靠的是三种操作，分别是左旋，右旋和变色</p>
+<ul>
+<li><strong>左旋</strong>：以某个结点为支点，其右子结点变为旋转结点的父结点，右子结点的左子结点变为旋转结点的右子结点，左子结点保持不变</li>
+<li><strong>右旋</strong>：以某个结点为支点，其左子结点变为旋转结点的父结点，左子结点的右子结点变为旋转结点的左子结点，右子结点保持不变</li>
+<li><strong>变色</strong>：结点的颜色由红变黑或由黑变红</li>
+</ul>
+<p><img src="/2021/08/23/RBTree/202108221613922.png" srcset="/img/loading.gif" lazyload alt="左旋"></p>
+<p><img src="/2021/08/23/RBTree/202108221614211.png" srcset="/img/loading.gif" lazyload alt="右旋"></p>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 对某个节点进行左旋</span><br><span class="hljs-comment"> * （当前节点就是父亲节点，整体过程就是 父亲下沉，右孩子上升，然后右孩子的左节点变成了原父亲的右节点）</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">leftRotate</span><span class="hljs-params">(RBNode&lt;T, D&gt; x)</span> </span>&#123;<br><br>    <span class="hljs-comment">//右孩子</span><br>    RBNode&lt;T, D&gt; y = x.rightChild;<br><br>    <span class="hljs-keyword">if</span> (y.leftChild != <span class="hljs-keyword">null</span>) &#123;<br>        <span class="hljs-comment">//当前结点变成了右孩子的左孩子节点的父亲</span><br>        y.leftChild.parent = x;<br>    &#125;<br>    <span class="hljs-comment">//右孩子的左孩子结点变成了当前结点的右孩子结点</span><br>    x.rightChild = y.leftChild;<br>    <span class="hljs-comment">//当前结点变成了原右孩子的左孩子结点</span><br>    y.leftChild = x;<br>    <span class="hljs-comment">//当前的父亲变成了右孩子的父亲</span><br>    y.parent = x.parent;<br><br>    <span class="hljs-keyword">if</span> (x.parent != <span class="hljs-keyword">null</span>) &#123;<br>        <span class="hljs-keyword">if</span> (x.parent.leftChild == x) &#123;<br>            x.parent.leftChild = y;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            x.parent.rightChild = y;<br>        &#125;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">this</span>.root = y;<br>    &#125;<br>    x.parent = y;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* 对某个节点进行右旋</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">rightRotate</span><span class="hljs-params">(RBNode&lt;T, D&gt; x)</span> </span>&#123;<br>    <br>    <span class="hljs-comment">//左孩子</span><br>    RBNode&lt;T, D&gt; y = x.leftChild;<br><br>    <span class="hljs-keyword">if</span> (y.rightChild != <span class="hljs-keyword">null</span>) &#123;<br>        <span class="hljs-comment">//当前结点变成了左孩子的右孩子节点的父亲</span><br>        y.rightChild.parent = x;<br>    &#125;<br><br>    <span class="hljs-comment">//当前结点的父亲变成了左孩子的父亲</span><br>    y.parent = x.parent;<br>    <span class="hljs-comment">//左孩子的右孩子变成了当前结点的左孩子</span><br>    x.leftChild = y.rightChild;<br>    <span class="hljs-comment">//当前结点变成了原左孩子的右孩子结点</span><br>    y.rightChild = x;<br><br>    <span class="hljs-keyword">if</span> (x.parent != <span class="hljs-keyword">null</span>) &#123;<br>        <span class="hljs-keyword">if</span> (x.parent.leftChild == x) &#123;<br>            x.parent.leftChild = y;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            x.parent.rightChild = y;<br>        &#125;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">this</span>.root = y;<br><br>    &#125;<br>    x.parent = y;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>小结：</p>
+<ul>
+<li>左旋只影响旋转结点和其右子树的结构，把右子树的结点往左子树移了</li>
+<li>右旋只影响旋转结点和其左子树的结构，把左子树的结点往右子树移了</li>
+</ul>
+<h2 id="红黑树查找"><a href="#红黑树查找" class="headerlink" title="红黑树查找"></a>红黑树查找</h2><p>等同于二叉查找树的查找，下图为查找的流程图</p>
+<p><img src="/2021/08/23/RBTree/202108221646758.png" srcset="/img/loading.gif" lazyload alt="红黑树查找流程图"></p>
+<p>由于红黑树黑色完美平衡的特性，所以查找的最坏时间复杂度为O(2logn)</p>
+<p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 红黑树的查找</span><br><span class="hljs-comment"> * 寻找为key值的节点（递归实现）</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> RBNode&lt;T, D&gt; <span class="hljs-title">search</span><span class="hljs-params">(T key, RBNode&lt;T, D&gt; node)</span> </span>&#123;<br><br>    <span class="hljs-keyword">if</span> (node != <span class="hljs-keyword">null</span>) &#123;<br>        <span class="hljs-comment">//查找的过程，就是一直递归比较到叶子为止</span><br>        <span class="hljs-keyword">int</span> com = key.compareTo(node.key);<br>        <span class="hljs-keyword">if</span> (com &lt; <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-comment">//目标key值小于当前key值</span><br>            <span class="hljs-keyword">return</span> search(key, node.leftChild);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (com &gt; <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-comment">//目标key值大于当前key值</span><br>            <span class="hljs-keyword">return</span> search(key, node.rightChild);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">return</span> node;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 红黑树的查找</span><br><span class="hljs-comment"> * 寻找为key值的节点（非递归实现）</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> RBNode&lt;T, D&gt; <span class="hljs-title">iterativeSearch</span><span class="hljs-params">(T key, RBNode&lt;T, D&gt; node)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (node != <span class="hljs-keyword">null</span>)&#123;<br>        <span class="hljs-keyword">int</span> com = key.compareTo(node.key);<br>        <span class="hljs-keyword">if</span> (com &lt; <span class="hljs-number">0</span>)&#123;<br>            node = node.leftChild;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (com &gt; <span class="hljs-number">0</span>)&#123;<br>            node = node.rightChild;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">return</span> node;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="红黑树插入"><a href="#红黑树插入" class="headerlink" title="红黑树插入"></a>红黑树插入</h2><p>红黑树的插入主要分为两部分：</p>
+<ol>
+<li>查找插入的位置即寻找插入的父结点</li>
+<li>插入后自平衡</li>
+</ol>
+<p>下图为查找插入位置的流程图：</p>
+<p><img src="/2021/08/23/RBTree/202108222047439.png" srcset="/img/loading.gif" lazyload alt="红黑树查找插入位置流程图"></p>
+<p>红黑树的插入场景有很多种，分别如下图所示：</p>
+<p><img src="/2021/08/23/RBTree/202108222059381.png" srcset="/img/loading.gif" lazyload alt="红黑树的8种插入场景"></p>
+<p><strong>注</strong>：I表示插入结点，P表示插入结点的父结点，S表示插入结点的叔叔结点，PP表示插入结点的祖父结点</p>
+<p>插入示例：</p>
+<p><img src="/2021/08/23/RBTree/202108222122352.png" srcset="/img/loading.gif" lazyload alt="红黑树插入示例"></p>
+<p>代码（略）</p>
+<h2 id="红黑树删除"><a href="#红黑树删除" class="headerlink" title="红黑树删除"></a>红黑树删除</h2><p>红黑树的删除也包含两部分：</p>
+<ol>
+<li>查找目标结点</li>
+<li>删除后自平衡</li>
+</ol>
+<p>二叉树删除结点找替代结点有3种情情景：</p>
+<ul>
+<li>情景1：若删除结点无子结点，直接删除</li>
+<li>情景2：若删除结点只有一个子结点，用子结点替换删除结点</li>
+<li>情景3：若删除结点有两个子结点，用后继结点（大于删除结点的最小结点）替换删除结点</li>
+</ul>
+<p><strong>把二叉树所有结点投射在X轴上，所有结点都是从左到右排好序的，所有目标结点的前后结点就是对应前继和后继结点</strong></p>
+<p><img src="/2021/08/23/RBTree/202108222145172.png" srcset="/img/loading.gif" lazyload alt="image-20210822214523037"></p>
+<p>思路：<strong>删除结点被替代后，在不考虑结点的键值的情况下，对于树来说，可以认为删除的是替代结点</strong></p>
+<p><img src="/2021/08/23/RBTree/202108222146105.png" srcset="/img/loading.gif" lazyload alt="image-20210822214622908"></p>
+<p>因此3种删除情景均可转换为情景1：</p>
+<ul>
+<li>情景2：删除结点用其唯一的子结点替换，子结点替换为删除结点后，可以认为删除的是子结点，若子结点又有两个子结点，那么相当于转换为情景3，一直自顶向下转换，总是能转换为情景1</li>
+<li>情景3：删除结点用后继结点（肯定不存在左结点），如果后继结点有右子结点，那么相当于转换为情景2，否则转为为情景1</li>
+</ul>
+<p>小结：<strong>删除操作删除的结点可以看作删除替代结点，而替代结点最后总是在树末，所以只用考虑删除树末结点的情景</strong></p>
+<p>红黑树删除操作的所有情景如下图：</p>
+<p><img src="/2021/08/23/RBTree/202108222147197.png" srcset="/img/loading.gif" lazyload alt="红黑树删除情景"></p>
+<p><strong>注</strong>：R表示替代结点，P表示替代结点的父结点，S表示替代结点的兄弟结点，SL表示兄弟结点的左子结点，SR表示兄弟结点的右子结点。灰色结点表示它可以是红色也可以是黑色</p>
+<p>删除示例：</p>
+<p><img src="/2021/08/23/RBTree/202108222157255.png" srcset="/img/loading.gif" lazyload alt="红黑树删除示例"></p>
+<p>代码（略）</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ff4b93b088eb">数据结构(二):二叉搜索树(Binary Search Tree) - 简书</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/3a6650269d39">数据结构与算法—从平衡二叉树(AVL)到红黑树 - 简书</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e136ec79235c">30张图带你彻底理解红黑树 - 简书</a></li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/">二叉查找树</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">平衡二叉树</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">红黑树</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/09/28/Backtrack/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">回溯算法</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/08/19/BinaryTree/">
+                        <span class="hidden-mobile">二叉树</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz","appKey":"xjP4U0FLblVtlDA1XXAP2906","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://rxykbovt.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  <div>
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>
+    <script>
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("4/5/2021 12:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){
+                  mnum = "0" + mnum;
+        }
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){
+                  snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "本站已经运行&nbsp"+dnum+"&nbsp天";
+        document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+    }
+    setInterval("createtime()",250);
+    </script>
+  </div>  
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+  <!-- 页面点击小红心 -->
+  
+    <script type="text/javascript" src="/js/clicklove.js"></script>
+  
+  
+  <!-- 雪花特效-->
+  
+    <script type="text/javascript" src="/js/snow.js"></script>
+  
+
+  <!--彩带1.点击自动替换彩带-->
+  
+    <script type="text/javascript" src="/js/ribbon.js"></script>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

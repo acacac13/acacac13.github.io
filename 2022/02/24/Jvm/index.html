@@ -1,0 +1,902 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="It&#39;s fine">
+  <meta name="author" content="AoCan">
+  <meta name="keywords" content="">
+  
+  <title>JVM 学习笔记 - Blog Of AC</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/a11y-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"acacac13.top","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz","app_key":"xjP4U0FLblVtlDA1XXAP2906","server_url":"https://rxykbovt.lc-cn-n1-shared.com"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>小朋友你回家吃饭吗</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/custom.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="JVM 学习笔记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-02-24 16:22" pubdate>
+        February 24, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      62
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JVM 学习笔记</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：June 20, 2022 pm
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="JVM-与-Java-体系结构"><a href="#JVM-与-Java-体系结构" class="headerlink" title="JVM 与 Java 体系结构"></a>JVM 与 Java 体系结构</h1><p>  JVM 是一个跨语言的平台</p>
+<p><img src="/2022/02/24/Jvm/20220204110515.png" srcset="/img/loading.gif" lazyload alt></p>
+<p><strong>虚拟机概念</strong></p>
+<p>所谓虚拟机<code>(Vitual Machine)</code>，就是一台虚拟的计算机。它是一款软件，用来执行一系列虚拟计算机指令。大体上，虚拟机可以分为<strong>系统虚拟机</strong>和<strong>程序虚拟机</strong>。</p>
+<ul>
+<li>Visual Box ，VMware 就是属于系统虚拟机，<strong>完全是对物理计算机的仿真</strong>，提供了一个可运行完整操作系统的软件平台。</li>
+<li>程序虚拟机的典型代表就是 Java 虚拟机， <strong>专门为执行单个计算机程序而设计</strong>，在 Java 虚拟机中执行的指令我们称为 Java 字节码指令。</li>
+</ul>
+<h2 id="Java-虚拟机"><a href="#Java-虚拟机" class="headerlink" title="Java 虚拟机"></a>Java 虚拟机</h2><p>Java 虚拟机是一台执行 Java 字节码的虚拟计算机，它拥有独立的运行机制，其运行的 Java 字节码也未必由 Java 语言编译而成。</p>
+<p>JVM 平台的各种语言可以共享 Java 虚拟机带来的跨平台性、优秀的垃圾回收器，以及可靠的即时编译器。</p>
+<p><strong>Java 技术的核心就是 Java 虚拟机</strong>，因为所有的 Java 程序都运行在 Java 虚拟机内部。</p>
+<ul>
+<li><p>作用：</p>
+<p>Java 虚拟机就是二进制字节码的运行环境，负责装在字节码到其内部，解释/编译为对应平台上的机器指令执行。</p>
+</li>
+<li><p>特点：</p>
+<p>一次编译，到处运行</p>
+<p>自动内存管理</p>
+<p>自动垃圾回收功能</p>
+</li>
+</ul>
+<p><strong>JVM 的位置</strong></p>
+<p><img src="/2022/02/24/Jvm/20220204120538.png" srcset="/img/loading.gif" lazyload alt="JVM 的位置"></p>
+<p>JVM 是运行在操作系统之上的，它与硬件没有直接的交互。</p>
+<p><strong>JVM 的整体结构</strong></p>
+<p><img src="/2022/02/24/Jvm/20220204120853.png" srcset="/img/loading.gif" lazyload alt="HotSpot VM 的整体结构"></p>
+<p><strong>Java 代码执行流程</strong></p>
+<p><img src="/2022/02/24/Jvm/20220204121617.png" srcset="/img/loading.gif" lazyload alt="Java 代码执行流程"></p>
+<h2 id="JVM-的架构模型"><a href="#JVM-的架构模型" class="headerlink" title="JVM 的架构模型"></a>JVM 的架构模型</h2><p>Java 编译器输入的指令流基本上是一种基于<strong>栈的指令集结构</strong>，另外一种指令集架构则是基于<strong>寄存器的指令集架构</strong>。</p>
+<h2 id="JVM-的生命周期"><a href="#JVM-的生命周期" class="headerlink" title="JVM 的生命周期"></a>JVM 的生命周期</h2><p>虚拟机的启动</p>
+<p>Java 虚拟机的启动是通过引导类加载器（bootstrap class loader）创建一个初始类（initial class）来完成的，这个类是由虚拟机的具体实现指定的。</p>
+<p>虚拟机的执行</p>
+<ul>
+<li>一个运行中的 Java 虚拟机有着一个清晰的任务：执行 Java 程序</li>
+<li>程序开始执行时他才开始运行，程序结束时他就停止</li>
+<li>执行一个所谓的 Java 程序的时候，真真正正在执行的是一个叫做 Java 虚拟机的进程</li>
+</ul>
+<p>虚拟机的退出</p>
+<ul>
+<li>程序正常执行结束</li>
+<li>程序在执行过程中遇到了异常或错误而异常终止</li>
+<li>由于操作系统出现错误而导致 Java 虚拟机进程终止</li>
+<li>某线程调用 Runtime 类或 System 类的 exit 方法，或 Runtime 类的 halt 方法，并且 Java 安全管理器也允许这次 exit 或 halt 操作</li>
+<li>除此之外，<code>JNI(Java Native Interface)</code>规范描述了用 JNI Invocation API 来加载或卸载 Java 虚拟机时，Java 虚拟机的退出情况</li>
+</ul>
+<h2 id="JVM-发展历程"><a href="#JVM-发展历程" class="headerlink" title="JVM 发展历程"></a>JVM 发展历程</h2><p>SUN Classic VM、Exact VM、<strong>HotSpot VM</strong>、<strong>JRockit VM</strong>、<strong>IBM J9 VM</strong>、KVM、CDC/CLDC HotSpot、Azul VM、BEA Liquid VM、Apache Harmony、Microsoft JVM、TaobaoJVM、Dalvik VM、<strong>Graal VM</strong></p>
+<h1 id="类加载子系统"><a href="#类加载子系统" class="headerlink" title="类加载子系统"></a>类加载子系统</h1><h2 id="类加载子系统的作用"><a href="#类加载子系统的作用" class="headerlink" title="类加载子系统的作用"></a>类加载子系统的作用</h2><p><img src="/2022/02/24/Jvm/20220206165752.png" srcset="/img/loading.gif" lazyload alt></p>
+<ul>
+<li>类加载子系统负责从文件系统或者网络中加载 class 文件， class 文件在文件开头有特定的文件标识</li>
+<li>ClassLoader 只负责 class 文件的<strong>加载</strong>，至于它是否可以运行，则由 Execution Engine 决定</li>
+<li>加载的类信息存放于一块称为<strong>方法区</strong>的内存空间。除了类的信息外，方法区中还会存放运行时常量池信息，可能还包括字符串字面量和数字常量（这部分常量信息是 cllass 文件中常量池部分的内存映射）</li>
+</ul>
+<h2 id="类加载器-ClassLoader-角色"><a href="#类加载器-ClassLoader-角色" class="headerlink" title="类加载器 ClassLoader 角色"></a>类加载器 ClassLoader 角色</h2><p><img src="/2022/02/24/Jvm/20220206170206.png" srcset="/img/loading.gif" lazyload alt></p>
+<ol>
+<li>class file 存在与本地硬盘上，可以理解为设计师画在纸上的模板，而最终这个模板在执行的时候是要加载到 JVM 中来根据这个文件实例化出 n 个一模一样的实例。</li>
+<li>class file 加载到 JVM 中，被称为 DNA 元数据模板，放在方法区。</li>
+<li>在 class 文件 -&gt; JVM -&gt; 最终称为元数据模板，此过程就要一个运输工具（类装载器 Class Loader），扮演一个快递员的角色。</li>
+</ol>
+<h2 id="类的加载过程"><a href="#类的加载过程" class="headerlink" title="类的加载过程"></a>类的加载过程</h2><p><img src="/2022/02/24/Jvm/20220209211245.png" srcset="/img/loading.gif" lazyload alt="类的加载过程"></p>
+<h3 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h3><ol>
+<li>通过一个类的全限定名获取定义此类的二进制字节流</li>
+<li>将这个字节流所代表的静态存储结构转化为<strong>方法区</strong>的运行时数据结构</li>
+<li>在内存中生成一个代表这个类的<code>java.lang.Class</code>对象，作为方法区这个类的各种数据的访问入口</li>
+</ol>
+<p>补充：加载<code>.class</code>文件的方式</p>
+<ul>
+<li>从本地系统中直接加载</li>
+<li>通过网络获取，典型场景：Web Applet</li>
+<li>从<code>zip</code>压缩包中读取，成为日后<code>jar</code>、<code>war</code>格式的基础</li>
+<li>运行时计算生成，使用最多的是：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1461796">动态代理</a>技术</li>
+<li>由其他文件生成，典型场景：<code>JSP</code>应用</li>
+<li>从专有数据库中提取<code>.class</code>文件，比较少见</li>
+<li>从加密文件中获取，典型的防<code>Class</code>文件被反编译的保护措施</li>
+</ul>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><ul>
+<li>验证<code>(Verify)</code><ul>
+<li>目的是确保<code>Class</code>文件的字节流中包含信息符合当前虚拟机要求，保证被加载类的正确性</li>
+<li>主要包括四种验证，文件格式验证，元数据验证，字节码验证，符号引用验证</li>
+</ul>
+</li>
+<li>准备<code>(Prepare)</code><ul>
+<li>为类变量分配内存并且设置该类变量的默认初始值，即零值</li>
+<li>这里不包含用<code>final</code>修饰的<code>static</code>，因为<code>final</code>在编译的时候就会分配了，准备阶段会显式初始化</li>
+<li><strong>这里不会为实例变量分配初始化</strong>，类变量会分配在方法区中，而实例变量是会随着对象一起分配到<code>Java</code>堆中</li>
+</ul>
+</li>
+<li>解析<code>(Resolve)</code><ul>
+<li>将常量池内的符号引用转换为直接引用的过程</li>
+<li>解析操作往往会伴随着<code>JVM</code>在执行完初始化之后再执行</li>
+<li>符号引用就是一组符号来描述所引用的目标。直接引用就是直接指向目标的指针、相对偏移量或一个间接定位到目标的句柄</li>
+<li>解析动作主要是针对类或接口、字段、类方法、接口方法、方法类型等</li>
+</ul>
+</li>
+</ul>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><ul>
+<li>初始化阶段就是执行类构造器方法<code>&lt;clinit&gt;()</code>的过程</li>
+<li>此方法不需定义，是<code>javac</code>编译器自动收集类中的所有类变量的赋值动作和静态代码块中的语句合并而来</li>
+<li>构造器方法中指令按语句在源文件中出现的顺序执行</li>
+<li><code>&lt;clinit&gt;()</code>不同于类的构造器</li>
+<li>若该类具有父类，<code>JVM</code>会保证子类的<code>&lt;clinit&gt;()</code>执行前，父类的<code>&lt;clinit&gt;()</code>已经执行完毕</li>
+<li>虚拟机必须保证一个类的<code>&lt;clinit&gt;()</code>方法子啊多线程下被同步加锁</li>
+</ul>
+<h2 id="类加载器的分类"><a href="#类加载器的分类" class="headerlink" title="类加载器的分类"></a>类加载器的分类</h2><ul>
+<li><p><code>JVM</code>支持两种类型的类加载器。分别为引导类加载器<code>(Bootstrap ClassLoader)</code>和自定义类加载器<code>(User-Defined ClassLoader)</code></p>
+</li>
+<li><p>从概念上来讲，自定义类加载器一般指的是程序中由开发人员自定义的一类加载器，但是<code>Java</code>虚拟机规范却没有这么定义，而是将所有派生于抽象类<code>ClassLoader</code>的类加载器都划分为自定义加载器</p>
+</li>
+<li><p>无论类加载器的类型和如何划分，在程序最常见的类加载器始终只有3个</p>
+<ul>
+<li><code>Bootstrap Class Loader</code> 引导类加载器</li>
+<li><code>Extension Class Loader</code> 扩展类加载器</li>
+<li><code>System Class Loader</code> 系统类加载器</li>
+</ul>
+<p><img src="/2022/02/24/Jvm/20220210154236.png" srcset="/img/loading.gif" lazyload alt="三者关系"></p>
+</li>
+</ul>
+<h3 id="虚拟机自带的加载器"><a href="#虚拟机自带的加载器" class="headerlink" title="虚拟机自带的加载器"></a>虚拟机自带的加载器</h3><h4 id="启动类加载器-（引导类加载器，Bootstarp-ClassLoader）"><a href="#启动类加载器-（引导类加载器，Bootstarp-ClassLoader）" class="headerlink" title="启动类加载器 （引导类加载器，Bootstarp ClassLoader）"></a>启动类加载器 （引导类加载器，Bootstarp ClassLoader）</h4><ul>
+<li>这个类加载是用<code>C/C++</code>实现的，嵌套在<code>JVM</code>内部</li>
+<li>它用来加载<code>Java</code>的核心库，用于提供<code>JVM</code>自身需要的类</li>
+<li>并不继承自<code>java.lang.ClassLoader</code>，没有父加载器</li>
+<li>加载扩展类和应用程序类加载器，并指定为他们的父类加载器</li>
+<li>出于安全考虑，<code>Bootstrap</code>启动类加载器只加载包名为<code>java</code>、<code>javax</code>、<code>sun</code>等开头的类</li>
+</ul>
+<h4 id="扩展类加载器（Extension-ClassLoader）"><a href="#扩展类加载器（Extension-ClassLoader）" class="headerlink" title="扩展类加载器（Extension ClassLoader）"></a>扩展类加载器（Extension ClassLoader）</h4><ul>
+<li><code>Java</code>编写，由<code>sun.misc.Launcher$ExtClassLoader</code>实现</li>
+<li>派生于<code>ClassLoader</code>类</li>
+<li>父类加载器为启动类加载器</li>
+<li>从<code>java.ext.dirs</code>系统属性所指定的目录中加载类库，或从<code>JDK</code>的安装目录的<code>jre/lib/ext</code>子目录（扩展目录）下加载类库。如果用户创建的<code>JAR</code>放在此目录下，也会自动由扩展类加载器加载</li>
+</ul>
+<h4 id="应用程序类加载器（系统类加载器，AppClassLoader）"><a href="#应用程序类加载器（系统类加载器，AppClassLoader）" class="headerlink" title="应用程序类加载器（系统类加载器，AppClassLoader）"></a>应用程序类加载器（系统类加载器，AppClassLoader）</h4><ul>
+<li><code>java</code>编写，由<code>sun.misc.Launcher$AppClassLoader</code>实现</li>
+<li>派生于<code>ClassLoader</code>类</li>
+<li>父类加载器为扩展类加载器</li>
+<li>它负责加载环境变量<code>classpath</code>或系统属性<code>java.class.path</code>指定路径下的类库</li>
+<li>该类是程序中默认的类加载器，一般来说，<code>Java</code>应用的类都是由它来完成加载</li>
+<li>通过<code>ClassLoader$getSystemClassLoader()</code>方法可以获取到该类加载器</li>
+</ul>
+<h3 id="用户自定义的加载器"><a href="#用户自定义的加载器" class="headerlink" title="用户自定义的加载器"></a>用户自定义的加载器</h3><p>需要自定义类加载器的原因</p>
+<ul>
+<li>隔离加载类</li>
+<li>修改类加载的方式</li>
+<li>扩展加载源</li>
+<li>防止源码泄露</li>
+</ul>
+<p>用户自定义类加载器实现步骤：</p>
+<ol>
+<li>通过继承抽象类<code>java.lang.ClassLoader</code>类的方式实现</li>
+<li>把自定义的类加载逻辑写在<code>findClass()</code>方法中</li>
+<li>在没有太过于复杂的需求时，可以直接继承<code>URLClassLoader</code>类，避免自己编写<code>findClass()</code>方法及前期获取字节码流的方式，使自定义类加载器编写更加简洁</li>
+</ol>
+<h3 id="关于-ClassLoader"><a href="#关于-ClassLoader" class="headerlink" title="关于 ClassLoader"></a>关于 ClassLoader</h3><p><code>ClassLoader</code>类是一个抽象类，其后所有的类加载器都继承自<code>ClassLoader</code>（不包括启动类加载器）</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方法名称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>getParent()</code></td>
+<td style="text-align:left">返回该类加载器的超类加载器</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>loadClass(String name)</code></td>
+<td style="text-align:left">加载名称为<code>name</code>的类，返回结果为<code>java.lang.Class</code>类的实例</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>findClass(String name)</code></td>
+<td style="text-align:left">查找名称为<code>name</code>的类，返回结果为<code>java.lang.Class</code>类的实例</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>findLoadedClass(String name)</code></td>
+<td style="text-align:left">查找名称为<code>name</code>的已经被加载过的类，返回结果为<code>java.lang.Class</code>类的实例</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>defineClass(String name, byte[] b, int off, int len)</code></td>
+<td style="text-align:left">把字节数组<code>b</code>中的内容转换为一个<code>Java</code>类，返回结果为<code>java.lang.Class</code>类的实例</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>resolveClass(Class&lt;?&gt; c)</code></td>
+<td style="text-align:left">连接指定的一个<code>Java</code>类</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code>sun.misc.Launcher</code>是一个<code>Java</code>虚拟机的入口应用。</p>
+<p><img src="/2022/02/24/Jvm/20220210155249.png" srcset="/img/loading.gif" lazyload alt="继承关系"></p>
+<p><strong>获取 ClassLoader 的途径</strong></p>
+<ol>
+<li><p>获取当前类的<code>ClassLoader</code></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">clazz.getClassLoader();<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>获取当前线程上下文的<code>ClassLoader</code></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">Thread.currentThread().getContextClassLoader()<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>获取系统的<code>ClassLoader</code></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">ClassLoader.getSystemClassLoader()<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>获取调用者的<code>ClassLoader</code></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">DriverManager.getCallerClassLoader()<br></code></pre></div></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="双亲委派机制"><a href="#双亲委派机制" class="headerlink" title="双亲委派机制"></a>双亲委派机制</h2><p>Java 虚拟机对 class 文件采用的是<strong>按需加载</strong>的方式，也就是说当需要使用该类时才会将它的 class 文件加载到内存生成 class 对象。而且加载某个类的 class 文件时，Java 虚拟机采用的是<strong>双亲委派模式</strong>，即把请求交由父类处理，它是一种任务委派模式。</p>
+<p><img src="/2022/02/24/Jvm/20220210164659.png" srcset="/img/loading.gif" lazyload alt="工作原理"></p>
+<ol>
+<li>如果一个类加载器收到了类加载请求，它并不会自己先去加载，而是把这个请求委托给父类的加载器去执行；</li>
+<li>如果父类加载器还存在其父类加载器，则进一步向上委托，依次递归，请求最终将到达顶层的启动类加载器；</li>
+<li>如果父类加载器可以完成类加载任务，就成功返回，倘若父类加载器无法完成此加载任务，子加载器才会尝试自己去加载，这就是双亲委派模式。</li>
+</ol>
+<p><img src="/2022/02/24/Jvm/20220210165554.png" srcset="/img/loading.gif" lazyload alt="另一种双亲委派机制举例"></p>
+<p><strong>双亲委派机制优势</strong></p>
+<ul>
+<li>避免重复加载</li>
+<li>保护程序安全，防止核心<code>API</code>被篡改<ul>
+<li>自定义类：<code>java.lang.String</code></li>
+<li>自定义类：<code>java.lang.ShkStart</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="沙箱安全机制"><a href="#沙箱安全机制" class="headerlink" title="沙箱安全机制"></a>沙箱安全机制</h3><p>自定义 String 类，但是在加载自定义 String 类的时候会率先使用引导类加载器加载，而引导类加载器在加载的过程中会先加载 jdk 自带的文件<code>(rt.jar包中java\lang\string.class)</code>，报错信息说没有 main 方法：就是因为加载的是 rt.jar 包中的 String 类。这样可以保证对 java 核心源代码的保护，这就是<strong>沙箱安全机制</strong>。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>在<code>JVM</code>中表示两个<code>class</code>对象是否为同一个类存在两个必要条件：</p>
+<ul>
+<li>类的完整类名必须一致，包括包名</li>
+<li>加载这个类的<code>ClassLoader</code>实例对象必须相同</li>
+</ul>
+<p>即在<code>JVM</code>中，即使这两个类对象（<code>class</code>对象）来源同一个<code>class</code>文件，被同一个虚拟机所加载，但只要加载它们的<code>classLoader</code>实例对象不同，那么这两个类对象也是不相等的。</p>
+<h3 id="对类加载器的引用"><a href="#对类加载器的引用" class="headerlink" title="对类加载器的引用"></a>对类加载器的引用</h3><p>JVM 必须知道一个类型是由启动加载器加载的还是由用户类加载器加载的。如果一个类型是由用户类加载器加载的，那么 JVM 会<strong>将这个类加载器的一个引用作为类型信息的一部分保存在方法区中</strong>。当解析一个类型到另一个类型的引用的时候，JVM 需要保证这两个类型的类加载器是相同的。</p>
+<h3 id="类的主动使用和被动使用"><a href="#类的主动使用和被动使用" class="headerlink" title="类的主动使用和被动使用"></a>类的主动使用和被动使用</h3><p>Java 程序对类的使用方式分为：主动使用和被动使用。</p>
+<p>主动使用，又分为七种情况：</p>
+<ol>
+<li>创建类的实例</li>
+<li>访问某个类或接口的静态变量，或者对该静态变量赋值</li>
+<li>调用类的静态方法</li>
+<li>反射（比如：<code>class.forName (&quot;com.xxx.Test&quot;)</code>）</li>
+<li>初始化一个类的子类</li>
+<li><code>Java</code>虚拟机启动时被标明为启动类的类</li>
+<li><code>JDK 7</code>开始提供的动态语言支持：<code>java.lang.invoke.MethodHandle</code>实例的解析结果<code>REF_getstatic</code>、<code>REF_putstatic</code>、<code>REF_invokestatic</code>句柄对应的类没有初始化，则初始化</li>
+</ol>
+<p>除了以上七种情况，其他使用 Java 类的方式都被看作是对<strong>类的被动使用</strong>，都<strong>不会导致类的初始化</strong>。</p>
+<h1 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h1><p><img src="/2022/02/24/Jvm/20220213114602.png" srcset="/img/loading.gif" lazyload alt="运行时数据区"></p>
+<p><strong>线程</strong></p>
+<ul>
+<li>线程时一个程序里的运行单元。<code>JVM</code>允许一个应用有多个线程并行的执行。</li>
+<li>在<code>Hotspot JVM</code>里，每个线程都与操作系统的本地线程直接映射。<ul>
+<li>当一个<code>Java</code>线程准备好执行以后，此时一个操作系统的本地线程也同时创建。<code>Java</code>线程执行终止后，本地线程也会回收。</li>
+</ul>
+</li>
+<li>操作系统负责所有线程的安排调度到任何一个可用的<code>CPU</code>上。一旦本地线程初始化成功，它就会调用<code>Java</code>线程中的<code>run()</code>方法。</li>
+</ul>
+<h2 id="程序计数器（PC-寄存器）"><a href="#程序计数器（PC-寄存器）" class="headerlink" title="程序计数器（PC 寄存器）"></a>程序计数器（PC 寄存器）</h2><p><code>JVM</code>中的<code>PC</code>寄存器是对物理<code>PC</code>寄存器的一种抽象模拟。</p>
+<p><strong>作用</strong></p>
+<p><code>PC</code>寄存器用来存储指向下一条指令的地址，也即将要执行的指令代码。由执行引擎读取下一条指令。</p>
+<p><code>PC</code>寄存器是唯一一个不会发生<code>OOM</code>的区域。</p>
+<p><img src="/2022/02/24/Jvm/20220213143804.png" srcset="/img/loading.gif" lazyload alt></p>
+<p><strong>常见问题</strong></p>
+<ol>
+<li><p>使用<code>PC</code>寄存器存储字节码指令地址有什么用呢？为什么使用<code>PC</code>寄存器记录当前线程的执行地址呢？</p>
+<p>因为<code>CPU</code>需要不停的切换各个线程，这时候切换回来以后，就得知道接着从哪开始继续执行。</p>
+<p><code>JVM</code>的字节码解释器就需要通过改变<code>PC</code>寄存器的值来明确下一条应该执行什么样的字节码指令。</p>
+<p><img src="/2022/02/24/Jvm/20220213152209.png" srcset="/img/loading.gif" lazyload alt></p>
+<ol>
+<li><p><code>PC</code>寄存器为什么会被设定为线程私有？</p>
+<p>多线程在一个特定的时间段内只会执行其中某一个线程方法，<code>CPU</code>会不停地做任务切换，这样必然导致经常终断或者恢复，为了能够准确地记录各个线程正在执行的当前字节码指令地址，最好的办法自然是为每一个线程都分配一个<code>PC</code>寄存器，这样各个线程之间便可以进行独立计算，从而不会出现相互干扰的情况。</p>
+<p>由于<code>CPU</code>时间片轮限制，众多线程在并发执行过程中，任何一个确定的时刻，一个处理器或者多核处理器中的一个内核，只会执行某个线程中的一条指令。</p>
+<p>这样必然导致经常中断或恢复，如何保证分毫无差呢？每个线程在创建后，都会产生自己的程序计数器和栈帧，程序计数器在各个线程之间互不影响。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>栈是运行时的单位，而堆是存储的单位。即栈解决程序的运行问题，堆解决数据存储的问题。</p>
+<p><strong>定义</strong></p>
+<p><code>Java</code>虚拟机栈<code>(Java virtual Machine stack)</code>，早期也叫<code>Java</code>栈。每个线程在创建时都会创建一个虚拟机栈，其内部保存一个个的栈帧<code>(stack Frame)</code>，对应着一次次的<code>Java</code>方法调用。是线程私有的。</p>
+<p><strong>生命周期</strong></p>
+<p>生命周期和线程一致。</p>
+<p><strong>作用</strong></p>
+<p>主管<code>Java</code>程序的运行，它保存方法的局部变量、部分结果，并参与方法的调用和返回。</p>
+<p><strong>栈的特点</strong></p>
+<ul>
+<li>栈是一种快速有效的分配存储方式，访问速度仅次于程序计数器</li>
+<li><code>JVM</code>直接对<code>Java</code>栈的操作只有两个：<ul>
+<li>每个方法执行，伴随着进栈（入栈、压栈）</li>
+<li>执行结束后的出栈工作</li>
+</ul>
+</li>
+<li>对于栈来说不存在垃圾回收问题</li>
+</ul>
+<p><strong>栈中可能出现的异常</strong></p>
+<p><code>Java</code>虚拟机规范允许<code>java</code>栈的大小是动态的或者是固定不变的</p>
+<ul>
+<li>如果采用固定大小的<code>java</code>虚拟机栈，那每一个线程的<code>java</code>虚拟机栈容量可以在线程创建的时候独立选定。如果线程请求分配的栈容量超过<code>java</code>虚拟机栈允许的最大容量，<code>java</code>虚拟机将会抛出一个<code>StackOverFlowError</code>异常</li>
+<li>如果<code>java</code>虚拟机栈可以动态扩展，并且在尝试扩展的时候无法申请到足够的内存，或者在创建新的线程时没有足够的内存去创建对应的虚拟机栈，那<code>java</code>虚拟机将会抛出以一个<code>OutOfMemoryError</code>异常</li>
+</ul>
+<h3 id="栈的存储单位"><a href="#栈的存储单位" class="headerlink" title="栈的存储单位"></a>栈的存储单位</h3><ul>
+<li>每个线程都有自己的栈，栈中的数据是以栈帧<code>(Stack Frame)</code>的格式存在的。</li>
+<li>线程上正在执行的每个方法都对应一个栈帧。</li>
+<li>栈帧是一个内存区块，是一个而数据集，维系着方法执行过程中的各种信息。</li>
+</ul>
+<p>不同线程中所包含的栈帧是不允许存在相互引用的，即不可能在一个栈帧中引用另一个线程的栈帧。</p>
+<p><strong>栈帧的内部结构</strong></p>
+<p>每个栈帧中存储着：</p>
+<ul>
+<li>局部变量表<code>(Local Variables)</code></li>
+<li>操作数栈<code>(Operand Stack)</code></li>
+<li>动态链接<code>(Dynamic Linking)</code></li>
+<li>方法返回地址<code>(Return Address)</code></li>
+<li>附加信息</li>
+</ul>
+<h3 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a>局部变量表</h3><ul>
+<li>定义为一个数字数组，主要用于<strong>存储方法参数和定义在方法体内的局部变量</strong>，这些数据类型包括各类基本数据类型、对象引用 (reference)，以及 returnAddress 类型。</li>
+<li>由于局部变量表是建立在线程的栈上，是线程的私有数据，因此<strong>不存在数据安全问题</strong>。</li>
+<li><strong>局部变量表所需的容量大小是在编译期确定下来的</strong>，并保存在方法的 Code 属性的 maximum local variables 数据项中。在方法运行期间是不会改变局部变量表的大小的。</li>
+</ul>
+<p><strong>关于 Slot 的理解</strong></p>
+<ul>
+<li>局部变量表，最基本的存储单元是<code>Slot</code>（变量槽）。</li>
+<li>在局部变量表里，32位以内的类型只占用一个<code>slot</code>（包括<code>returnAddress</code>类型），64位的类型（<code>long</code>和<code>double</code>）占用两个<code>slot</code>。</li>
+<li><code>JVM</code>为局部变量表中的每一个<code>Slot</code>分配一个访问索引，通过这个索引即可成功访问到局部变量表中指定的局部变量值。</li>
+<li>当一个实例方法被调用的时候，它的方法参数和方法体内部定义的局部变量将会按照顺序被复制到局部变量表中的每一个<code>slot</code>上。</li>
+<li>如果需要访问局部变量表中一个64位的局部变量值时，只需要使用前一个索引即可。</li>
+<li>如果当前帧是由构造方法或者实例方法创建的，那么该对象引用<code>this</code>将会存放在<code>index</code>为0的<code>slot</code>处，其余的参数按照参数表顺序继续排列。</li>
+</ul>
+<p><strong>Slot 的重复利用</strong></p>
+<p><strong>栈帧中的局部变量表中的槽位是可以重复利用的</strong>，如果一个局部变量过了其作用域，那么在其作用域之后申明的新的局部变量就很有可能会复用过期局部变量的槽位，从而达到节省资源的目的。</p>
+<p><strong>静态变量与局部变量对比</strong></p>
+<p>类变量有两次初始化的机会，一次是在“准备阶段”，执行系统初始化，对类变量设置零值，另一次是在“初始化”阶段，赋予程序员在代码中定义的初始值。局部变量在使用前必须显式的赋值。</p>
+<p><strong>局部变量表中的变量也是重要的垃圾回收根节点，只要被局部变量表中直接或间接引用的对象都不会被回收。</strong></p>
+<h3 id="操作数栈"><a href="#操作数栈" class="headerlink" title="操作数栈"></a>操作数栈</h3><ul>
+<li>每一个独立的栈帧中除了包含局部变量表以外，还包含一个后进先出<code>(Last-In-First-Out)</code>的操作数栈，也可以称之为表达式栈<code>(Expression Stack)</code>。</li>
+<li>操作数栈，在方法执行过程中，根据字节码指令，往栈中写入数据或提取数据，即入栈/出栈。</li>
+<li>操作数栈，主要用于保存计算过程的中间结果，同时作为计算过程中变量临时的存储空间。</li>
+<li>操作数栈并非采用访问索引的方式来进行数据访问的，而是只能通过标准的入栈和出栈操作来完成一次数据访问。</li>
+</ul>
+<h3 id="栈顶缓存-Top-of-Stack-Cashing-技术"><a href="#栈顶缓存-Top-of-Stack-Cashing-技术" class="headerlink" title="栈顶缓存(Top-of-Stack-Cashing)技术"></a>栈顶缓存(Top-of-Stack-Cashing)技术</h3><p>基于栈式架构的虚拟机所使用的零地址指令更加紧凑，但完成一项操作的时候必然需要使用更多的入栈和出栈指令，也就需要更多的指令分派次数和内存读/写次数。由于操作数是存储在内存中的，因此频繁地执行内存读/写操作必然会影响执行速度。因此<code>HotSpot JVM</code>的设计者们提出了栈顶缓存技术，将栈顶元素全部缓存在物理<code>CPU</code>的寄存器中，来降低对内存的读写次数，提升执行引擎的执行效率。</p>
+<h3 id="动态链接"><a href="#动态链接" class="headerlink" title="动态链接"></a>动态链接</h3><p>每一个栈帧内部都包含一个指向<strong>运行时常量池</strong>中<strong>该栈帧所属方法的引用</strong>。包含这个引用的目的就是为了支持当前方法的代码能够实现动态链接<code>(Dynamic Linking)</code>。比如：<code>invokedynamic</code>指令。</p>
+<p><img src="/2022/02/24/Jvm/20220214173916.png" srcset="/img/loading.gif" lazyload alt="动态链接示意图"></p>
+<p>常量池的作用：提供一些符号和常量，便于指令的识别。</p>
+<h2 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h2><h2 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h2><h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java%E5%90%8E%E7%AB%AF/">Java后端</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/java/">java</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/24/replacePic/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">批量修改文件内容（解决图片失效问题）</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/03/Database/">
+                        <span class="hidden-mobile">数据库原理</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz","appKey":"xjP4U0FLblVtlDA1XXAP2906","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://rxykbovt.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  <div>
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>
+    <script>
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("4/5/2021 12:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){
+                  mnum = "0" + mnum;
+        }
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){
+                  snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "本站已经运行&nbsp"+dnum+"&nbsp天";
+        document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+    }
+    setInterval("createtime()",250);
+    </script>
+  </div>  
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+  <!-- 页面点击小红心 -->
+  
+    <script type="text/javascript" src="/js/clicklove.js"></script>
+  
+  
+  <!-- 雪花特效-->
+  
+    <script type="text/javascript" src="/js/snow.js"></script>
+  
+
+  <!--彩带1.点击自动替换彩带-->
+  
+    <script type="text/javascript" src="/js/ribbon.js"></script>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

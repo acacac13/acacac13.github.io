@@ -1,0 +1,847 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="It&#39;s fine">
+  <meta name="author" content="AoCan">
+  <meta name="keywords" content="">
+  
+  <title>Linux学习 - Blog Of AC</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/a11y-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"acacac13.top","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz","app_key":"xjP4U0FLblVtlDA1XXAP2906","server_url":"https://rxykbovt.lc-cn-n1-shared.com"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>小朋友你回家吃饭吗</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/../picture/20210814145235.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Linux学习">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-25 19:08" pubdate>
+        April 25, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      52
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Linux学习</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：June 20, 2022 pm
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="入门概述"><a href="#入门概述" class="headerlink" title="入门概述"></a>入门概述</h1><blockquote>
+<p>Linux简介</p>
+</blockquote>
+<p>Linux 内核最初只是由芬兰人林纳斯·托瓦兹（Linus Torvalds）在赫尔辛基大学上学时出于个人爱好而编写的。</p>
+<p>Linux 是一套免费使用和自由传播的类 Unix 操作系统，是一个基于 POSIX（可移植操作系统接口） 和 UNIX 的多用户、多任务、支持多线程和多 CPU 的操作系统。</p>
+<p>Linux 能运行主要的 UNIX 工具软件、应用程序和网络协议。它支持 32 位和 64 位硬件。Linux 继承了 Unix 以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。</p>
+<blockquote>
+<p>Linux发行版</p>
+</blockquote>
+<p>Linux 的发行版说简单点就是将 Linux 内核与应用软件做一个打包。</p>
+<p><img src="/2021/04/25/Linux/20210425183218.png" srcset="/img/loading.gif" lazyload alt="image-20210425183218207"></p>
+<p>目前市面上较知名的发行版有：Ubuntu、RedHat、CentOS、Debian、Fedora、SuSE、OpenSUSE、Arch Linux、SolusOS 等。</p>
+<p><img src="/2021/04/25/Linux/20210425183235.png" srcset="/img/loading.gif" lazyload alt="image-20210425183235732"></p>
+<blockquote>
+<p>Linux vs  Windows</p>
+</blockquote>
+<p><img src="/2021/04/25/Linux/20210425183346.png" srcset="/img/loading.gif" lazyload alt="image-20210425183315039"></p>
+<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><blockquote>
+<p>安装CentOS（虚拟机安装）</p>
+</blockquote>
+<p>1、可以通过镜像进行安装！</p>
+<p>2、安装 VMware 虚拟机软件</p>
+<blockquote>
+<p>购买云服务器</p>
+</blockquote>
+<p>1、购买完毕后，获取服务器的ip地址，重置服务器密码，就可以远程登录了</p>
+<p>2、xShell工具连接</p>
+<p><strong>注意事项：</strong>如果要打开端口，需要在阿里云的安全组面板中开启对应的出入规则，不然的话会被阿里拦截！</p>
+<blockquote>
+<p>推荐安装宝塔面板，傻瓜式管理服务器</p>
+</blockquote>
+<p>安装教程：<a target="_blank" rel="noopener" href="https://www.bt.cn/bbs/thread-19376-1-1.html">https://www.bt.cn/bbs/thread-19376-1-1.html</a></p>
+<p>1、开启对应的端口</p>
+<p>2、一键安装</p>
+<p>3、安装完毕后会得到远程面板的地址，账号，密码，就可以登录了</p>
+<p>4、登录之后就可以可视化的安装环境和部署网站！</p>
+<blockquote>
+<p>关于域名</p>
+</blockquote>
+<p>如果自己的网站想要上线，就一定要购买一个域名然后进行备案</p>
+<h1 id="走进Linux系统"><a href="#走进Linux系统" class="headerlink" title="走进Linux系统"></a>走进Linux系统</h1><blockquote>
+<p>开机登录</p>
+</blockquote>
+<p>开机会启动许多程序。它们在Windows叫做”服务”（service），在Linux就叫做”守护进程”（daemon）。</p>
+<p>开机成功后，它会显示一个文本登录界面，这个界面就是我们经常看到的登录界面，在这个登录界面中会提示用户输入用户名，而用户输入的用户将作为参数传给login程序来验证用户的身份，密码是不显示的，输完回车即可！</p>
+<p>一般来说，用户的登录方式有三种：</p>
+<ul>
+<li>命令行登录</li>
+<li>ssh登录</li>
+<li>图形界面登录</li>
+</ul>
+<p>最高权限账户为 root，可以操作一切！</p>
+<blockquote>
+<p>关机</p>
+</blockquote>
+<p>在linux领域内大多用在服务器上，很少遇到关机的操作。毕竟服务器上跑一个服务是永无止境的，除非特殊情况下，不得已才会关机。</p>
+<p>关机指令为：shutdown ；</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mipsasm"><span class="hljs-keyword">sync </span><span class="hljs-comment"># 将数据由内存同步到硬盘中。</span><br><br><span class="hljs-keyword">shutdown </span><span class="hljs-comment"># 关机指令，你可以man shutdown 来看一下帮助文档。例如你可以运行如下命令关机：</span><br><br><span class="hljs-keyword">shutdown </span>–h <span class="hljs-number">10</span> <span class="hljs-comment"># 这个命令告诉大家，计算机将在10分钟后关机</span><br><br><span class="hljs-keyword">shutdown </span>–h now <span class="hljs-comment"># 立马关机</span><br><br><span class="hljs-keyword">shutdown </span>–h <span class="hljs-number">20</span>:<span class="hljs-number">25</span> <span class="hljs-comment"># 系统会在今天20:25关机</span><br><br><span class="hljs-keyword">shutdown </span>–h +<span class="hljs-number">10</span> <span class="hljs-comment"># 十分钟后关机</span><br><br><span class="hljs-keyword">shutdown </span>–r now <span class="hljs-comment"># 系统立马重启</span><br><br><span class="hljs-keyword">shutdown </span>–r +<span class="hljs-number">10</span> <span class="hljs-comment"># 系统十分钟后重启</span><br><br>reboot <span class="hljs-comment"># 就是重启，等同于 shutdown –r now</span><br><br>halt <span class="hljs-comment"># 关闭系统，等同于shutdown –h now 和 poweroff</span><br></code></pre></div></td></tr></table></figure>
+<p>最后总结一下，不管是重启系统还是关闭系统，首先要运行 <strong>sync</strong> 命令，把内存中的数据写到磁盘中。</p>
+<blockquote>
+<p>系统目录结构</p>
+</blockquote>
+<p>登录系统后，在当前命令窗口输入命令：</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">ls</span> /<br></code></pre></div></td></tr></table></figure>
+<p>会看到如下图所示</p>
+<p><img src="/2021/04/25/Linux/20210425184229.png" srcset="/img/loading.gif" lazyload alt="image-20210425184229128"></p>
+<p>树状目录结构：</p>
+<p><img src="/2021/04/25/Linux/20210425184310.png" srcset="/img/loading.gif" lazyload alt="image-20210425184310421"></p>
+<p><strong>以下是对这些目录的解释：</strong></p>
+<ul>
+<li><strong>/bin</strong>：bin是Binary的缩写, 这个目录存放着最经常使用的命令。</li>
+<li><strong>/boot：</strong> 这里存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件。</li>
+<li><strong>/dev ：</strong> dev是Device(设备)的缩写, 存放的是Linux的外部设备，在Linux中访问设备的方式和访问文件的方式是相同的。</li>
+<li><strong>/etc：</strong> 这个目录用来存放所有的系统管理所需要的配置文件和子目录。</li>
+<li><strong>/home</strong>：用户的主目录，在Linux中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。</li>
+<li><strong>/lib</strong>：这个目录里存放着系统最基本的动态连接共享库，其作用类似于Windows里的DLL文件。</li>
+<li><strong>/lost+found</strong>：这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。</li>
+<li><strong>/media</strong>：linux系统会自动识别一些设备，例如U盘、光驱等等，当识别后，linux会把识别的设备挂载到这个目录下。</li>
+<li><strong>/mnt</strong>：系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将光驱挂载在/mnt/上，然后进入该目录就可以查看光驱里的内容了。</li>
+<li><strong>/opt</strong>：这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。</li>
+<li><strong>/proc</strong>：这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。</li>
+<li><strong>/root</strong>：该目录为系统管理员，也称作超级权限者的用户主目录。</li>
+<li><strong>/sbin</strong>：s就是Super User的意思，这里存放的是系统管理员使用的系统管理程序。</li>
+<li><strong>/srv</strong>：该目录存放一些服务启动之后需要提取的数据。</li>
+<li><strong>/sys</strong>：这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 sysfs。</li>
+<li><strong>/tmp</strong>：这个目录是用来存放一些临时文件的。</li>
+<li><strong>/usr</strong>：这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于windows下的program files目录。</li>
+<li><strong>/usr/bin：</strong> 系统用户使用的应用程序。</li>
+<li><strong>/usr/sbin：</strong> 超级用户使用的比较高级的管理程序和系统守护程序。</li>
+<li><strong>/usr/src：</strong> 内核源代码默认的放置目录。</li>
+<li><strong>/var</strong>：这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。</li>
+<li><strong>/run</strong>：是一个临时文件系统，存储系统启动以来的信息。当系统重启时，这个目录下的文件应该被删掉或清除。</li>
+</ul>
+<h1 id="常用的基本命令"><a href="#常用的基本命令" class="headerlink" title="常用的基本命令"></a>常用的基本命令</h1><h2 id="目录管理"><a href="#目录管理" class="headerlink" title="目录管理"></a>目录管理</h2><blockquote>
+<p>绝对路径和相对路径</p>
+</blockquote>
+<p><strong>绝对路径：</strong></p>
+<p>路径的写法，由根目录 / 写起，例如：/usr/share/doc 这个目录。</p>
+<p><strong>相对路径：</strong></p>
+<p>路径的写法，不是由 / 写起，例如由 /usr/share/doc 要到 /usr/share/man 底下时，可以写成：cd ../man 这就是相对路径的写法</p>
+<blockquote>
+<p>处理目录的常用命令</p>
+</blockquote>
+<ul>
+<li>ls: 列出目录</li>
+<li>cd：切换目录</li>
+<li>pwd：显示目前的目录</li>
+<li>mkdir：创建一个新的目录</li>
+<li>rmdir：删除一个空的目录</li>
+<li>cp: 复制文件或目录</li>
+<li>rm: 移除文件或目录</li>
+<li>mv: 移动文件与目录，或修改文件与目录的名称</li>
+</ul>
+<p>你可以使用 <em>man [命令]</em> 来查看各个命令的使用文档，如 ：man cp。</p>
+<blockquote>
+<p>ls（列出目录）</p>
+<p>cd（切换目录）</p>
+</blockquote>
+<p>cd是Change Directory的缩写，这是用来变换工作目录的命令。</p>
+<blockquote>
+<p>pwd ( 显示目前所在的目录 )</p>
+</blockquote>
+<p>pwd 是 <strong>Print Working Directory</strong> 的缩写，也就是显示目前所在目录的命令。</p>
+<blockquote>
+<p>mkdir （创建新目录）</p>
+</blockquote>
+<p>make directory</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-comment"># 加了这个 -p 的选项，可以自行帮你创建多层目录！</span><br> <span class="hljs-attribute">mkdir</span> -p test<span class="hljs-number">1</span>/test<span class="hljs-number">2</span>/test<span class="hljs-number">3</span>/test<span class="hljs-number">4</span><br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>rmdir ( 删除空的目录 )</p>
+</blockquote>
+<p>注意：这个 rmdir 仅能删除空的目录，你可以使用 rm 命令来删除非空目录</p>
+<blockquote>
+<p>cp ( 复制文件或目录 )</p>
+</blockquote>
+<p>语法：</p>
+<figure class="highlight less"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs less"><span class="hljs-selector-attr">[root@www ~]</span># <span class="hljs-selector-tag">cp</span> <span class="hljs-selector-attr">[-adfilprsu]</span> 来源档(source) 目标档(destination)<br><span class="hljs-selector-attr">[root@www ~]</span># <span class="hljs-selector-tag">cp</span> <span class="hljs-selector-attr">[options]</span> <span class="hljs-selector-tag">source1</span> <span class="hljs-selector-tag">source2</span> <span class="hljs-selector-tag">source3</span> .... <span class="hljs-selector-tag">directory</span><br></code></pre></div></td></tr></table></figure>
+<p>选项与参数：</p>
+<ul>
+<li><strong>-a：</strong>相当于 -pdr 的意思，至于 pdr 请参考下列说明；(常用)</li>
+<li><strong>-p：</strong>连同文件的属性一起复制过去，而非使用默认属性(备份常用)；</li>
+<li><strong>-d：</strong>若来源档为连结档的属性(link file)，则复制连结档属性而非文件本身；</li>
+<li><strong>-r：</strong>递归持续复制，用於目录的复制行为；(常用)</li>
+<li><strong>-f：</strong>为强制(force)的意思，若目标文件已经存在且无法开启，则移除后再尝试一次；</li>
+<li><strong>-i：</strong>若目标档(destination)已经存在时，在覆盖时会先询问动作的进行(常用)</li>
+<li><strong>-l：</strong>进行硬式连结(hard link)的连结档创建，而非复制文件本身。</li>
+<li><strong>-s：</strong>复制成为符号连结档 (symbolic link)，亦即『捷径』文件；</li>
+<li><strong>-u：</strong>若 destination 比 source 旧才升级 destination ！</li>
+</ul>
+<blockquote>
+<p>rm ( 移除文件或目录 )</p>
+</blockquote>
+<p>语法：</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">rm <span class="hljs-selector-attr">[-fir]</span> 文件或目录<br></code></pre></div></td></tr></table></figure>
+<p>选项与参数：</p>
+<ul>
+<li>-f ：就是 force 的意思，忽略不存在的文件，不会出现警告信息；</li>
+<li>-i ：互动模式，在删除前会询问使用者是否动作</li>
+<li>-r ：递归删除啊！最常用在目录的删除了！这是非常危险的选项！！！</li>
+</ul>
+<figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala"><span class="hljs-meta"># 尽量不要在服务器上使用 rm -rf /</span><br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>mv  ( 移动文件与目录，或修改名称 )</p>
+</blockquote>
+<p>语法：</p>
+<figure class="highlight autoit"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs autoit">[root<span class="hljs-symbol">@www</span> ~]<span class="hljs-meta"># mv [-fiu] source destination</span><br>[root<span class="hljs-symbol">@www</span> ~]<span class="hljs-meta"># mv [options] source1 source2 source3 .... directory</span><br></code></pre></div></td></tr></table></figure>
+<p>选项与参数：</p>
+<ul>
+<li>-f ：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖；</li>
+<li>-i ：若目标文件 (destination) 已经存在时，就会询问是否覆盖！</li>
+<li>-u ：若目标文件已经存在，且 source 比较新，才会升级 (update)</li>
+</ul>
+<h2 id="基本属性"><a href="#基本属性" class="headerlink" title="基本属性"></a>基本属性</h2><blockquote>
+<p>看懂文件属性</p>
+</blockquote>
+<p>Linux系统是一种典型的多用户系统，不同的用户处于不同的地位，拥有不同的权限。为了保护系统的安全性，Linux系统对不同的用户访问同一文件（包括目录文件）的权限做了不同的规定。</p>
+<p>在Linux中我们可以使用<code>ll</code>或者<code>ls –l</code>命令来显示一个文件的属性以及文件所属的用户和组</p>
+<p>在Linux中第一个字符代表这个文件是目录、文件或链接文件等等：</p>
+<ul>
+<li>当为[ <strong>d</strong> ]则是目录</li>
+<li>当为[ <strong>-</strong> ]则是文件；</li>
+<li>若是[ <strong>l</strong> ]则表示为链接文档 ( link file )；</li>
+<li>若是[ <strong>b</strong> ]则表示为装置文件里面的可供储存的接口设备 ( 可随机存取装置 )；</li>
+<li>若是[ <strong>c</strong> ]则表示为装置文件里面的串行端口设备，例如键盘、鼠标 ( 一次性读取装置 )。</li>
+</ul>
+<p>接下来的字符中，以三个为一组，且均为『rwx』 的三个参数的组合。</p>
+<p>其中，[ r ]代表可读(read)、[ w ]代表可写(write)、[ x ]代表可执行(execute)。</p>
+<p>要注意的是，这三个权限的位置不会改变，如果没有权限，就会出现减号[ - ]而已。</p>
+<p>每个文件的属性由左边第一部分的10个字符来确定（如下图）：</p>
+<p><img src="/2021/04/25/Linux/20210425185737.png" srcset="/img/loading.gif" lazyload alt="image-20210425185737757"></p>
+<p>从左至右用 <strong>0-9</strong> 这些数字来表示。</p>
+<p>第 <strong>0</strong> 位确定文件类型，第 <strong>1-3</strong> 位确定属主（该文件的所有者）拥有该文件的权限。</p>
+<p>第<strong>4-6</strong>位确定属组（所有者的同组用户）拥有该文件的权限，第7-9位确定其他用户拥有该文件的权限。</p>
+<p>其中，第 <strong>1、4、7</strong> 位表示读权限，如果用 <strong>r</strong> 字符表示，则有读权限，如果用 <strong>-</strong> 字符表示，则没有读权限；</p>
+<p>第 <strong>2、5、8</strong> 位表示写权限，如果用 <strong>w</strong> 字符表示，则有写权限，如果用 <strong>-</strong> 字符表示没有写权限；第 <strong>3、6、9</strong> 位表示可执行权限，如果用 <strong>x</strong> 字符表示，则有执行权限，如果用 <strong>-</strong> 字符表示，则没有执行权限。</p>
+<blockquote>
+<p>修改文件属性</p>
+</blockquote>
+<p><strong>1、chgrp：更改文件属组</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">chgrp <span class="hljs-selector-attr">[-R]</span> 属组名 文件名<br></code></pre></div></td></tr></table></figure>
+<p>-R：递归更改文件属组，就是在更改某个目录文件的属组时，如果加上-R的参数，那么该目录下的所有文件的属组都会更改。</p>
+<p><strong>2、chown：更改文件属主，也可以同时更改文件属组</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">chown <span class="hljs-selector-attr">[–R]</span> 属主名 文件名<br>chown <span class="hljs-selector-attr">[-R]</span> 属主名：属组名 文件名<br></code></pre></div></td></tr></table></figure>
+<p><strong>3、chmod：更改文件9个属性</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">chmod <span class="hljs-selector-attr">[-R]</span> xyz 文件或目录<br></code></pre></div></td></tr></table></figure>
+<p>Linux文件属性有两种设置方法，一种是数字，一种是符号。</p>
+<p>Linux文件的基本权限就有九个，分别是owner/group/others三种身份各有自己的read/write/execute权限。</p>
+<h2 id="文件内容查看"><a href="#文件内容查看" class="headerlink" title="文件内容查看"></a>文件内容查看</h2><blockquote>
+<p>概述</p>
+</blockquote>
+<p>Linux系统中使用以下命令来查看文件的内容：</p>
+<ul>
+<li>cat 由第一行开始显示文件内容</li>
+<li>tac 从最后一行开始显示，可以看出 tac 是 cat 的倒着写！</li>
+<li>nl  显示的时候，顺道输出行号！</li>
+<li>more 一页一页的显示文件内容</li>
+<li>less 与 more 类似，但是比 more 更好的是，他可以往前翻页！</li>
+<li>head 只看头几行</li>
+<li>tail 只看尾巴几行</li>
+</ul>
+<p>你可以使用 <em>man [命令]</em>来查看各个命令的使用文档，如 ：man cp。</p>
+<blockquote>
+<p>cat 由第一行开始显示文件内容</p>
+<p>tac</p>
+</blockquote>
+<p>tac与cat命令刚好相反，文件内容从最后一行开始显示，可以看出 tac 是 cat 的倒着写</p>
+<blockquote>
+<p>nl  显示行号</p>
+<p>拓展：Linux链接概念</p>
+</blockquote>
+<p>Linux 链接分两种，一种被称为硬链接（Hard Link），另一种被称为符号链接（Symbolic Link）。</p>
+<p>情况下，<strong>ln</strong> 命令产生硬链接。</p>
+<p><strong>硬连接</strong></p>
+<p>硬连接指通过索引节点来进行连接。在 Linux 的文件系统中，保存在磁盘分区中的文件不管是什么类型都给它分配一个编号，称为索引节点号(Inode Index)。在 Linux 中，多个文件名指向同一索引节点是存在的。比如：A 是 B 的硬链接（A 和 B 都是文件名），则 A 的目录项中的 inode 节点号与 B 的目录项中的 inode 节点号相同，即一个 inode 节点对应两个不同的文件名，两个文件名指向同一个文件，A 和 B 对文件系统来说是完全平等的。删除其中任何一个都不会影响另外一个的访问。</p>
+<p>硬连接的作用是允许一个文件拥有多个有效路径名，这样用户就可以建立硬连接到重要文件，以防止“误删”的功能。其原因如上所述，因为对应该目录的索引节点有一个以上的连接。只删除一个连接并不影响索引节点本身和其它的连接，只有当最后一个连接被删除后，文件的数据块及目录的连接才会被释放。也就是说，文件真正删除的条件是与之相关的所有硬连接文件均被删除。</p>
+<p><strong>软连接</strong></p>
+<p>另外一种连接称之为符号连接（Symbolic Link），也叫软连接。软链接文件有类似于 Windows 的快捷方式。它实际上是一个特殊的文件。在符号连接中，文件实际上是一个文本文件，其中包含的有另一文件的位置信息。比如：A 是 B 的软链接（A 和 B 都是文件名），A 的目录项中的 inode 节点号与 B 的目录项中的 inode 节点号不相同，A 和 B 指向的是两个不同的 inode，继而指向两块不同的数据块。但是 A 的数据块中存放的只是 B 的路径名（可以根据这个找到 B 的目录项）。A 和 B 之间是“主从”关系，如果 B 被删除了，A 仍然存在（因为两个是不同的文件），但指向的是一个无效的链接。</p>
+<h1 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h1><p>安装软件一般有三种方式：rpm（jdk：在线发布一个SpringBoot项目）、解压缩（tomcat：启动并通过外网访问）、yum在线安装（docker：直接运行跑起来docker就可以）</p>
+<h2 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h2><p>1、下载jdk rpm，去oracle官网</p>
+<p>2、安装java环境</p>
+<figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala"><span class="hljs-meta"># 检测当前系统是否存在java环境	java -version</span><br><span class="hljs-meta"># 如果有的话需要卸载</span><br><span class="hljs-meta"># rpm -qa|grep jdk # 检测JDK版本信息</span><br><span class="hljs-meta"># rpm -e --nodeps jdk_</span><br><br><span class="hljs-meta"># 卸载完毕后即可安装jdk</span><br><span class="hljs-meta"># rpm -ivh rpm包</span><br><br><span class="hljs-meta"># 配置环境变量</span><br></code></pre></div></td></tr></table></figure>
+<p>如果存在可以提前卸载</p>
+<p><img src="/2021/04/25/Linux/20210426111737.png" srcset="/img/loading.gif" lazyload alt="image-20210426111730039"></p>
+<p>安装</p>
+<p><img src="/2021/04/25/Linux/20210426111748.png" srcset="/img/loading.gif" lazyload alt="image-20210426111748047"></p>
+<p>配置环境变量：<strong>/etc/profile</strong>        在文件的最后面增加java的配置和window安装环境变量一样</p>
+<figure class="highlight gradle"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs gradle">JAVA_HOME=<span class="hljs-regexp">/usr/</span>java/jdk1.<span class="hljs-number">8.0</span>_291-amd64<br><span class="hljs-keyword">ClASSPATH</span>=%JAVA_HOME%<span class="hljs-regexp">/lib:%JAVA_HOME%/</span>jre/lib<br>export <span class="hljs-keyword">CLASSPATH</span> JAVA_HOME<br></code></pre></div></td></tr></table></figure>
+<p>让这个配置文件生效    <strong>source /etc/profile</strong></p>
+<h2 id="Tomcat安装"><a href="#Tomcat安装" class="headerlink" title="Tomcat安装"></a>Tomcat安装</h2><p>ssm war就需要放到tomcat中运行</p>
+<p>1、下载tomcat，官网下载即可tomcat9    <strong>apache-tomcat-9.0.45.tar.gz</strong></p>
+<p>2、解压这个文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">tar -zxvf apache-tomcat-9.0.45.tar.gz<br></code></pre></div></td></tr></table></figure>
+<p><img src="/2021/04/25/Linux/20210426114950.png" srcset="/img/loading.gif" lazyload alt="image-20210426114950688"></p>
+<p>3、启动tomcat测试    ./xxx.sh脚本即可运行</p>
+<figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala"><span class="hljs-meta"># 执行	./startup.sh</span><br><span class="hljs-meta"># 停止	./shutdown.sh</span><br></code></pre></div></td></tr></table></figure>
+<p><img src="/2021/04/25/Linux/20210426115213.png" srcset="/img/loading.gif" lazyload alt="image-20210426115213412"></p>
+<p>4、确保Linux的防火墙端口是开启的，如果是阿里云，需要保证阿里云的安全组策略是开放的</p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dsconfig"><span class="hljs-comment"># 查看firewall服务状态</span><br><span class="hljs-string">systemctl</span> <span class="hljs-string">status</span> <span class="hljs-string">firewalld</span><br><span class="hljs-string"></span><br><span class="hljs-string"></span><span class="hljs-comment"># 开启、重启、关闭、firewalld.service服务</span><br><span class="hljs-comment"># 开启</span><br><span class="hljs-string">service</span> <span class="hljs-string">firewalld</span> <span class="hljs-string">start</span><br><span class="hljs-string"></span><span class="hljs-comment"># 重启</span><br><span class="hljs-string">service</span> <span class="hljs-string">firewalld</span> <span class="hljs-string">restart</span><br><span class="hljs-string"></span><span class="hljs-comment"># 关闭</span><br><span class="hljs-string">service</span> <span class="hljs-string">firewalld</span> <span class="hljs-string">stop</span><br><span class="hljs-string"></span><br><span class="hljs-string"></span><span class="hljs-comment"># 查看防火墙规则</span><br><span class="hljs-string">firewall-cmd</span> <span class="hljs-built_in">--list-all</span>    <span class="hljs-comment"># 查看全部信息</span><br><span class="hljs-string">firewall-cmd</span> <span class="hljs-built_in">--list-ports</span>  <span class="hljs-comment"># 只看端口信息</span><br><br><span class="hljs-comment"># 开启端口</span><br>开端口命令：<span class="hljs-string">firewall-cmd</span> <span class="hljs-built_in">--zone=public</span> <span class="hljs-built_in">--add-port=80/tcp</span> <span class="hljs-built_in">--permanent</span><br><span class="hljs-built_in">重启防火墙：systemctl</span> <span class="hljs-string">restart</span> <span class="hljs-string">firewalld</span>.<span class="hljs-string">service</span><br><span class="hljs-string"></span><br><span class="hljs-string"></span>命令含义：<br><span class="hljs-built_in">--zone</span> <span class="hljs-comment">#作用域</span><br><span class="hljs-built_in">--add-port=80/tcp</span>  <span class="hljs-comment">#添加端口，格式为：端口/通讯协议</span><br><span class="hljs-built_in">--permanent</span>   <span class="hljs-comment">#永久生效，没有此参数重启后失效</span><br></code></pre></div></td></tr></table></figure>
+<p><img src="/2021/04/25/Linux/20210426115231.png" srcset="/img/loading.gif" lazyload alt="image-20210426115231727"></p>
+<h2 id="Docker（yum安装）"><a href="#Docker（yum安装）" class="headerlink" title="Docker（yum安装）"></a>Docker（yum安装）</h2><p>官网安装参考手册：<a target="_blank" rel="noopener" href="https://docs.docker.com/install/linux/docker-ce/centos/">https://docs.docker.com/install/linux/docker-ce/centos/</a></p>
+<p>一定要联网，yum在线安装</p>
+<blockquote>
+<p>基于CentOS7安装</p>
+</blockquote>
+<p>1、检测CentOS7 </p>
+<figure class="highlight llvm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs llvm">[root<span class="hljs-title">@centos</span> bin]# cat /etc/redhat-<span class="hljs-keyword">release</span> <br>CentOS Linux <span class="hljs-keyword">release</span> <span class="hljs-number">7.9</span>.<span class="hljs-number">2009</span> (Core)<br></code></pre></div></td></tr></table></figure>
+<p>2、安装准备环境</p>
+<figure class="highlight cmake"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cmake">yum -y <span class="hljs-keyword">install</span> 包名	<span class="hljs-comment"># yum install 安装命令	-y	所有的提示都为y</span><br>yum -y <span class="hljs-keyword">install</span> gcc<br>yum -y <span class="hljs-keyword">install</span> gcc-c++<br></code></pre></div></td></tr></table></figure>
+<p>3、清除以前的版本</p>
+<figure class="highlight livescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs livescript">yum remove docker <span class="hljs-string">\</span><br>          docker-client <span class="hljs-string">\</span><br>          docker-client-latest <span class="hljs-string">\</span><br>          docker-common <span class="hljs-string">\</span><br>          docker-latest <span class="hljs-string">\</span><br>          docker-latest-logrotate <span class="hljs-string">\</span><br>          docker-logrotate <span class="hljs-string">\</span><br>          docker-engine<br></code></pre></div></td></tr></table></figure>
+<p>4、安装需要的软件包</p>
+<figure class="highlight cmake"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cmake">yum <span class="hljs-keyword">install</span> -y yum-utils<br></code></pre></div></td></tr></table></figure>
+<p>5、设置stable镜像仓库</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk"><span class="hljs-comment"># 正确推荐使用国内的</span><br>yum-config-manager --add-repo http:<span class="hljs-regexp">//mi</span>rrors.aliyun.com<span class="hljs-regexp">/docker-ce/</span>linux<span class="hljs-regexp">/centos/</span>docker-ce.repo<br></code></pre></div></td></tr></table></figure>
+<p>6、更新yum软件包索引</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">yum makecache fast</span><br></code></pre></div></td></tr></table></figure>
+<p>7、安装Docker CE</p>
+<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">yum -<span class="hljs-keyword">y</span> install docker-<span class="hljs-keyword">ce</span> docker-<span class="hljs-keyword">ce</span>-cli containerd.io<br></code></pre></div></td></tr></table></figure>
+<p>8、启动docker</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs crmsh">systemctl <span class="hljs-literal">start</span> docker<br></code></pre></div></td></tr></table></figure>
+<p>9、测试</p>
+<figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript">docker <span class="hljs-built_in">version</span><br><br>docker <span class="hljs-built_in">run</span> hello-world<br><br>docker images<br></code></pre></div></td></tr></table></figure>
+<p><strong>参考：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1S54y1R7SB">狂神说</a></strong></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Linux%E5%AD%A6%E4%B9%A0/">Linux学习</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/linux/">linux</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/04/25/OvertimeOfHexo-d/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">解决hexo d 报超时的问题</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/04/23/SpringBoot/">
+                        <span class="hidden-mobile">SpringBoot学习</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz","appKey":"xjP4U0FLblVtlDA1XXAP2906","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://rxykbovt.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  <div>
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>
+    <script>
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("4/5/2021 12:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){
+                  mnum = "0" + mnum;
+        }
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){
+                  snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "本站已经运行&nbsp"+dnum+"&nbsp天";
+        document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+    }
+    setInterval("createtime()",250);
+    </script>
+  </div>  
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+  <!-- 页面点击小红心 -->
+  
+    <script type="text/javascript" src="/js/clicklove.js"></script>
+  
+  
+  <!-- 雪花特效-->
+  
+    <script type="text/javascript" src="/js/snow.js"></script>
+  
+
+  <!--彩带1.点击自动替换彩带-->
+  
+    <script type="text/javascript" src="/js/ribbon.js"></script>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

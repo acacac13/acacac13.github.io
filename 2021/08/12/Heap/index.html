@@ -1,0 +1,611 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="It&#39;s fine">
+  <meta name="author" content="AoCan">
+  <meta name="keywords" content="">
+  
+  <title>堆 - Blog Of AC</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/a11y-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"acacac13.top","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz","app_key":"xjP4U0FLblVtlDA1XXAP2906","server_url":"https://rxykbovt.lc-cn-n1-shared.com"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>小朋友你回家吃饭吗</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/../picture/20210814145205.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="堆">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-08-12 17:18" pubdate>
+        August 12, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      19
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">堆</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：June 20, 2022 pm
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="大根堆"><a href="#大根堆" class="headerlink" title="大根堆"></a>大根堆</h1><p>大根堆就是根节点是整颗树的最大值（根节点大于等于左右子树的最大值），对于他的任意子树，根节点也是最大值。小根堆则相反</p>
+<p><img src="/2021/08/12/Heap/20210812162138.png" srcset="/img/loading.gif" lazyload alt="大根堆与小根堆"></p>
+<p>要求：</p>
+<ul>
+<li><p>根节点的关键字既大于或等于左子树的关键字值，又大于或等于右子树的关键字值</p>
+</li>
+<li><p>为<strong>完全二叉树</strong>，所以可以用数组来存储。<strong>i</strong>结点的父结点下标就为 <code>(i – 1) / 2</code></p>
+<p>它的左右子结点下标分别为<code>2 * i + 1</code>和<code>2 * i + 2</code></p>
+</li>
+</ul>
+<h1 id="创建大根堆"><a href="#创建大根堆" class="headerlink" title="创建大根堆"></a>创建大根堆</h1><p>比如一棵树有 N 个元素，存放在数组里分别对应<code>0 ~ N-1</code>，假设数组中从0到 i - 1 位置的元素是一个大根堆，然后把第 i 个位置的元素插入大根堆里，构造一个新的大根堆，就需要从第i个位置的元素开始，依次看它的父节点是否小于它，如果小于就进行交换，直到它的父节点不小于它，或者到了该大根堆的最顶端的根节点。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 创建大根堆</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">heapInsert</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr, <span class="hljs-keyword">int</span> index)</span></span>&#123;<br>    <span class="hljs-comment">//当前节点是否大于父节点</span><br>    <span class="hljs-keyword">while</span> (arr[index] &gt; arr[(index - <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>])&#123;<br>        swap(arr, index, (index - <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>);<br>        index = (index - <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 交换两个不同位置的元素</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> temp = arr[i];<br>    arr[i] = arr[j];<br>    arr[j] = temp;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span>[] arr = &#123;<span class="hljs-number">9</span>,<span class="hljs-number">43</span>,-<span class="hljs-number">54</span>,<span class="hljs-number">4</span>,-<span class="hljs-number">13</span>,<span class="hljs-number">10</span>,<span class="hljs-number">36</span>&#125;;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; arr.length; i++) &#123;<br>        heapInsert(arr, i);<br>    &#125;<br>    System.out.println(Arrays.toString(arr));<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h1 id="调整大根堆"><a href="#调整大根堆" class="headerlink" title="调整大根堆"></a>调整大根堆</h1><p>设数组中对应的大根堆的长度为 heapSize 。当数组中下标为 index 的元素的值发生了变化，就要对这个堆进行调整，保证它还是大根堆。</p>
+<p>具体过程是：将 index 对应的元素和它的左右子节点的值进行比较，如果比它小的话，就把 index 对应的元素和它的左右子节点中最大的值进行交换，交换后对他的子节点也执行这个过程。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 调整堆</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">heapAdjust</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr, <span class="hljs-keyword">int</span> index, <span class="hljs-keyword">int</span> heapSize)</span></span>&#123;<br>    <span class="hljs-comment">//左子节点</span><br>    <span class="hljs-keyword">int</span> left = index * <span class="hljs-number">2</span> + <span class="hljs-number">1</span>;<br>    <span class="hljs-comment">//右子节点</span><br>    <span class="hljs-keyword">int</span> right = left + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (left &lt; heapSize)&#123;<br>        <span class="hljs-comment">//求左右子节点的最大值索引</span><br>        <span class="hljs-keyword">int</span> max = right &lt; heapSize &amp;&amp; arr[right] &gt; arr[left] ? right : left;<br>        <span class="hljs-comment">//与父节点比较判断是否交换</span><br>        max = arr[max] &gt; arr[index] ? max : index;<br>        <span class="hljs-keyword">if</span> (max == index)&#123;<br>            <span class="hljs-keyword">break</span>;<br>        &#125;<br>        swap(arr, max, index);<br>        index = max;<br>        left = index * <span class="hljs-number">2</span> + <span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><p>利用<strong>创建大根堆</strong>和<strong>调整大根堆</strong>来进行排序。</p>
+<p>创建完大根堆以后，每一次都把<strong>堆顶</strong>的元素和<strong>堆的最后一个</strong>元素进行交换，并且把堆的长度<strong>heapSize</strong>减小1，然后对新的堆进行调整，重新调整为大根堆，然后再取堆顶的元素和堆的最后一个节点进行交换，大根堆的长度<strong>heapSize</strong>减小1，然后再调整，重复这个过程，直到堆里面剩余的元素个数为1。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 堆排序</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">heapSort</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr)</span></span>&#123;<br>    <span class="hljs-comment">//判断数组是否为空或是否长度为1</span><br>    <span class="hljs-keyword">if</span> (arr == <span class="hljs-keyword">null</span> || arr.length &lt; <span class="hljs-number">2</span>)&#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-comment">//创建大根堆</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; arr.length; i++) &#123;<br>        heapInsert(arr, i);<br>    &#125;<br>    <span class="hljs-keyword">int</span> size = arr.length;<br>    <span class="hljs-comment">//交换堆顶和堆的最后一个元素，并把堆的长度减1</span><br>    swap(arr, <span class="hljs-number">0</span>, --size);<br>    <span class="hljs-keyword">while</span> (size &gt; <span class="hljs-number">0</span>)&#123;<br>        <span class="hljs-comment">//调整堆</span><br>        heapAdjust(arr, <span class="hljs-number">0</span>, size);<br>        <span class="hljs-comment">//交换堆顶和堆的最后一个元素，并把堆的长度减1</span><br>        swap(arr, <span class="hljs-number">0</span>, --size);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>程序执行结果：</p>
+<p><img src="/2021/08/12/Heap/20210812171543.png" srcset="/img/loading.gif" lazyload alt="结果图"></p>
+<h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof">leetcode剑指offer第40题</a></p>
+<p><img src="/2021/08/12/Heap/20210812180206.png" srcset="/img/loading.gif" lazyload alt="题目"></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/solution/zui-xiao-de-kge-shu-by-leetcode-solution/">参考答案</a></p>
+<p>用一个大根堆实时维护数组的前 k 小值。首先将前 k 个数插入大根堆中，随后从第 k+1 个数开始遍历，如果当前遍历到的数比大根堆的堆顶的数要小，就把堆顶的数弹出，再插入当前遍历到的数。最后将大根堆里的数存入数组返回即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 堆        O(nlogk)   O(k)</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> : int[]</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> arr : 输入数组</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> k : 数值k</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> AoCan</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2021/8/11 16:27</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span>[] getLeastNumbers2(<span class="hljs-keyword">int</span>[] arr, <span class="hljs-keyword">int</span> k)&#123;<br>    <span class="hljs-keyword">int</span>[] vec = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[k];<br>    <span class="hljs-comment">// 排除 0 的情况</span><br>    <span class="hljs-keyword">if</span> (k == <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">return</span> vec;<br>    &#125;<br>    <span class="hljs-comment">//num1是待插元素，num2是最后一个非叶子节点，当compare()返回的值&lt;0时入队，&gt;0时不入队</span><br>    PriorityQueue&lt;Integer&gt; queue = <span class="hljs-keyword">new</span> PriorityQueue&lt;&gt;((num1, num2) -&gt; num2 - num1);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; k; ++i) &#123;<br>        queue.offer(arr[i]);<br>    &#125;<br>    <span class="hljs-comment">//第k+1个数开始入队</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = k; i &lt; arr.length; ++i) &#123;<br>        <span class="hljs-comment">//如果遍历到的元素小于堆顶元素则将堆顶的元素弹出，并插入遍历到的元素</span><br>        <span class="hljs-keyword">if</span> (queue.peek() &gt; arr[i]) &#123;<br>            queue.poll();<br>            queue.offer(arr[i]);<br>        &#125;<br>    &#125;<br>    <span class="hljs-comment">//将大根堆的元素存入数组</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; k; ++i) &#123;<br>        vec[i] = queue.poll();<br>    &#125;<br>    <span class="hljs-keyword">return</span> vec;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="PriorityQueue优先级队列"><a href="#PriorityQueue优先级队列" class="headerlink" title="PriorityQueue优先级队列"></a>PriorityQueue优先级队列</h2><p>用法：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">PriorityQueue&lt;Integer&gt; queue = <span class="hljs-keyword">new</span> PriorityQueue&lt;Integer&gt;(<span class="hljs-keyword">new</span> Comparator&lt;Integer&gt;()&#123;<br> <span class="hljs-meta">@Override</span><br> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Integer num1, Integer num2)</span></span>&#123;  <br> 	<span class="hljs-keyword">return</span> num2 - num1; 	  <span class="hljs-comment">// 最大优先队列，return num2.compareTo(num1);</span><br>                          	  <span class="hljs-comment">// 最小优先队列，return num1.compareTo(num2);</span><br> &#125;<br>&#125;);<br><br><span class="hljs-comment">//lambda表达式</span><br>PriorityQueue&lt;Integer&gt; queue = <span class="hljs-keyword">new</span> PriorityQueue&lt;&gt;((num1, num2) -&gt; num2 - num1);<br></code></pre></div></td></tr></table></figure>
+<p>Compare含义：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// num1是待插元素，num2是最后一个非叶子节点</span><br>compare(Integer num1, Integer num2)<br></code></pre></div></td></tr></table></figure>
+<h3 id="具体场景"><a href="#具体场景" class="headerlink" title="具体场景"></a>具体场景</h3><p><strong>TopK </strong> 问题：</p>
+<ul>
+<li><p>数组中最大的 K 个<br>构造小根堆，堆顶为最小数，不断入队，当队列数大于 K 时，将最小的堆顶弹出，最后剩下的就是 K 个最大数</p>
+</li>
+<li><p>数组中最小的 K 个<br>构造最大堆，堆顶为最大数，不断入队，当队列数小于 K 时，将最大的堆顶弹出，最后剩下的就是 K 个最小数</p>
+</li>
+</ul>
+<p>该题就是第二种</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%9C%80%E5%A4%A7%E5%A0%86/4633143?fromtitle=%E5%A4%A7%E6%A0%B9%E5%A0%86&amp;fromid=4633235&amp;fr=aladdin">百度百科</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/dream_follower/article/details/105202811">图解大根堆的堆排序</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhizhengguan/article/details/106826270">如何构建一个大根堆</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/l577217/article/details/80516654">堆排序</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wangchaowei/p/8288216.html">数据结构—堆、大根堆、小根堆</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wangchaowei/p/8288216.html">PriorityQueue优先级队列用法</a></li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%A0%86/">堆</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%A4%A7%E6%A0%B9%E5%A0%86/">大根堆</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/08/14/Sort/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">十大经典排序算法</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/06/08/Redis/">
+                        <span class="hidden-mobile">Redis学习</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz","appKey":"xjP4U0FLblVtlDA1XXAP2906","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://rxykbovt.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  <div>
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>
+    <script>
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("4/5/2021 12:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){
+                  mnum = "0" + mnum;
+        }
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){
+                  snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "本站已经运行&nbsp"+dnum+"&nbsp天";
+        document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+    }
+    setInterval("createtime()",250);
+    </script>
+  </div>  
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+  <!-- 页面点击小红心 -->
+  
+    <script type="text/javascript" src="/js/clicklove.js"></script>
+  
+  
+  <!-- 雪花特效-->
+  
+    <script type="text/javascript" src="/js/snow.js"></script>
+  
+
+  <!--彩带1.点击自动替换彩带-->
+  
+    <script type="text/javascript" src="/js/ribbon.js"></script>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
