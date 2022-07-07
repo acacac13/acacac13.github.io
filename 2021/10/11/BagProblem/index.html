@@ -237,7 +237,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：June 20, 2022 pm
+                  本文最后更新于：July 7, 2022 am
                 
               </p>
             
@@ -289,7 +289,7 @@
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// weight数组的大小 就是物品个数</span><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; weight.size(); i++) &#123; <span class="hljs-comment">// 遍历物品</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt;= bagWeight; j++) &#123; <span class="hljs-comment">// 遍历背包容量</span><br>        <span class="hljs-keyword">if</span> (j &lt; weight[i]) dp[i][j] = dp[i - <span class="hljs-number">1</span>][j]; <br>        <span class="hljs-keyword">else</span> dp[i][j] = max(dp[i - <span class="hljs-number">1</span>][j], dp[i - <span class="hljs-number">1</span>][j - weight[i]] + value[i]);<br><br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 </li>
 <li><p>推导一遍dp数组</p>
-<p>|       |  0   |  1   |  2   |  3   |  4   |<br>| :—-: | :—: | :—: | :—: | :—: | :—: |<br>| 物品0 |  0   |  15  |  15  |  15  |  15  |<br>| 物品1 |  0   |  15  |  15  |  20  |  35  |<br>| 物品2 |  0   |  15  |  15  |  20  |  35  |</p>
+<p>|     | 0   | 1   | 2   | 3   | 4   |<br>|:—-:|:—-:|:—-:|:—-:|:—-:|:—-:|<br>| 物品0 | 0   | 15  | 15  | 15  | 15  |<br>| 物品1 | 0   | 15  | 15  | 20  | 35  |<br>| 物品2 | 0   | 15  | 15  | 20  | 35  |</p>
 </li>
 </ol>
 <p><strong>难点：初始化和遍历顺序</strong></p>
@@ -307,11 +307,11 @@
 </li>
 <li><p>推导一遍</p>
 <p>物品0：</p>
-<p>|  0   |  15  |  15  |  15  |  15  |<br>| :—: | :—: | :—: | :—: | :—: |</p>
+<p>| 0   | 15  | 15  | 15  | 15  |<br>|:—-:|:—-:|:—-:|:—-:|:—-:|</p>
 <p>物品1：</p>
-<p>|  0   |  15  |  15  |  20  |  35  |<br>| :—: | :—: | :—: | :—: | :—: |</p>
+<p>| 0   | 15  | 15  | 20  | 35  |<br>|:—-:|:—-:|:—-:|:—-:|:—-:|</p>
 <p>物品2：</p>
-<p>|  0   |  15  |  15  |  20  |  35  |<br>| :—: | :—: | :—: | :—: | :—: |</p>
+<p>| 0   | 15  | 15  | 20  | 35  |<br>|:—-:|:—-:|:—-:|:—-:|:—-:|</p>
 </li>
 </ol>
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><ol>
