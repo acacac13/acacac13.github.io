@@ -72,7 +72,7 @@ for (Award award : awardPool.getAwards()) {
 
 # DDD 相比 MVC
 
-<img src="file:///Users/aocan/Desktop/code/acacac13.github.io/source/_posts/ddd/bj-ea220c42c286a9495b6d0123f4807b25b7d4abec.png" title="" alt="" data-align="center">
+![DDD与MVC对比](ddd/bj-ea220c42c286a9495b6d0123f4807b25b7d4abec.png)
 
 1. **用户接口层** 用户接口层负责向用户显示信息和解释用户指令。
 
@@ -111,7 +111,7 @@ for (Award award : awardPool.getAwards()) {
 
 贫血领域模型是一个存在已久的反模式。
 
-<img src="https://pic2.zhimg.com/v2-75522d954d602361789e16497e519739_r.jpg" title="" alt="preview" data-align="center">
+![贫血领域模型](ddd/2022-06-16-15-11-56-image.png)
 
 贫血领域模型的基本特征是第一眼看起来还真像这么回事。项目中有许多对象，他们的命名都是根据领域来的。对象之间有着丰富的连接方式，和真正的领域模型非常相似。而且这些对象基本没有任何行为，仅仅是一堆 getter/setter。
 
@@ -167,7 +167,7 @@ OOP 总是比面向过程的编程有更丰富的语义、更合理的组织、�
 
 我们在平时进行web开发的时候，就是定义DTO，定义数据库Model，BO等，对其进行get set方法，然后通过service 对Bo对象进行操作，最后通过copy属性持久化数据库和DTO传输。但是如果是充血模型的话，就不用在service进行属性赋值，而是在创建这个对象的时候，进行业务操作，赋予其属性值。这里也就是DDD的思想，这个对象也就是DDD所定义的Entity 或者 value 。Service也就是domianService，由多个Entity 和value 组成，构造最终的领域模型。
 
-<img src="https://pic1.zhimg.com/v2-2bc4c559fad595f71016f2097c15cb8c_r.jpg" title="" alt="preview" data-align="center">
+![贫血领域模型](https://pic1.zhimg.com/v2-2bc4c559fad595f71016f2097c15cb8c_r.jpg)
 
 # 传统架构对比 DDD
 
