@@ -1,0 +1,613 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="It&#39;s fine">
+  <meta name="author" content="AoCan">
+  <meta name="keywords" content="">
+  
+  <title>并查集算法 - Blog Of AC</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/a11y-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"acacac13.top","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz","app_key":"xjP4U0FLblVtlDA1XXAP2906","server_url":"https://rxykbovt.lc-cn-n1-shared.com"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>小朋友你回家吃饭吗</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/custom.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="并查集算法">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-07-16 18:39" pubdate>
+        July 16, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      30
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">并查集算法</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：July 16, 2022 pm
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="算法简介"><a href="#算法简介" class="headerlink" title="算法简介"></a>算法简介</h1><p>并查集算法也就是常说的并查集结构，主要是解决图论中的「动态连通性」问题的。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UF</span> </span>&#123;<br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">     * 将 p 和 q 连接</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">union</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p, <span class="hljs-keyword">int</span> q)</span></span>;<br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">     * 判断 p 和 q 是否连通</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">connected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p, <span class="hljs-keyword">int</span> q)</span></span>;<br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">     * 返回图中有多少个连通分量</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">count</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>这里说的「连通」是一种等价关系，也就是说具有如下三个性质：</p>
+<ol>
+<li><p>自反性：节点 p 和 q 是连通的。</p>
+</li>
+<li><p>对称性：如果节点 p 和 q 连通，那么 q 和 p 也连通。</p>
+</li>
+<li><p>传递性：如果节点 p 和 q 连通，q 和 r 连通，那么 p 和 r 也连通。</p>
+</li>
+</ol>
+<h1 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h1><p>假设树的每个节点有一个指针指向其父节点，如果是根节点的话，这个指针指向自己。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UF</span> </span>&#123;<br>    <span class="hljs-comment">// 记录连通分量</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> count;<br>    <span class="hljs-comment">// 节点 x 的父节点是 parent[x]</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span>[] parent;<br><br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">     * 构造函数，n 为图的节点总数</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UF</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>        <span class="hljs-comment">// 一开始互不连通</span><br>        <span class="hljs-keyword">this</span>.count = n;<br>        <span class="hljs-comment">// 父节点指针初始指向自己</span><br>        parent = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            parent[i] = i;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// 其他函数</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>如果两个节点被连通，则让其中的（任意）一个节点的根节点接到另一个节点的根节点上；也就是说如果节点 p 和 q 连通的话，它们一定拥有相同的根节点。</p>
+<p><img src="/2022/07/16/UnionFind/2022-07-11-10-22-29-image.png" srcset="/img/loading.gif" lazyload alt="连通示意图"></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">union</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p, <span class="hljs-keyword">int</span> q)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> rootP = find(p);<br>    <span class="hljs-keyword">int</span> rootQ = find(q);<br>    <span class="hljs-keyword">if</span>(rootP == rootQ) &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-comment">// 将两棵树合并为一颗</span><br>    parent[rootP] = rootQ;<br>    <span class="hljs-comment">// parent[rootQ] = rootP 也一样</span><br>    count--; <span class="hljs-comment">// 两个分量合二为一</span><br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 返回某个节点 x 的根节点</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>    <span class="hljs-comment">// 根节点的 parent[x] == x</span><br>    <span class="hljs-keyword">while</span>(parent[x] != x) &#123;<br>        x = parent[x];<br>    &#125;<br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 返回当前的连通分量个数</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">count</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> count;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">connected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p, <span class="hljs-keyword">int</span> q)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> rootP = find(p);<br>    <span class="hljs-keyword">int</span> rootQ = find(q);<br>    <span class="hljs-keyword">return</span> rootP == rootQ;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p><strong>算法复杂度</strong></p>
+<p><code>connected</code>和<code>union</code>中的复杂度都是<code>find</code>函数造成的，它们的复杂度和<code>find</code>一样。<code>find</code>主要功能就是从某个节点向上遍历到树根，其时间复杂度就是树的高度。树的高度不一定就是 logN，logN 的高度只存在于平衡二叉树，对于一般的树可能会出现极端不平衡的情况，使得「树」几乎退化成「链表」，最坏情况下可能变成 N。</p>
+<h1 id="平衡性优化"><a href="#平衡性优化" class="headerlink" title="平衡性优化"></a>平衡性优化</h1><p>由上面的代码可以知道，<code>union</code>过程是直接把<code>p</code>所在的树接到q所在的树的根节点下面，那么就很有可能会出现不平衡的现象。比如下图所示：</p>
+<p><img src="/2022/07/16/UnionFind/2022-07-15-09-38-36-image.png" srcset="/img/loading.gif" lazyload alt="平衡性优化"></p>
+<p>为了解决这个问题，提出了「重量」的概念，额外使用一个<code>size</code>数组，记录每棵树包含的节点数。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UF</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> count;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span>[] parent;<br>    <span class="hljs-comment">// 新增一个数组记录树的“重量”</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span>[] size;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UF</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.count = n;<br>        parent = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n];<br>        <span class="hljs-comment">// 最初每棵树只有一个节点</span><br>        <span class="hljs-comment">// 重量应该初始化 1</span><br>        size = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            parent[i] = i;<br>            size[i] = <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// 修改后的 union 函数</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">union</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p, <span class="hljs-keyword">int</span> q)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> rootP = find(p);<br>        <span class="hljs-keyword">int</span> rootQ = find(q);<br>        <span class="hljs-keyword">if</span> (rootP == rootQ)<br>            <span class="hljs-keyword">return</span>;<br><br>        <span class="hljs-comment">// 小树接到大树下面，较平衡</span><br>        <span class="hljs-keyword">if</span> (size[rootP] &gt; size[rootQ]) &#123;<br>            parent[rootQ] = rootP;<br>            size[rootP] += size[rootQ];<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            parent[rootP] = rootQ;<br>            size[rootQ] += size[rootP];<br>        &#125;<br>        count--;<br>    &#125;<br>    <span class="hljs-comment">/* 其他函数 */</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>此时，<code>find</code>，<code>union</code>，<code>connnected</code>的时间复杂度都下降为O(logN)，因为可以保证树的生长相对平衡，树的高度大致在logN的数量级。</p>
+<h1 id="路径压缩"><a href="#路径压缩" class="headerlink" title="路径压缩"></a>路径压缩</h1><p>由于并查集算法实际上关注的是根节点，并不在乎树是怎么样的，所以可以考虑进一步来压缩树的高度，让树高保持为常数。</p>
+<p>下面是修改<code>find</code>函数的两种方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>    <span class="hljs-keyword">while</span> (parent[x] != x) &#123;<br>        <span class="hljs-comment">// 这行代码进行路径压缩</span><br>        <span class="hljs-comment">// 每次while循环都把一对父子节点改到同一层</span><br>        parent[x] = parent[parent[x]];<br>        x = parent[x];<br>    &#125;<br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p><img src="/2022/07/16/UnionFind/9ba1a972df471228eb69aae3c311365b0a7c7a35.gif" srcset="/img/loading.gif" lazyload alt="迭代写法示意图"></p>
+<p>第二种写法：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (parent[x] != x) &#123;<br>        parent[x] = find(parent[x]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> parent[x];<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>第二种递归写法的压缩效率是比第一种迭代写法高的，但较难理解。压缩效果如下：</p>
+<p><img src="/2022/07/16/UnionFind/2022-07-15-10-04-37-image.png" srcset="/img/loading.gif" lazyload alt="递归写法示意图"></p>
+<p>可以看出第二种方法能够直接把树降低到最小高度，因此推荐使用这种路径压缩算法。而且使用路径压缩算法以后，<code>size</code>数组的平衡优化就基本不需要了。</p>
+<p>下面就是<code>Union Find</code>算法实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UF</span> </span>&#123;<br>    <span class="hljs-comment">// 连通分量个数</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> count;<br>    <span class="hljs-comment">// 存储每个节点的父节点</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span>[] parent;<br><br>    <span class="hljs-comment">// n 为图中节点的个数</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UF</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.count = n;<br>        parent = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            parent[i] = i;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// 将节点 p 和节点 q 连通</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">union</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p, <span class="hljs-keyword">int</span> q)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> rootP = find(p);<br>        <span class="hljs-keyword">int</span> rootQ = find(q);<br><br>        <span class="hljs-keyword">if</span> (rootP == rootQ)<br>            <span class="hljs-keyword">return</span>;<br><br>        parent[rootQ] = rootP;<br>        <span class="hljs-comment">// 两个连通分量合并成一个连通分量</span><br>        count--;<br>    &#125;<br><br>    <span class="hljs-comment">// 判断节点 p 和节点 q 是否连通</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">connected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p, <span class="hljs-keyword">int</span> q)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> rootP = find(p);<br>        <span class="hljs-keyword">int</span> rootQ = find(q);<br>        <span class="hljs-keyword">return</span> rootP == rootQ;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (parent[x] != x) &#123;<br>            parent[x] = find(parent[x]);<br>        &#125;<br>        <span class="hljs-keyword">return</span> parent[x];<br>    &#125;<br><br>    <span class="hljs-comment">// 返回图中的连通分量个数</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">count</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> count;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>对于<code>Union Find</code>复杂度，构造初始化数据结构需要 O(N) 的时间和空间复杂度，<code>union</code>，<code>connected</code>和<code>count</code>方法所需时间复杂度为O(1)。</p>
+<p>主要应用：解决动态连通性问题。</p>
+<h1 id="算法题"><a href="#算法题" class="headerlink" title="算法题"></a>算法题</h1><h2 id="无向图中连通分量的数目"><a href="#无向图中连通分量的数目" class="headerlink" title="无向图中连通分量的数目"></a>无向图中连通分量的数目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/number-of-connected-components-in-an-undirected-graph/">leetcode-323. 无向图中连通分量的数目</a></p>
+<blockquote>
+<p>给你输入一个包含 <code>n</code> 个节点的图，用一个整数 <code>n</code> 和一个数组 <code>edges</code> 表示，其中 <code>edges[i] = [ai, bi]</code> 表示图中节点 <code>ai</code> 和 <code>bi</code> 之间有一条边。请你计算这幅图的连通分量个数。</p>
+</blockquote>
+<p>这道题可以直接套用并查集算法解决，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">countComponents</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span>[][] edges)</span> </span>&#123;<br>    UF uf = <span class="hljs-keyword">new</span> UF(n);<br>    <span class="hljs-comment">// 将每个节点进行连通</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span>[] e: edges) &#123;<br>        uf.union(e[<span class="hljs-number">0</span>], e[<span class="hljs-number">1</span>])<br>    &#125;<br>    <span class="hljs-comment">// 返回连通分量的个数</span><br>    <span class="hljs-keyword">return</span> uf.count();<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UF</span> </span>&#123;<br>    ...<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="被围绕的区域"><a href="#被围绕的区域" class="headerlink" title="被围绕的区域"></a>被围绕的区域</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/surrounded-regions/">leetcode-130. 被围绕的区域</a></p>
+<p><img src="/2022/07/16/UnionFind/2022-07-15-10-19-38-image.png" srcset="/img/loading.gif" lazyload alt="leetcode-130. 被围绕的区域"></p>
+<p>其实这一题应该归于dfs问题，由题意可知边界上的<code>O</code>是不会被填充的，遍历棋盘的四边，用dfs算法找到与边界相连的<code>O</code>，并换成一个特殊字符；然后便遍历整个棋盘，把剩下的<code>O</code>换成<code>X</code>，再把特殊符号还原为<code>0</code>。</p>
+<p>当然也可以使用并查集算法来解决，虽然效率更低。</p>
+<p>思想：把不需要替换的 <code>O</code>看成是特殊的一类，他们有一个共同的祖先 <code>dummy</code>，这些<code>O</code>与<code>dummy</code>互通，那些需要被替换的<code>O</code>与<code>dummy</code>不互通。</p>
+<p>并查集算法底层使用的是一维数组，而题目给出的是二维数组，因此这里需要有一个降维的过程，将二维坐标<code>(x, y)</code>转换成<code>x * n + y</code>。注意还需要给<code>dummy</code>留一个位置。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">solve</span><span class="hljs-params">(<span class="hljs-keyword">char</span>[][] board)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (board.length == <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">int</span> m = board.length;<br>    <span class="hljs-keyword">int</span> n = board[<span class="hljs-number">0</span>].length;<br>    <span class="hljs-comment">// 给 dummy 留一个额外位置</span><br>    UF uf = <span class="hljs-keyword">new</span> UF(m * n + <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">int</span> dummy = m * n;<br>    <span class="hljs-comment">// 将首列和末列的 O 与 dummy 连通</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>        <span class="hljs-keyword">if</span> (board[i][<span class="hljs-number">0</span>] == <span class="hljs-string">&#x27;O&#x27;</span>)<br>            uf.union(i * n, dummy);<br>        <span class="hljs-keyword">if</span> (board[i][n - <span class="hljs-number">1</span>] == <span class="hljs-string">&#x27;O&#x27;</span>)<br>            uf.union(i * n + n - <span class="hljs-number">1</span>, dummy);<br>    &#125;<br>    <span class="hljs-comment">// 将首行和末行的 O 与 dummy 连通</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>        <span class="hljs-keyword">if</span> (board[<span class="hljs-number">0</span>][j] == <span class="hljs-string">&#x27;O&#x27;</span>)<br>            uf.union(j, dummy);<br>        <span class="hljs-keyword">if</span> (board[m - <span class="hljs-number">1</span>][j] == <span class="hljs-string">&#x27;O&#x27;</span>)<br>            uf.union(n * (m - <span class="hljs-number">1</span>) + j, dummy);<br>    &#125;<br>    <span class="hljs-comment">// 方向数组 d 是上下左右搜索的常用手法</span><br>    <span class="hljs-keyword">int</span>[][] d = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;&#123;<span class="hljs-number">1</span>, <span class="hljs-number">0</span>&#125;, &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">0</span>, -<span class="hljs-number">1</span>&#125;, &#123;-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>&#125;&#125;;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; m - <span class="hljs-number">1</span>; i++) <br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt; n - <span class="hljs-number">1</span>; j++) <br>            <span class="hljs-keyword">if</span> (board[i][j] == <span class="hljs-string">&#x27;O&#x27;</span>)<br>                <span class="hljs-comment">// 将此 O 与上下左右的 O 连通</span><br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>; k &lt; <span class="hljs-number">4</span>; k++) &#123;<br>                    <span class="hljs-keyword">int</span> x = i + d[k][<span class="hljs-number">0</span>];<br>                    <span class="hljs-keyword">int</span> y = j + d[k][<span class="hljs-number">1</span>];<br>                    <span class="hljs-keyword">if</span> (board[x][y] == <span class="hljs-string">&#x27;O&#x27;</span>)<br>                        uf.union(x * n + y, i * n + j);<br>                &#125;<br>    <span class="hljs-comment">// 所有不和 dummy 连通的 O，都要被替换</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; m - <span class="hljs-number">1</span>; i++) <br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt; n - <span class="hljs-number">1</span>; j++) <br>            <span class="hljs-keyword">if</span> (!uf.connected(dummy, i * n + j))<br>                board[i][j] = <span class="hljs-string">&#x27;X&#x27;</span>;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UF</span> </span>&#123;<br>    <span class="hljs-comment">// 见上文</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="等式方程的可满足性"><a href="#等式方程的可满足性" class="headerlink" title="等式方程的可满足性"></a>等式方程的可满足性</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/satisfiability-of-equality-equations/">leetcode-990. 等式方程的可满足性</a></p>
+<p><img src="/2022/07/16/UnionFind/2022-07-16-18-02-03-image.png" srcset="/img/loading.gif" lazyload alt="leetcode-990. 等式方程的可满足性"></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">equationsPossible</span><span class="hljs-params">(String[] equations)</span> </span>&#123;<br>    <span class="hljs-comment">// 26 个英文字母</span><br>    UF uf = <span class="hljs-keyword">new</span> UF(<span class="hljs-number">26</span>);<br>    <span class="hljs-comment">// 先让相等的字母形成连通分量</span><br>    <span class="hljs-keyword">for</span> (String eq : equations) &#123;<br>        <span class="hljs-keyword">if</span> (eq.charAt(<span class="hljs-number">1</span>) == <span class="hljs-string">&#x27;=&#x27;</span>) &#123;<br>            <span class="hljs-keyword">char</span> x = eq.charAt(<span class="hljs-number">0</span>);<br>            <span class="hljs-keyword">char</span> y = eq.charAt(<span class="hljs-number">3</span>);<br>            uf.union(x - <span class="hljs-string">&#x27;a&#x27;</span>, y - <span class="hljs-string">&#x27;a&#x27;</span>);<br>        &#125;<br>    &#125;<br>    <span class="hljs-comment">// 检查不等关系是否打破相等关系的连通性</span><br>    <span class="hljs-keyword">for</span> (String eq : equations) &#123;<br>        <span class="hljs-keyword">if</span> (eq.charAt(<span class="hljs-number">1</span>) == <span class="hljs-string">&#x27;!&#x27;</span>) &#123;<br>            <span class="hljs-keyword">char</span> x = eq.charAt(<span class="hljs-number">0</span>);<br>            <span class="hljs-keyword">char</span> y = eq.charAt(<span class="hljs-number">3</span>);<br>            <span class="hljs-comment">// 如果相等关系成立，就是逻辑冲突</span><br>            <span class="hljs-keyword">if</span> (uf.connected(x - <span class="hljs-string">&#x27;a&#x27;</span>, y - <span class="hljs-string">&#x27;a&#x27;</span>))<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UF</span> </span>&#123;<br>    ...<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://labuladong.github.io/algo/2/21/52/">并查集（Union-Find）算法详解 :: labuladong的算法小抄</a></li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%9B%BE/">图</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/23/ddd/">
+                        <span class="hidden-mobile">ddd 学习</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"RxykbovtXvEzAt8OUVAS1CqX-gzGzoHsz","appKey":"xjP4U0FLblVtlDA1XXAP2906","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://rxykbovt.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  <div>
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>
+    <script>
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("4/5/2021 12:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){
+                  mnum = "0" + mnum;
+        }
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){
+                  snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "本站已经运行&nbsp"+dnum+"&nbsp天";
+        document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+    }
+    setInterval("createtime()",250);
+    </script>
+  </div>  
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+  <!-- 页面点击小红心 -->
+  
+    <script type="text/javascript" src="/js/clicklove.js"></script>
+  
+  
+  <!-- 雪花特效-->
+  
+    <script type="text/javascript" src="/js/snow.js"></script>
+  
+
+  <!--彩带1.点击自动替换彩带-->
+  
+    <script type="text/javascript" src="/js/ribbon.js"></script>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
