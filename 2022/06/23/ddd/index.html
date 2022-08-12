@@ -356,8 +356,7 @@
 </ul>
 <p>OOP 总是比面向过程的编程有更丰富的语义、更合理的组织、更强的可维护性，当然也更难掌握。</p>
 <p>在实际工程场景中使用充血模型还有很多细节问题，其中最大的难关就是”如何设计充血模型“或者说”如何从复杂的业务中分离出恰到好处且包含予以的逻辑放到 VO 的行为中“。如果一个对象包含其他对象，那就将职责继续委托下去，由具体的 POJO 执行业务逻辑，将策略模式更加细粒度，而不是写 <code>ifelse</code>。</p>
-<h1 id="DDD-与充血模型的关系"><a href="#DDD-与充血模型的关系" class="headerlink" title="DDD 与充血模型的关系"></a>DDD 与充血模型的关系</h1><p>我们在平时进行web开发的时候，就是定义DTO，定义数据库Model，BO等，对其进行get set方法，然后通过service 对Bo对象进行操作，最后通过copy属性持久化数据库和DTO传输。但是如果是充血模型的话，就不用在service进行属性赋值，而是在创建这个对象的时候，进行业务操作，赋予其属性值。这里也就是DDD的思想，这个对象也就是DDD所定义的Entity 或者 value 。Service也就是domianService，由多个Entity 和value 组成，构造最终的领域模型。</p>
-<p><img src="https://pic1.zhimg.com/v2-2bc4c559fad595f71016f2097c15cb8c_r.jpg" srcset="/img/loading.gif" lazyload alt="贫血领域模型"></p>
+<h1 id="DDD-与充血模型的关系"><a href="#DDD-与充血模型的关系" class="headerlink" title="DDD 与充血模型的关系"></a>DDD 与充血模型的关系</h1><p>我们在平时进行web开发的时候，就是定义DTO，定义数据库Model，BO等，对其进行get set方法，然后通过service 对Bo对象进行操作，最后通过copy属性持久化数据库和DTO传输。但是如果是充血模型的话，就不用在service进行属性赋值，而是在创建这个对象的时候，进行业务操作，赋予其属性值。这里也就是DDD的思想，这个对象也就是DDD所定义的Entity 或者 value 。Service也就是domainService，由多个Entity 和value 组成，构造最终的领域模型。</p>
 <h1 id="传统架构对比-DDD"><a href="#传统架构对比-DDD" class="headerlink" title="传统架构对比 DDD"></a>传统架构对比 DDD</h1><p>软件架构模式发展到现在可以主要经历了三个阶段：UI + DataBase的两层架构、UI + Service + DataBase的多层SOA架构、分布式微服务架构。</p>
 <h2 id="传统架构的缺点"><a href="#传统架构的缺点" class="headerlink" title="传统架构的缺点"></a>传统架构的缺点</h2><p>在前两种架构中，系统分析、设计和开发往往是独立、分阶段割裂进行的。</p>
 <ol>
@@ -492,7 +491,7 @@
 <p>——维基百科</p>
 </blockquote>
 <p>依赖倒置原则的定义在DDD设计中可以改述为：领域层等其他层不应该依赖于基础实施层，两者都应该依赖于抽象，具体落地的时候，这些抽象的接口定义放在了领域层等下方层中。这也就是意味着一个重要的落地指导原则： <strong>所有依赖基础实施实现的抽象接口，都应该定义在领域层或应用层中</strong>。</p>
-<p><img src="/2022/06/23/ddd/aocan/Desktop/code/acacac13.github.io/source/_posts/ddd/647-1aeff661566da6a0.png" srcset="/img/loading.gif" lazyload alt></p>
+<p><img src="/2022/06/23/ddd/jiagou.png" srcset="/img/loading.gif" lazyload alt></p>
 <p>依赖倒置原则 DIP 的好处是：</p>
 <ol>
 <li>通过依赖于接口，隔离了具体实现类</li>
@@ -654,7 +653,7 @@
 <p><strong>如何设计聚合？</strong></p>
 <p>DDD 领域建模通常采用事件风暴，它通常采用用例分析、场景分析和用户旅程分析等方法，通过头脑风暴列出所有可能的业务行为和事件，然后找出产生这些行为的领域对象，并梳理领域对象之间的关系，找出聚合根，找出与聚合根业务紧密关联的实体和值对象，再将聚合根、实体和值对象组合，构建聚合。</p>
 <p>下面以保险的投保业务场景为例，看一下聚合的构建过程。</p>
-<p><img src="file:///Users/aocan/Desktop/code/acacac13.github.io/source/_posts/ddd/2002319-20210608002338829-1627378702.png" srcset="/img/loading.gif" lazyload title alt data-align="center"></p>
+<p><img src="/2022/06/23/ddd/2002319-20210608002338829-1627378702.png" srcset="/img/loading.gif" lazyload alt></p>
 <ol>
 <li><p>采用事件风暴，根据业务行为，梳理出在投保过程中发生这些行为的所有的实体和值对象，比如投保单、标的、客户、被保人等等。</p>
 </li>
