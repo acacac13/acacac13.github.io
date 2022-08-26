@@ -90,7 +90,6 @@ Lucene是一个全文检索引擎的架构。那什么是全文搜索引擎?
    modules	功能模块
    plugins	插件
    ```
-
 3. 启动
 
    双击 elasticsearch.bat 文件
@@ -146,7 +145,7 @@ Kibana 是一个针对 Elasticsearch 的开源分析及可视化平台，用来�
 # ES 核心概念
 
 1. 索引
-2. 字段类型（mapping）
+2. 字段类型（type）
 3. 文档（documents）
 
 > 概述
@@ -195,6 +194,11 @@ elasticsearch **在后台把每个索引划分成多个分片**，每个分片�
 
 上图是一个有3个节点的集群，可以看到主分片和对应的复制分片都不会在同一个节点内，这样有利于某个节点挂掉了，数据也不至于丢失。实际上，一个分片是一个 Lucene 索引，一个包含**倒排索引**的文件目录，倒排索引的结构使得 elasticsearch 在不扫描全部文档的情况下，就能告诉你哪些文档包含特定的关键字。
 
+- Primary shard 用于文档存储，每个新的索引会自动创建 5 个Primary shard （数量可自定义）
+- Replica shard 是 Primary Shard 的副本，用于冗余数据及提高搜索性能
+
+每个shard（分片）包含多个segment（段），每一个segment都是一个倒排索引。
+
 > 倒排索引
 
 elasticsearch 使用的是一种称为倒排索引的结构，采用 Lucene 倒排索作为底层。这种结构适用于快速的全文搜索，一个索引由文档中所有不重复的列表构成，对于每一个词，都有一个包含它的文档列表。例如，现在有两个文档，每个文档包含如下内容︰
@@ -217,7 +221,7 @@ To forever, study every day, good good up	# 文档2包含的内容
 elasticsearch 的索引和 Lucene 的索引对比
 在 elasticsearch 中，索引这个词被频繁使用，这就是术语的使用。在 elasticsearch 中，索引被分为多个分片，每份分片是一个 Lucene 的索引。所以一个 elasticsearch 索引是由多个Lucene索引组成的。别问为什么，谁让 elasticsearch 使用 Lucene 作为底层呢!如无特指，说起索引都是指 elasticsearch 的索引。
 
-# IK 分词器
+## IK 分词器
 
 分词︰即把一段中文或者别的划分成一个个的关键字，我们在搜索时候会把自己的信息进行分词，会把数据库中或者索引库中的数据进行分词，然后进行一个匹配操作，默认的中文分词是将每个字看成一个词，比如“我叫张三”会被分为"我""叫""张""三”，这显然是不符合要求的，所以我们需要安装中文分词器ik来解决这个问题。
 IK提供了两个分词算法: ik smart和ik_max_word，其中 ik_ smart为最少切分，ik_max_word为最细粒度划分
@@ -236,7 +240,7 @@ IK提供了两个分词算法: ik smart和ik_max_word，其中 ik_ smart为最�
 
 ![配置文件](ElasticSearch/20210507105517.png)
 
-# Rest 风格说明
+## Rest 风格说明
 
 一种软件架构风格，而不是栋准，只是提供了一组设计原则和约束条件。它主要用于客户端和服务器交互类的软件。基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存等机制。
 
@@ -251,7 +255,9 @@ IK提供了两个分词算法: ik smart和ik_max_word，其中 ik_ smart为最�
 |    GET     |     localhost:9200/索引名称/类型名称/文档id     |   查询文档通过文档id   |
 |    POST    |    localhost:9200/索引名称/类型名称/_search     |      查询所有数据      |
 
-# 关于索引的基本操作
+# ES的操作
+
+## 关于索引的基本操作
 
 ![](ElasticSearch/20210507105954.png)
 
@@ -261,7 +267,7 @@ IK提供了两个分词算法: ik smart和ik_max_word，其中 ik_ smart为最�
 
 ![](ElasticSearch/20210507110145.png)
 
-# 关于文档的基本操作
+## 关于文档的基本操作
 
 > 基本操作
 
@@ -306,6 +312,60 @@ IK提供了两个分词算法: ik smart和ik_max_word，其中 ik_ smart为最�
    ![](ElasticSearch/20210507111212.png)
 
    如果存在多条查询出来的结果，匹配度越高则分值越高
+
+# 工作原理
+
+## 启动过程
+
+当 ElasticSearch 的节点启动后，它会利用多播（multicast）（或者单播，如果用户更改了配置）寻找集群中的其它节点，并与之建立连接。这个过程如下图所示：
+
+![es 启动过程](ElasticSearch/image-202208261408.png)
+
+## 写入过程
+
+1. 客户端随机选择一个 node 发送请求过去，这个 node 就是 coordinate node（协调节点）
+2. coordinate node，对 document 进行路由，将请求转发给对应的 node（有 primary shard ）
+3. 实际的 node 上的 primary shard 处理请求，然后将数据同步到 replica node
+4. coordinate node，如果发现 primary node 和所有 replica node 都搞定之后，就返回响应结果给客户端
+
+在写 primary 的过程中同时还要持久到本地 ：
+
+![es 写入过程](ElasticSearch/image-202208261411.png)
+
+1. 不断将 Document 写入到 In-memory buffer （内存缓冲区），同时将数据写入 translog 日志文件。
+2. 当满足一定条件后内存缓冲区中的 Documents 刷新到 高速缓存（cache）。
+3. 生成新的 segment ，这个 segment 还在 cache 中。
+4. 这时候还没有 commit ，但是已经可以被读取了。
+
+数据从 buffer 到 cache 的过程是定期每秒刷新一次，这个过程叫 refresh。所以新写入的 Document 最慢 1 秒就可以在 cache 中被搜索到。这也就是为什么说 Elasticsearch 是**准实时**的。
+
+## 读数据过程
+
+1. 客户端发送请求到任意一个node，称为 coordinate node
+2. 这个节点将请求转发到对应的 node，此时会使用 round-robin 随机轮询算法，在 primary shard以及其所有 replica 中随机选择一个，让读请求负载均衡
+3. 接收请求的 node 返回 document 给 coordinate node
+4. coordinate node返回document给客户端
+
+## 搜索过程
+
+1. 客户端发送请求到一个 coordinate node
+2. 协调节点将搜索请求转发到所有的 shard 对应的 primary shard 或 replica shard
+3. query phase：每个 shard 将自己的搜索结果（其实就是一些doc id），返回给协调节点，由协调节点进行数据的合并、排序、分页等操作，产出最终结果
+4. fetch phase：接着由协调节点，根据doc id去各个节点上拉取实际的document数据，最终返回给客户端
+
+## 脑裂问题
+
+集群中存在2个master，2个大脑，就是脑裂问题。
+
+![脑裂问题](ElasticSearch/image-202208261413.png)
+
+master 集群中非常重要的角色，主宰了集群状态的维护，以及 shard 分片的分配，如果存在2个 master，可能会导致数据异常。
+
+如何避免脑裂发生？
+
+过半机制就可与避免脑裂问题的发生。只要集群中超过半数节点投票就可以选出 master。
+
+![避免脑裂问题](ElasticSearch/image-202208261416.png)
 
 # 结合项目
 
