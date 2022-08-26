@@ -1,7 +1,7 @@
 ---
 title: PHP&Yii学习笔记
 date: 2022-07-21 16:24:50
-index_img: ../picture/image-202208261240.jpg
+index_img: ../picture/image-202208261235.jpg
 tags: 
   - PHP
   - Yii
