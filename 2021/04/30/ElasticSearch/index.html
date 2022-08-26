@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5k 字
+      5.7k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      57
+      65
        分钟
     </span>
   
@@ -237,7 +237,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：June 20, 2022 pm
+                  本文最后更新于：August 26, 2022 pm
                 
               </p>
             
@@ -288,8 +288,7 @@
 <p><img src="/2021/04/30/ElasticSearch/image-20210430190355544.png" srcset="/img/loading.gif" lazyload alt="解压目录"></p>
 </li>
 <li><p>熟悉目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">bin 启动文件<br>config 配置文件<br>	log4j	日志配置文件<br>	jvm.options	java 虚拟机相关的配置<br>	elasticsearch.yml	elasticsearch 的配置文件	默认9200端口 跨域<br>lib		相关jar包<br>logs	日志<br>modules	功能模块<br>plugins	插件<br></code></pre></div></td></tr></table></figure>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">bin 启动文件<br>config 配置文件<br>	log4j	日志配置文件<br>	jvm.options	java 虚拟机相关的配置<br>	elasticsearch.yml	elasticsearch 的配置文件	默认9200端口 跨域<br>lib		相关jar包<br>logs	日志<br>modules	功能模块<br>plugins	插件<br></code></pre></div></td></tr></table></figure></li>
 <li><p>启动</p>
 <p>双击 elasticsearch.bat 文件</p>
 </li>
@@ -330,7 +329,7 @@
 <p><strong>Kibana版本要与ES一致</strong></p>
 <h1 id="ES-核心概念"><a href="#ES-核心概念" class="headerlink" title="ES 核心概念"></a>ES 核心概念</h1><ol>
 <li>索引</li>
-<li>字段类型（mapping）</li>
+<li>字段类型（type）</li>
 <li>文档（documents）</li>
 </ol>
 <blockquote>
@@ -369,6 +368,11 @@
 <p>一个集群至少有一个节点，而一个节点就是一个 elasricsearch 进程，节点可以有多个索引默认的，如果你创建索引，那么索引将会有个5个分片( primary shard ,又称主分片)构成的，每一个主分片会有一个副本( replica shard ,又称复制分片)</p>
 <p><img src="/2021/04/30/ElasticSearch/20210502102147.png" srcset="/img/loading.gif" lazyload alt></p>
 <p>上图是一个有3个节点的集群，可以看到主分片和对应的复制分片都不会在同一个节点内，这样有利于某个节点挂掉了，数据也不至于丢失。实际上，一个分片是一个 Lucene 索引，一个包含<strong>倒排索引</strong>的文件目录，倒排索引的结构使得 elasticsearch 在不扫描全部文档的情况下，就能告诉你哪些文档包含特定的关键字。</p>
+<ul>
+<li>Primary shard 用于文档存储，每个新的索引会自动创建 5 个Primary shard （数量可自定义）</li>
+<li>Replica shard 是 Primary Shard 的副本，用于冗余数据及提高搜索性能</li>
+</ul>
+<p>每个shard（分片）包含多个segment（段），每一个segment都是一个倒排索引。</p>
 <blockquote>
 <p>倒排索引</p>
 </blockquote>
@@ -380,7 +384,7 @@
 <p><img src="/2021/04/30/ElasticSearch/20210502103014.png" srcset="/img/loading.gif" lazyload alt></p>
 <p>两个文档都匹配，但是第一个文档比第二个匹配程度更高。如果没有别的条件，现在，这两个包含关键字的文档都将返回。再来看一个示例，比如我们通过博客标签来搜索博客文章。那么倒排索引列表就是这样的一个结构：</p>
 <p>elasticsearch 的索引和 Lucene 的索引对比<br>在 elasticsearch 中，索引这个词被频繁使用，这就是术语的使用。在 elasticsearch 中，索引被分为多个分片，每份分片是一个 Lucene 的索引。所以一个 elasticsearch 索引是由多个Lucene索引组成的。别问为什么，谁让 elasticsearch 使用 Lucene 作为底层呢!如无特指，说起索引都是指 elasticsearch 的索引。</p>
-<h1 id="IK-分词器"><a href="#IK-分词器" class="headerlink" title="IK 分词器"></a>IK 分词器</h1><p>分词︰即把一段中文或者别的划分成一个个的关键字，我们在搜索时候会把自己的信息进行分词，会把数据库中或者索引库中的数据进行分词，然后进行一个匹配操作，默认的中文分词是将每个字看成一个词，比如“我叫张三”会被分为”我””叫””张””三”，这显然是不符合要求的，所以我们需要安装中文分词器ik来解决这个问题。<br>IK提供了两个分词算法: ik smart和ik<em>max_word，其中 ik</em> smart为最少切分，ik_max_word为最细粒度划分</p>
+<h2 id="IK-分词器"><a href="#IK-分词器" class="headerlink" title="IK 分词器"></a>IK 分词器</h2><p>分词︰即把一段中文或者别的划分成一个个的关键字，我们在搜索时候会把自己的信息进行分词，会把数据库中或者索引库中的数据进行分词，然后进行一个匹配操作，默认的中文分词是将每个字看成一个词，比如“我叫张三”会被分为”我””叫””张””三”，这显然是不符合要求的，所以我们需要安装中文分词器ik来解决这个问题。<br>IK提供了两个分词算法: ik smart和ik<em>max_word，其中 ik</em> smart为最少切分，ik_max_word为最细粒度划分</p>
 <blockquote>
 <p>安装</p>
 </blockquote>
@@ -394,7 +398,7 @@
 <p>ik 分词器也可以增加自己的配置</p>
 </blockquote>
 <p><img src="/2021/04/30/ElasticSearch/20210507105517.png" srcset="/img/loading.gif" lazyload alt="配置文件"></p>
-<h1 id="Rest-风格说明"><a href="#Rest-风格说明" class="headerlink" title="Rest 风格说明"></a>Rest 风格说明</h1><p>一种软件架构风格，而不是栋准，只是提供了一组设计原则和约束条件。它主要用于客户端和服务器交互类的软件。基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存等机制。</p>
+<h2 id="Rest-风格说明"><a href="#Rest-风格说明" class="headerlink" title="Rest 风格说明"></a>Rest 风格说明</h2><p>一种软件架构风格，而不是栋准，只是提供了一组设计原则和约束条件。它主要用于客户端和服务器交互类的软件。基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存等机制。</p>
 <p>基本Rest命令说明：</p>
 <div class="table-container">
 <table>
@@ -439,11 +443,11 @@
 </tbody>
 </table>
 </div>
-<h1 id="关于索引的基本操作"><a href="#关于索引的基本操作" class="headerlink" title="关于索引的基本操作"></a>关于索引的基本操作</h1><p><img src="/2021/04/30/ElasticSearch/20210507105954.png" srcset="/img/loading.gif" lazyload alt></p>
+<h1 id="ES的操作"><a href="#ES的操作" class="headerlink" title="ES的操作"></a>ES的操作</h1><h2 id="关于索引的基本操作"><a href="#关于索引的基本操作" class="headerlink" title="关于索引的基本操作"></a>关于索引的基本操作</h2><p><img src="/2021/04/30/ElasticSearch/20210507105954.png" srcset="/img/loading.gif" lazyload alt></p>
 <p><img src="/2021/04/30/ElasticSearch/20210507110031.png" srcset="/img/loading.gif" lazyload alt></p>
 <p>扩展︰通过命令 elasticsearch 索引情况!通过 get _cat/ 可以获得es的当前的很多信息！</p>
 <p><img src="/2021/04/30/ElasticSearch/20210507110145.png" srcset="/img/loading.gif" lazyload alt></p>
-<h1 id="关于文档的基本操作"><a href="#关于文档的基本操作" class="headerlink" title="关于文档的基本操作"></a>关于文档的基本操作</h1><blockquote>
+<h2 id="关于文档的基本操作"><a href="#关于文档的基本操作" class="headerlink" title="关于文档的基本操作"></a>关于文档的基本操作</h2><blockquote>
 <p>基本操作</p>
 </blockquote>
 <ol>
@@ -464,6 +468,41 @@
 <p>如果存在多条查询出来的结果，匹配度越高则分值越高</p>
 </li>
 </ol>
+<h1 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h1><h2 id="启动过程"><a href="#启动过程" class="headerlink" title="启动过程"></a>启动过程</h2><p>当 ElasticSearch 的节点启动后，它会利用多播（multicast）（或者单播，如果用户更改了配置）寻找集群中的其它节点，并与之建立连接。这个过程如下图所示：</p>
+<p><img src="/2021/04/30/ElasticSearch/image-202208261408.png" srcset="/img/loading.gif" lazyload alt="es 启动过程"></p>
+<h2 id="写入过程"><a href="#写入过程" class="headerlink" title="写入过程"></a>写入过程</h2><ol>
+<li>客户端随机选择一个 node 发送请求过去，这个 node 就是 coordinate node（协调节点）</li>
+<li>coordinate node，对 document 进行路由，将请求转发给对应的 node（有 primary shard ）</li>
+<li>实际的 node 上的 primary shard 处理请求，然后将数据同步到 replica node</li>
+<li>coordinate node，如果发现 primary node 和所有 replica node 都搞定之后，就返回响应结果给客户端</li>
+</ol>
+<p>在写 primary 的过程中同时还要持久到本地 ：</p>
+<p><img src="/2021/04/30/ElasticSearch/image-202208261411.png" srcset="/img/loading.gif" lazyload alt="es 写入过程"></p>
+<ol>
+<li>不断将 Document 写入到 In-memory buffer （内存缓冲区），同时将数据写入 translog 日志文件。</li>
+<li>当满足一定条件后内存缓冲区中的 Documents 刷新到 高速缓存（cache）。</li>
+<li>生成新的 segment ，这个 segment 还在 cache 中。</li>
+<li>这时候还没有 commit ，但是已经可以被读取了。</li>
+</ol>
+<p>数据从 buffer 到 cache 的过程是定期每秒刷新一次，这个过程叫 refresh。所以新写入的 Document 最慢 1 秒就可以在 cache 中被搜索到。这也就是为什么说 Elasticsearch 是<strong>准实时</strong>的。</p>
+<h2 id="读数据过程"><a href="#读数据过程" class="headerlink" title="读数据过程"></a>读数据过程</h2><ol>
+<li>客户端发送请求到任意一个node，称为 coordinate node</li>
+<li>这个节点将请求转发到对应的 node，此时会使用 round-robin 随机轮询算法，在 primary shard以及其所有 replica 中随机选择一个，让读请求负载均衡</li>
+<li>接收请求的 node 返回 document 给 coordinate node</li>
+<li>coordinate node返回document给客户端</li>
+</ol>
+<h2 id="搜索过程"><a href="#搜索过程" class="headerlink" title="搜索过程"></a>搜索过程</h2><ol>
+<li>客户端发送请求到一个 coordinate node</li>
+<li>协调节点将搜索请求转发到所有的 shard 对应的 primary shard 或 replica shard</li>
+<li>query phase：每个 shard 将自己的搜索结果（其实就是一些doc id），返回给协调节点，由协调节点进行数据的合并、排序、分页等操作，产出最终结果</li>
+<li>fetch phase：接着由协调节点，根据doc id去各个节点上拉取实际的document数据，最终返回给客户端</li>
+</ol>
+<h2 id="脑裂问题"><a href="#脑裂问题" class="headerlink" title="脑裂问题"></a>脑裂问题</h2><p>集群中存在2个master，2个大脑，就是脑裂问题。</p>
+<p><img src="/2021/04/30/ElasticSearch/image-202208261413.png" srcset="/img/loading.gif" lazyload alt="脑裂问题"></p>
+<p>master 集群中非常重要的角色，主宰了集群状态的维护，以及 shard 分片的分配，如果存在2个 master，可能会导致数据异常。</p>
+<p>如何避免脑裂发生？</p>
+<p>过半机制就可与避免脑裂问题的发生。只要集群中超过半数节点投票就可以选出 master。</p>
+<p><img src="/2021/04/30/ElasticSearch/image-202208261416.png" srcset="/img/loading.gif" lazyload alt="避免脑裂问题"></p>
 <h1 id="结合项目"><a href="#结合项目" class="headerlink" title="结合项目"></a>结合项目</h1><p>最近实验室有个项目需要实现基础的智能问答功能。因此准备利用 es 的搜索功能搜索到问答库中匹配度最高的问题，再找到其对应的回答内容并返回，来实现简单的智能问答。</p>
 <p>下面简要介绍集成 es 到 springboot 项目的步骤，以及部分相关的业务代码。</p>
 <h2 id="导入依赖"><a href="#导入依赖" class="headerlink" title="导入依赖"></a>导入依赖</h2><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--Elasticsearch相关依赖--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-data-elasticsearch<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
@@ -490,9 +529,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/ElasticSearch/">ElasticSearch</a>
-                    
                       <a class="hover-with-bg" href="/tags/%E6%90%9C%E7%B4%A2/">搜索</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ElasticSearch/">ElasticSearch</a>
                     
                       <a class="hover-with-bg" href="/tags/Kibana/">Kibana</a>
                     
