@@ -550,9 +550,9 @@
     
     <tags>
       
-      <tag>ElasticSearch</tag>
-      
       <tag>Docker部署</tag>
+      
+      <tag>ElasticSearch</tag>
       
     </tags>
     
@@ -577,9 +577,9 @@
     
     <tags>
       
-      <tag>搜索</tag>
-      
       <tag>ElasticSearch</tag>
+      
+      <tag>搜索</tag>
       
       <tag>Kibana</tag>
       
