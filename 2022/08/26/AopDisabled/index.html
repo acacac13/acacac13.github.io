@@ -246,7 +246,7 @@
 <blockquote>
 <p>在同一个类中，调用使用注解方式的AOP功能的方法，目标方法的注解则会失效，即无法实现预期的功能控制，例如事务、权限等。</p>
 </blockquote>
-<h1 id="AOP-方法作用原理"><a href="#AOP-方法作用原理" class="headerlink" title="AOP 方法作用原理"></a>AOP 方法作用原理</h1><p><img src="/2022/08/26/AopDiasbled/image-202208261850.png" srcset="/img/loading.gif" lazyload alt="原理图"></p>
+<h1 id="AOP-方法作用原理"><a href="#AOP-方法作用原理" class="headerlink" title="AOP 方法作用原理"></a>AOP 方法作用原理</h1><p><img src="/2022/08/26/AopDisabled/image-202208261850.png" srcset="/img/loading.gif" lazyload alt="原理图"></p>
 <p>在项目中正常情况下，调用的对象是AOP代理的对象，而非实际的目标对象或者操作实例对象。 但是在类内部的方法中，调用同一个类中定义的方法，则调用的是当前的对象，而不是代理对象，则代理失效，注解失效。</p>
 <h1 id="具体例子"><a href="#具体例子" class="headerlink" title="具体例子"></a>具体例子</h1><ol>
 <li>自定义一个注解<code>@Log</code>用于加到指定方法上记录一些信息。</li>
@@ -303,6 +303,23 @@
                   
                 </p>
               
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/08/20/kafka/">
+                        <span class="hidden-mobile">kafka</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
               
             </div>
 
